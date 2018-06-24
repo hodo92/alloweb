@@ -1,0 +1,17 @@
+.task-card {
+    max-width: 400px;
+}
+
+.task-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+/*
+Angular 2 - Material Horizontal card:
+    Use flexbox
+    Set the layout to row on the parent div
+
+display: flex;
+flex-flow: row wrap;
+    */

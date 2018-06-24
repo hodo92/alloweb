@@ -14,26 +14,46 @@ import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { GoalService } from './services/goal.service';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ParentMainComponent,
-    ChildTasksComponent,
-    HeaderComponent,
-    ParentChildComponent,
-    TasksComponent,
-    TaskComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+    declarations: [
+        AppComponent,
+        ParentMainComponent,
+        ChildTasksComponent,
+        HeaderComponent,
+        ParentChildComponent,
+        TasksComponent,
+        TaskComponent
+    ],
+    imports: [
+        BrowserModule,
+        MatToolbarModule,
+        MatGridListModule,
+        MatTabsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule
+    ],
     providers: [
         ParentService,
         ChildService,
         TaskService,
         GoalService
     ],
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
