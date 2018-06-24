@@ -2,12 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ParentMainComponent } from './parent-main/parent-main.component';
-import { ChildTasksComponent } from './child-tasks/child-tasks.component';
-import { HeaderComponent } from './header/header.component';
-import { ParentChildComponent } from './parent-child/parent-child.component';
-import { TasksComponent } from './tasks/tasks.component';
-import { TaskComponent } from './task/task.component';
+import { ParentMainComponent } from './components/parent-main/parent-main.component';
+import { ChildTasksComponent } from './components/child-tasks/child-tasks.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ParentChildComponent } from './components/parent-child/parent-child.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TaskComponent } from './components/task/task.component';
+
+import { ParentService } from './services/parent.service';
+import { ChildService } from './services/child.service';
+import { TaskService } from './services/task.service';
+import { GoalService } from './services/goal.service';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +28,12 @@ import { TaskComponent } from './task/task.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+    providers: [
+        ParentService,
+        ChildService,
+        TaskService,
+        GoalService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
