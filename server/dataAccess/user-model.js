@@ -29,4 +29,6 @@ const User = dataAccess.connection.define('User', {
     }
 })
 
+User.belongsTo(User, {foreignKey: 'parent_id'});
+
 module.exports = User;
