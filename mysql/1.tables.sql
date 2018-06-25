@@ -13,19 +13,23 @@ CREATE TABLE User (
 	FOREIGN KEY (parent_id) REFERENCES User (user_id)
 );
 
+CREATE TABLE Task_Status(
+	status_id tinyint,
+	status_name VARCHAR(20),
+    PRIMARY KEY (status_id)
+);
+
 create table Task (
-	task_id int NOT NULL AUTO_INCREMENT,
-	user_id int,
+	task_id INT NOT NULL AUTO_INCREMENT,
+	user_id INT,
 	title VARCHAR(20),
 	description VARCHAR(20),
-	payment int,
+	payment INT,
 	deadline date,
-	status_id int,
+	status_id tinyint,
 	PRIMARY KEY (task_id),
-	FOREIGN KEY (user_id) REFERENCES User (user_id)
+	FOREIGN KEY (user_id) REFERENCES User (user_id),
+	FOREIGN KEY (status_id) REFERENCES Task_Status (status_id)
  );
  
- CREATE TABLE Status(
-	status_code tinyint,
-	status_name VARCHAR(20)
-);
+ 
