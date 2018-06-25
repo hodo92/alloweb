@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
 const User = require('../dataAccess/user-model');
-const Task_Status = require('./dataAccess/task-status-model');
+const Task_Status = require('../dataAccess/task-status-model');
 
 
 const Task = dataAccess.connection.define('Task',{
@@ -13,6 +13,9 @@ const Task = dataAccess.connection.define('Task',{
         type: Sequelize.INTEGER
     },
     title: {
+        type: Sequelize.TEXT
+    },
+    description:{
         type: Sequelize.TEXT
     },
     payment: {
