@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+<div>
+  <h1>Welcome to Alloweb!</h1>
+
+  <p>
+    Alloweb makes it easy for parents and chilren to keep track of allowances. The app allows children to perform tasks and earn
+    real money, which they can spend immediately or to save up to buy all the things they have been dreaming about. The app
+    is useful for teaching kids some basic money management and budgeting skills, and instills in them a desire to earn money
+    and to save it.
+  </p>
+</div>
+
+<div>
+    <input name="mail" [(ngModel)]="userEmail"  class="login" type="text" placeholder="Please enter your email address">
+    <button (click)="parentLogin(userEmail)">Submit</button>
+</div>
