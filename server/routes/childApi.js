@@ -1,29 +1,19 @@
 const express = require('express');
 const router = express.Router();
-
+// const Sequelize = require('sequelize');
 // const Op = Sequelize.Op;
-// const User = require('../dataAccess/user-model');
+const User = require('../dataAccess/user-model');
+const Task = require('../dataAccess/task-model')
 
-// Retreive single child information, including his tasks
-router.get('/child/:id', async (req, res) => {
-  try {
-    User.findOne({
-      where: {
-        userId: req.params.id
-      },
-      include: [{
-        model: Task,
-        where: {
-          status_code: {
-            [Op.ne]: 3
-          }
-        }
-      }]
-    })
-  } catch (err) {
-    alert(err);
-  }
+//get tasks by childuserID -- this will go in Child API
+router.get('/getTasksbyKid/:userId', (req, res) => {
+    Task.findAll({ where: { user_id: req.params.userId }, include: [User] }).then(data => {
+        res.send(JSON.stringify(data))
+    },
+        err => {
+            console.error(err)
+        });
+})
 
-});
 
 module.exports = router;

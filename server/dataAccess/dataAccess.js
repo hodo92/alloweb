@@ -13,7 +13,8 @@ class DataAccess{
                 idle: 10000
             },
             define: { // Sequelize define timestamp columns by default. To prevent it we will defind the following line
-                timestamps: false
+                timestamps: false,
+                freezeTableName: true
             }
         });
 

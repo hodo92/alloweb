@@ -1,7 +1,7 @@
 // const express = require('express');
 // const router  = express.Router();
 // const Task    = require('../dataAccess/task-model');
-
+// const Sequelize = require('sequelize');
 
 // // Add new task
 // router.post('/add-task', async (req, res) => {

@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
 
+
+
 const User = dataAccess.connection.define('User', {
     user_id:{
         type: Sequelize.INTEGER,
