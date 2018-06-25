@@ -13,7 +13,7 @@ const taskApi = require('./server/routes/taskApi');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist/alloweb')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/parent', parentApi);
@@ -22,16 +22,16 @@ app.use('/add-user', parentApi);
 app.use('/add-task', parentApi);
 // app.use('/goal', goalApi);
 
-  app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+app.all('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/alloweb/index.html'));
 });
 
 /**
  * Get port from environment and store in Express.
  */
 app.use(function (err, req, res, next) {
-  console.error(err.stack)
-  res.status(500).send('Something broke!')
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
 })
 
 const port = process.env.PORT || '3000';
