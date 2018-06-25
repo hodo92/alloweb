@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const Op = Sequelize.Op;
-const User = require('../dataAccess/user-model');
+// const Op = Sequelize.Op;
+// const User = require('../dataAccess/user-model');
 
 // Retreive single child information, including his tasks
 router.get('/child/:id', async (req, res) => {
