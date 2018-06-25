@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const Task    = require('../dataAccess/Task-model');
+const Task    = require('../dataAccess/task-model');
 
 
 // Add new task
