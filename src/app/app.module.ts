@@ -35,7 +35,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { WishListComponent } from './components/wish-list/wish-list.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         ParentChildComponent,
         TasksComponent,
         TaskComponent,
-        LoginComponent
+        LoginComponent,
+        WishListComponent
     ],
     imports: [
         BrowserModule,
@@ -63,9 +65,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         BrowserAnimationsModule,
         ReactiveFormsModule,
         FormsModule,
-        HttpClientModule 
+        HttpClientModule,
         MatSlideToggleModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatProgressBarModule
     ],
     providers: [
         ParentService,
