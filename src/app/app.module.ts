@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ParentChildComponent } from './components/parent-child/parent-child.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/task/task.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
@@ -22,6 +24,7 @@ import { MatButtonModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 
@@ -35,7 +38,8 @@ import { MatInputModule } from '@angular/material/input';
         HeaderComponent,
         ParentChildComponent,
         TasksComponent,
-        TaskComponent
+        TaskComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
@@ -46,7 +50,8 @@ import { MatInputModule } from '@angular/material/input';
         MatButtonModule,
         MatIconModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        AppRoutingModule
     ],
     providers: [
         ParentService,
