@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
-const User = require('./dataAccess/user-model');
+const User = require('../dataAccess/user-model');
+const Task_Status = require('./dataAccess/task-status-model');
+
 
 const Task = dataAccess.connection.define('Task',{
     task_id: {
@@ -24,6 +26,10 @@ const Task = dataAccess.connection.define('Task',{
     } 
 
 })
+
+//join the tables 
+
 Task.belongsTo(User, {foreignKey: 'user_id'});
+Task.hasMany(Task_Status , { foreignKey: 'status_id' }) ; 
 
 module.exports = Task;
