@@ -5,26 +5,23 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
-// Get our API routes
-const customersApi = require('./server/routes/customersApi');
+const parentApi = require('./server/routes/parentApi');
+const childApi = require('./server/routes/childApi');
+const taskApi = require('./server/routes/taskApi');
+// const goalApi = require('./server/routes/goalApi');
 
-
-
-// Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
+app.use('/parent', parentApi);
+app.use('/child', childApi);
+app.use('/add-user', parentApi);
+app.use('/add-task', parentApi);
+// app.use('/goal', goalApi);
 
-// Set our api routes/
-app.use('/customers', customersApi);
-
-
-
-// Catch all other routes and return the index file
   app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
