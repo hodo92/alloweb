@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { ParentMainComponent } from './components/parent-main/parent-main.component';
@@ -25,6 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './/app-routing.module';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -51,7 +54,9 @@ import { AppRoutingModule } from './/app-routing.module';
         MatIconModule,
         MatFormFieldModule,
         MatInputModule,
-        AppRoutingModule
+        AppRoutingModule,
+        MatSlideToggleModule,
+        MatCheckboxModule
     ],
     providers: [
         ParentService,

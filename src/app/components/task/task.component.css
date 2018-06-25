@@ -3,8 +3,40 @@
 }
 
 .task-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
+    background-color: white;
+    border: 1px solid blue;
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    text-align: center;
+    vertical-align: center;
+}
+
+mat-card-header {
+    margin: 16px 0px;
+}
+
+mat-card-content {
+    margin: 16px 0px;
+    /*-16px*/
+}
+
+.example-margin {
+    margin: 10px;
+}
+
+.example-h2 {
+    margin: 10px;
+}
+
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
 }
 
 /*
