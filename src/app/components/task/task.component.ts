@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Task } from '../../models/task';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task',
@@ -22,9 +24,19 @@ export class TaskComponent implements OnInit {
     labelPosition = 'after';
     paidDisabled = true;
 
-  constructor() { }
+    @Input() task: Task = new Task();
+    // tasks: Task[] = new Array<Task>();
+
+    constructor() { //private taskService: TaskService
+        // this.taskService.tasksUpdated.subscribe((data) => {
+        //     this.tasks = data;
+        //     console.log(this.tasks);
+        //     console.log(data);
+        // });
+    }
 
   ngOnInit() {
+    //   this.taskService.getTasks();
   }
 
 }

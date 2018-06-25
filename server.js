@@ -20,6 +20,7 @@ app.use('/parent', parentApi);
 app.use('/child', childApi);
 app.use('/add-user', parentApi);
 app.use('/add-task', parentApi);
+
 // app.use('/goal', goalApi);
 
 app.all('*', (req, res) => {
