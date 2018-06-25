@@ -1,3 +1,3 @@
-use sql9244365;
+-- use sql9244365;
 
-SELECT * FROM Task
+-- SELECT * FROM Task
