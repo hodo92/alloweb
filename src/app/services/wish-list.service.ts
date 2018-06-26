@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
@@ -6,13 +6,18 @@ import { Child } from '../models/child';
 import { WishList } from '../models/wishList';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class WishListService {
-    public wishData : WishList [] ;  
-    public dataUpdated: Observable<WishList[]>;
+    wishData: WishList[] = new Array<WishList>();
     private dataSubject: Subject<WishList[]>;
+    public dataUpdated: Observable<WishList[]>;
+    
+    
+    // public tasksSubject: Subject<Task[]> = new Subject<Task[]>();
+    // public tasksUpdated: Observable<Task[]>;
 
     constructor(private http: HttpClient) {
         this.dataSubject = new Subject<WishList[]>();
