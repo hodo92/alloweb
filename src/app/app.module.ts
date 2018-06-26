@@ -26,7 +26,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -73,7 +73,8 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
         ParentService,
         ChildService,
         TaskService,
-        WishListService
+        WishListService,  
+        {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
     ],
     bootstrap: [AppComponent]
 })

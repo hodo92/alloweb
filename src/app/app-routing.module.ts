@@ -9,7 +9,7 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
 
 
 const routes: Routes = [
-    { path: '', component: LoginComponent},
+  { path: '', component: LoginComponent},
   { path: 'parent-main', component: ParentMainComponent },
   { path: 'child-main', component: ChildTasksComponent},
   { path: 'add-child/:id', component: AddChildComponent },

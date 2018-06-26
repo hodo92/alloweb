@@ -1,5 +1,6 @@
-<mat-card (click)="childWasClicked(child)">
-  <div class="child-data">
+<mat-card >
+  <!--div class="child-data" [routerLink]="['../child-main', child.user_id]"-->
+  <div class="child-data" [routerLink]="['/child-main']">
     <div class="img">
       <img src="{{child.user_img}}" alt="Avatar">
     </div>
@@ -11,6 +12,5 @@
     <div class="desc">
       <h2>Balance:{{child.balance}}</h2>
     </div>
-
   </div>
 </mat-card>
