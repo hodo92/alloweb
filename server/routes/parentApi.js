@@ -6,7 +6,7 @@ const Task = require('../dataAccess/task-model')
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-//get parent by Email when login
+// get parent by Email when login
 router.get('/parents/:email', (req, res) =>{
     User.findAll({
         where: {email: req.params.email} }
@@ -17,7 +17,7 @@ router.get('/parents/:email', (req, res) =>{
     })
 })
 
-//get kids by parent ID
+// get kids by parent ID
 router.get('/getKidsbyParent/:parentId', (req, res) => {
     User.findAll({where: {parent_id: req.params.parentId}}).then(data=>{
         res.send(JSON.stringify(data))

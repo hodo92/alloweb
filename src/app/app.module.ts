@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClient } from 'selenium-webdriver/http';
 import 'hammerjs';
 
@@ -12,17 +13,16 @@ import { AppComponent } from './app.component';
 import { ParentMainComponent } from './components/parent-main/parent-main.component';
 import { ChildTasksComponent } from './components/child-tasks/child-tasks.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ParentChildComponent } from './components/parent-child/parent-child.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/task/task.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { ChildCardComponent } from './components/child-card/child-card.component';
 
 import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { GoalService } from './services/goal.service';
-import { FormsModule } from '@angular/forms';
+
 
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -38,16 +38,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
+
 @NgModule({
     declarations: [
         AppComponent,
         ParentMainComponent,
         ChildTasksComponent,
         HeaderComponent,
-        ParentChildComponent,
         TasksComponent,
         TaskComponent,
-        LoginComponent
+        LoginComponent,
+        ChildCardComponent
     ],
     imports: [
         BrowserModule,

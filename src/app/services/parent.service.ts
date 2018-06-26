@@ -7,7 +7,7 @@ import { Parent } from '../models/parent';
 @Injectable()
 
 export class ParentService {
-  public parentEmail: String;
+  public Parent: Parent;
   public checkEmail: Parent;
   public dataUpdated: Observable<Parent>;
   private dataSubject: Subject<Parent>;

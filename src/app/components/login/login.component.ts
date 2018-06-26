@@ -7,8 +7,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
 export class LoginComponent implements OnInit {
   public isParent: Boolean
+
+  // public get currentParent() {
+  //   return this._currentParent;
+  // }
+  // public set currentParent(value) {
+  //   this._currentParent = value;
+  // }
+
   constructor(private parentService: ParentService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {}
@@ -32,7 +42,7 @@ export class LoginComponent implements OnInit {
             window.location.reload();
           } else if (resp[0].is_parent == true) {
             this.router.navigate(['parent-main']);
-            this.parentService.parentEmail = resp[0].email;
+            localStorage.setItem("currentParent", resp[0].email);
           } else  if (resp[0].is_parent == false){
               alert("Please enter a parent's email");
               window.location.reload();
