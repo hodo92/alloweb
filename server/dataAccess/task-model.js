@@ -1,8 +1,6 @@
 const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
 const user = require('../dataAccess/user-model');
-// const task_status = require('../dataAccess/task-status-model');
-
 
 class Task {
     constructor() {
