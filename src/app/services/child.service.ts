@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Child } from '../models/child';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject} from 'rxjs';
+import { Child } from '../models/child';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChildService {
-  public childData: Child;
+  public childData: Child
   public Children: Child[];
   public getKids: Child[];
   public dataUpdated: Observable<Child[]>;
@@ -25,14 +27,13 @@ export class ChildService {
     return this.http.get<Child[]>(getKidsRoute).subscribe( (data) => {
       this.getKids = data;
       this.dataSubject.next(this.getKids);
-  });
+  }); 
 }
-addNewChild(child:Child){
-  console.log(child);
-  return this.http.post<Child>('/child/addChild', { newChild: child }).subscribe((resp)=>{
+  addNewChild(child: Child) {
+    console.log(child);
+    return this.http.post<Child>('/child/addChild', { newChild: child }).subscribe((resp) => {
 
-  })
-    
+    })
+
+  }
 }
-}
-  

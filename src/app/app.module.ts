@@ -27,6 +27,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -67,8 +69,12 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
         MatSlideToggleModule,
         MatCheckboxModule,
         FlexLayoutModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        MatDialogModule
     ],
+    entryComponents: [
+            AddChildComponent
+            ],
     providers: [
         ParentService,
         ChildService,
