@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 // const Sequelize = require('sequelize');
 // const Op = Sequelize.Op;
-const User = require('../dataAccess/user-model');
+const user = require('../dataAccess/user-model');
 const task = require('../dataAccess/task-model')
 
 //get tasks by childuserID -- this will go in Child API
@@ -11,30 +11,15 @@ router.get('/:userId', async (req, res) => {  //router.get('/getTasksbyKid/:user
     // try {
         res.send(JSON.stringify(await task.getAllRows(childId)));
         
-    // } catch (err) {
-    //     alert(err);
-    // }
-    
-    
-    
-
-    //  await Task.findAll({ where: { user_id: req.params.userId }, include: [User] }).then(data => {
-    //     res.send(JSON.stringify(data))
-    // },
-    //     err => {
-    //         console.error(err)
-    //     });
-    // console.log(childId);
 })
 
-// async function f() {
+//add a new child
+router.post('/addChild/', async (req, res) =>{
+    let newChild = req.body.newChild
+    console.log('++++++++++++'+ newChild)
 
-//     try {
-//         let response = await fetch('http://no-such-url');
-//     } catch (err) {
-//         alert(err); // TypeError: failed to fetch
-//     }
-// }
+    res.send(JSON.stringify(await user.addChild(newChild)));
+})
 
 
 module.exports = router;

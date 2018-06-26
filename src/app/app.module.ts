@@ -14,11 +14,11 @@ import { AppComponent } from './app.component';
 import { ParentMainComponent } from './components/parent-main/parent-main.component';
 import { ChildTasksComponent } from './components/child-tasks/child-tasks.component';
 import { HeaderComponent } from './components/header/header.component';
-
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/task/task.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { AddChildComponent } from './add-child/add-child.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
 
 
 import { ParentService } from './services/parent.service';
@@ -37,8 +37,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { WishListComponent } from './components/wish-list/wish-list.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 
 @NgModule({
@@ -47,10 +47,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
         ParentMainComponent,
         ChildTasksComponent,
         HeaderComponent,
-       
         TasksComponent,
         TaskComponent,
         LoginComponent,
+        AddChildComponent,
         WishListComponent
     ],
     imports: [
