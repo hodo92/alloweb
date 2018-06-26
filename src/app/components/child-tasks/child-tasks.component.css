@@ -8,28 +8,25 @@ h2 {
     font-weight: 300;
     font-size: 20px;
 }
-
+/* 
 .addTask {
     padding: 10px 15px 0px 15px;
     border: 0px;
     margin: 0px;
-    /* margin-bottom: 15px; */
+    
 }
 
 .addTaskForm {
-    /* min-width: 150px;
-    max-width: 500px; */
+
     width: 100%;
 }
 
-/* .addTaskActions {
-    padding: 0px 0px 10px 10px;
-} */
+
 
 mat-card-actions.addTaskActions {
     padding: 15px 0px;
     margin: 0px;
-    /*-16px*/
+    
 }
 
 mat-card-actions.addTaskActions button {
@@ -47,35 +44,4 @@ mat-card-actions.addTaskActions button {
 
 input:-webkit-autofill {
     background-color: white;
-}
-
-/* Html 5 - Inputs
-
-.addTaskTitle {
-    width: 374px;
-    padding: 10px;
-    border: 0px;
-    margin: 0px;
-}
-
-.addTaskTitle:focus, .addTaskInput:focus, .addTaskDescription {
-    outline: 0;
-    outline-offset: 0;
-}
-
-.addTaskInput {
-    width: 374px;
-    padding: 10px;
-    border: 0px;
-    margin: 0px;
-}
-
-.addTaskDescription {
-    width: 374px;
-    padding: 10px;
-    border: 0px;
-    margin: 0px;
-    max-width: 374px;
-    max-height: 40px;
-}
-*/
+} */

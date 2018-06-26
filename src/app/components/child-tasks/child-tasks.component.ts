@@ -6,21 +6,21 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./child-tasks.component.css']
 })
 export class ChildTasksComponent implements OnInit {
-    inputFocus: boolean = false;
+    // inputFocus: boolean = false;
     constructor() { }
 
     ngOnInit() {
 
     }
 
-    showAllAddTask() {
-        console.log("Trying to focus");
+    // showAllAddTask() {
+    //     console.log("Trying to focus");
         
-        this.inputFocus = true;
-    }
+    //     this.inputFocus = true;
+    // }
 
-    addTask() {
-        this.inputFocus = false;
-    }
+    // addTask() {
+    //     this.inputFocus = false;
+    // }
 
 }
