@@ -39,6 +39,10 @@ class Task {
     getAllRows(userId) {
         return this.model.findAll({ where: { user_id: userId }, include: [user.model] }); //, include: [User]
     }
+
+    addTask(task) {
+        return this.model.create(task);
+    }
 }
 //join the tables 
 

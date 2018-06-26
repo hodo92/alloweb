@@ -1,19 +1,5 @@
-<!-- <mat-grid-list cols="4" rowHeight="100px">
-    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
-        [style.background]="tile.color">
-        {{tile.text}}
-    </mat-grid-tile>
-</mat-grid-list> -->
-
-
 <div class="appTasks">
-    <mat-card class="task-card">
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Task...">
-            </mat-form-field>
-        </form>
-    </mat-card>
-    <h2>Daily Tasks</h2>
+    <app-add-task></app-add-task>
+    <h2 style="padding-top: 20px;">Daily Tasks</h2>
     <app-tasks></app-tasks>
 </div>
