@@ -6,3 +6,16 @@ body {
     margin: 0px;
     font-family: 'Roboto', sans-serif;
 }
+
+/* .justifyLeft {
+    background-color: red;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+} */
+
+/* .mat-grid-tile, .mat-figure {
+    background-color: red;
+    display: flex;
+    justify-content: left ;
+} */

@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from 'selenium-webdriver/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
 
@@ -21,10 +22,12 @@ import { AddChildComponent } from './add-child/add-child.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 
 
+
 import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { WishListService } from './services/wish-list.service';
+
 
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -70,6 +73,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
         HttpClientModule,
         MatSlideToggleModule,
         MatCheckboxModule,
+        FlexLayoutModule,
         MatProgressBarModule
     ],
     providers: [
