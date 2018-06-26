@@ -7,13 +7,59 @@
 
 
 <div class="appTasks">
-    <mat-card class="task-card">
-        <form class="example-form">
+    <mat-card class="addTask">
+        <form class="addTaskForm">
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Task...">
+                <input matInput placeholder="Task" (click)="showAllAddTask()">
             </mat-form-field>
+            <div *ngIf="inputFocus">
+                <mat-form-field class="example-full-width">
+                    <textarea class="addTaskDescription" matInput placeholder="Description"
+                        maxlength="200"></textarea>
+                        <input matInput placeholder="Payment" (click)="showAllAddTask()">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Pay</mat-label>
+                    <mat-select>
+                        <!--  #fontSize value="16px" (selectionChange)="triggerResize()" -->
+                        <mat-option value="$10">$10</mat-option>
+                        <mat-option value="$12">$12</mat-option>
+                        <mat-option value="$14">$14</mat-option>
+                        <mat-option value="$16">$16</mat-option>
+                        <mat-option value="$18">$18</mat-option>
+                        <mat-option value="$20">$20</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Deadline">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
         </form>
+        <mat-card-actions class="addTaskActions" *ngIf="inputFocus">
+            <button mat-raised-button color="primary" (click)="addTask()">Add</button>
+        </mat-card-actions>
     </mat-card>
-    <h2>Daily Tasks</h2>
+
+    <h2 style="padding-top: 20px;">Daily Tasks</h2>
     <app-tasks></app-tasks>
 </div>
+
+
+
+<!-- Html 5 - Inputs
+<mat-card class="addTask">
+    <form class="example-form">
+        <input class="addTaskTitle" type="text" name="fname" placeholder="Task..."
+            (click)="showAllAddTask()">
+        <div *ngIf="inputFocus">
+            <input class="addTaskInput" type="text" name="payment" placeholder="Payment">
+            <input class="addTaskInput" type="text" name="deadline" placeholder="Deadline">
+            <textarea class="addTaskDescription" type="text" name="description" placeholder="Description"
+                maxlength="150"></textarea>
+        </div>
+    </form>
+</mat-card>
+-->
