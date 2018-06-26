@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 
 const parentApi = require('./server/routes/parentApi');
 const childApi = require('./server/routes/childApi');
-// const taskApi = require('./server/routes/taskApi');
-// const goalApi = require('./server/routes/goalApi');
+const taskApi = require('./server/routes/taskApi');
+const wishListApi = require('./server/routes/wishListApi');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,7 +20,8 @@ app.use('/parent', parentApi);
 app.use('/child', childApi);
 app.use('/add-user', parentApi);
 app.use('/add-task', parentApi);
-// app.use('/goal', goalApi);
+app.use('/wishList', wishListApi);
+
 
 app.all('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/alloweb/index.html'));

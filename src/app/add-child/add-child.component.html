@@ -1,0 +1,28 @@
+<p>
+  add-child works!
+</p>
+<form class="child-form">
+  <mat-form-field class="example-full-width">
+    <input matInput [(ngModel)]="newChild.last_name"
+      name="last_name" placeholder="Enter Last Name"
+      value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput [(ngModel)]="newChild.first_name"
+      name="first_name" placeholder="Enter First Name"
+      value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput [(ngModel)]="newChild.email"
+      name="email" type="email" placeholder="Enter Email"
+      value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput [(ngModel)]="newChild.user_img"
+      name="image" placeholder="Paste Img url"
+      value="">
+  </mat-form-field>
+  <button mat-raised-button type="button"
+    color="primary" (click)="addChild(newChild)"
+    class="add-child">Add</button>
+</form>

@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
-const User= require('../dataAccess/user-model');
-const Task = require('../dataAccess/task-model')
+const user= require('../dataAccess/user-model');
+const task = require('../dataAccess/task-model')
 
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
@@ -26,8 +26,5 @@ err =>{
     console.error(err)
 });
 })
-
-
-
 
 module.exports = router;

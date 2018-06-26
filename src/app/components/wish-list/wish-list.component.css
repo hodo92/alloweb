@@ -1,0 +1,35 @@
+.wish-list-item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    
+ }
+
+ .mat-progress-bar{
+     margin: 15px ; 
+     width: 300px;
+ }
+img {
+    width: 30%;
+    height: 150px;
+    float:left ; 
+    padding: 20px ; 
+ }
+        
+ .wish-list-card {
+    margin-top: 15px;
+    width: 400px;
+    background-color: #FFFFFF ; 
+    font-family: 'Indie Flower', cursive;
+ }
+
+ .mat-card{
+    padding: 0.5% ;
+ }
+
+.go{
+    font-family: 'Indie Flower', cursive;
+    color: green ; 
+}

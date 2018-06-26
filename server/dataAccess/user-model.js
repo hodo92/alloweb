@@ -2,8 +2,9 @@ const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
 
 
-
-const User = dataAccess.connection.define('User', {
+class User {
+    constructor(){
+ this.model = dataAccess.connection.define('User', {
     user_id:{
         type: Sequelize.INTEGER,
         primaryKey: true
@@ -29,8 +30,14 @@ const User = dataAccess.connection.define('User', {
     is_parent: {
         type: Sequelize.BOOLEAN
     }
-})
+}) 
+this.model.belongsTo(this.model, {foreignKey: 'parent_id'});
+    }
 
-User.belongsTo(User, {foreignKey: 'parent_id'});
+addChild(newChild){
+    return this.model.create(newChild)
+    }
+}
 
-module.exports = User;
+const user = new User();
+module.exports = user;

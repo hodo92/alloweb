@@ -1,3 +1,24 @@
-<p>
-  tasks works!
-</p>
+<app-task class="col-3" *ngFor="let task of tasks; let i = index" [task]=task></app-task>
+
+
+
+
+<!-- Card for 
+    loop 
+<mat-grid-list cols="6" rowHeight="50px">
+    <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="lightblue">1</mat-grid-tile>
+    <mat-grid-tile [ngClass]="'justifyLeft'" [colspan]="5" [rowspan]="1" [style.background]="lightgreen">2</mat-grid-tile>
+    <mat-grid-tile [colspan]="6" [rowspan]="1" [style.background]="lightpink">3</mat-grid-tile>
+</mat-grid-list>
+
+<div fxLayout="row" fxLayoutAlign="center center" class="row-example">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="center stretch" class="column-example">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>-->

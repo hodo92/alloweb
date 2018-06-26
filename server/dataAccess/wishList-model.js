@@ -2,13 +2,10 @@ const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
 const user = require('../dataAccess/user-model');
 
-class Task {
+
+class WishList {
     constructor() {
-        this.model = dataAccess.connection.define('Task', {
-            task_id: {
-                type: Sequelize.INTEGER,
-                primaryKey: true
-            },
+        this.model = dataAccess.connection.define('WishList', {
             user_id: {
                 type: Sequelize.INTEGER,
                 references: {
@@ -16,32 +13,39 @@ class Task {
                     key: 'user_id'
                 }
             },
+            goal_id: {
+                type: Sequelize.INTEGER,
+                primaryKey: true
+            },
             title: {
                 type: Sequelize.TEXT
             },
             description: {
                 type: Sequelize.TEXT
             },
-            payment: {
+            price: {
                 type: Sequelize.INTEGER
             },
-            deadline: {
-                type: Sequelize.DATE
+            goal_img: {
+                type: Sequelize.TEXT
             },
-            status_id: {
-                type: Sequelize.TINYINT
+            link: {
+                type: Sequelize.TEXT
+            },
+            status: {
+                type: Sequelize.BOOLEAN
             }
-        });
+
+        })
         this.model.belongsTo(user.model, { foreignKey: 'user_id' })
-        // User.hasMany(this.model, { foreignKey: 'user_id' });
     }
 
     getAllRows(userId) {
-        return this.model.findAll({ where: { user_id: userId }, include: [user.model] }); //, include: [User]
+        return this.model.findAll({ where: { user_id: req.params.userId }, include: [User] });
     }
 }
-//join the tables 
 
-const task = new Task();
+// WishList.belongsTo(User, { foreignKey: 'user_id' });
+const wishList = new WishList();
 
-module.exports = task;
+module.exports = wishList;
