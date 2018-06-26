@@ -1,0 +1,16 @@
+<mat-card (click)="childWasClicked(child)">
+  <div class="child-data">
+    <div class="img">
+      <img src="{{child.user_img}}" alt="Avatar">
+    </div>
+
+    <div class="child-name">
+      <h4>{{child.first_name}}</h4>
+    </div>
+
+    <div class="desc">
+      <h2>Balance:{{child.balance}}</h2>
+    </div>
+
+  </div>
+</mat-card>

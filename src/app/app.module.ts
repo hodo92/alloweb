@@ -18,15 +18,23 @@ import { HeaderComponent } from './components/header/header.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/task/task.component';
 import { LoginComponent } from './components/login/login.component';
+<<<<<<< HEAD
+import { ChildCardComponent } from './components/child-card/child-card.component';
+=======
 import { AddChildComponent } from './add-child/add-child.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 
 
+>>>>>>> e4d427f41fd9f407f30926ebe8c48737838d9153
 
 import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
+<<<<<<< HEAD
+import { GoalService } from './services/goal.service';
+=======
 import { WishListService } from './services/wish-list.service';
+>>>>>>> e4d427f41fd9f407f30926ebe8c48737838d9153
 
 
 
@@ -44,6 +52,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -53,8 +62,12 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
         TasksComponent,
         TaskComponent,
         LoginComponent,
+<<<<<<< HEAD
+        ChildCardComponent
+=======
         AddChildComponent,
         WishListComponent
+>>>>>>> e4d427f41fd9f407f30926ebe8c48737838d9153
     ],
     imports: [
         BrowserModule,

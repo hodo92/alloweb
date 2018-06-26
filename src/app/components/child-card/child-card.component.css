@@ -1,0 +1,10 @@
+img{
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+}
+
+mat-card{
+    margin: 20px;
+}

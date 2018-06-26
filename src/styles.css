@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 body {
     padding: 0px;
     margin: 0px;
+<<<<<<< HEAD
+}
+=======
     font-family: 'Roboto', sans-serif;
 }
 
@@ -19,3 +23,4 @@ body {
     display: flex;
     justify-content: left ;
 } */
+>>>>>>> e4d427f41fd9f407f30926ebe8c48737838d9153

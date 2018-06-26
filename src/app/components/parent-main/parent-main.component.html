@@ -1,3 +1,8 @@
-<p>
-  parent-main works!
-</p>
+<button mat-raised-button class="add-kid" color="primary" [routerLink]="['add-child', _currentParent.user_id]">Add a child</button>
+<div class="big-form" > 
+<h1><em>{{_currentParent.last_name}} Kids</em></h1>
+<div class="flex-container">
+<app-child-card  class="col-3"  *ngFor="let child of children" [child]= "child"></app-child-card>
+</div>
+
+</div>
