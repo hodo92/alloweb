@@ -5,7 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from 'selenium-webdriver/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
+
+
 
 
 
@@ -25,7 +28,6 @@ import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { GoalService } from './services/goal.service';
-import { FormsModule } from '@angular/forms';
 
 
 
@@ -69,7 +71,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         FormsModule,
         HttpClientModule,
         MatSlideToggleModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        FlexLayoutModule
     ],
     providers: [
         ParentService,

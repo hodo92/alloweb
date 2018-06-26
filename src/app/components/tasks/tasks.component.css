@@ -1,0 +1,24 @@
+mat-grid-tile {
+    background: lightblue;
+}
+
+.justifyLeft {
+    /* background-color: red; */
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.mat-grid-tile, .mat-figure {
+    /* background-color: red; */
+    display: flex;
+    justify-content: left;
+}
+
+.row-example div {
+    border: 1px solid red;
+}
+
+.column-example div {
+    border: 1px solid red;
+}
