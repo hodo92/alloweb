@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 import { ParentMainComponent } from './components/parent-main/parent-main.component';
 import { ChildTasksComponent } from './components/child-tasks/child-tasks.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ParentChildComponent } from './components/parent-child/parent-child.component';
+
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/task/task.component';
 import { LoginComponent } from './components/login/login.component';
@@ -24,8 +24,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
-import { GoalService } from './services/goal.service';
-
+import { WishListService } from './services/wish-list.service';
 
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -38,7 +37,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { WishListComponent } from './components/wish-list/wish-list.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -47,10 +47,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         ParentMainComponent,
         ChildTasksComponent,
         HeaderComponent,
-        ParentChildComponent,
+       
         TasksComponent,
         TaskComponent,
-        LoginComponent
+        LoginComponent,
+        WishListComponent
     ],
     imports: [
         BrowserModule,
@@ -68,13 +69,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         FormsModule,
         HttpClientModule,
         MatSlideToggleModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatProgressBarModule
     ],
     providers: [
         ParentService,
         ChildService,
         TaskService,
-        GoalService
+        WishListService
     ],
     bootstrap: [AppComponent]
 })
