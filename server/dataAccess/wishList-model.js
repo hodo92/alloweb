@@ -41,7 +41,7 @@ class WishList {
     }
 
     getAllRows(userId) {
-        return this.model.findAll({ where: { user_id: req.params.userId }, include: [User] });
+        return this.model.findAll({ where: { user_id: userId }, include: [user.model] });
     }
 }
 

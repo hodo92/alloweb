@@ -11,19 +11,19 @@ import { WishList } from '../../models/wishList';
 
 export class WishListComponent implements OnInit {
 
-    public childId :number = 2 ; 
-    public wishListData : WishList[];
+    public childId: number = 2 ;
+    wishListData: WishList[] = new Array<WishList>();
 
     constructor(private wishListService : WishListService) {
+        this.wishListService.WishListUpdated.subscribe((data) => {
+            this.wishListData = data;
+            console.log(data);
+            
+        })
      }
 
   ngOnInit() {
       this.wishListService.getWishList(this.childId)
-        this.wishListService.dataUpdated.subscribe((data) => {
-            this.wishListData = data;
-            console.log(this.wishListData);
-            
-        })
-    };
+    }
 }
 

@@ -10,7 +10,6 @@ import { Observable, Subject } from 'rxjs';
 })
 export class TaskService implements OnInit {
     tasksArr: Task[] = new Array<Task>();
-    userId: number = 2;
     public tasksSubject: Subject<Task[]> = new Subject<Task[]>();
     public tasksUpdated: Observable<Task[]>;
 
@@ -20,13 +19,9 @@ export class TaskService implements OnInit {
 
     ngOnInit() { }
 
-    getTasks(): void {
-        console.log("task.service - getTasks");
-        this.http.get<any[]>('/child/' + this.userId).subscribe((data) => {
-            this.tasksArr = data;
-            console.log(this.tasksArr);
-            console.log(data);
-            
+    getTasks(childId): void {
+        this.http.get<any[]>('/child/' + childId).subscribe((data) => {
+            this.tasksArr = data;            
             this.tasksSubject.next(this.tasksArr);
         })
     }

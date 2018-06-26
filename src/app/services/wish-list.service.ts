@@ -8,24 +8,33 @@ import { WishList } from '../models/wishList';
 
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class WishListService {
     wishData: WishList[] = new Array<WishList>();
-    private dataSubject: Subject<WishList[]>;
-    public dataUpdated: Observable<WishList[]>;
-    
-    
-    // public tasksSubject: Subject<Task[]> = new Subject<Task[]>();
-    // public tasksUpdated: Observable<Task[]>;
+    public WishListSubject: Subject<WishList[]> = new Subject<WishList[]>();
+    public WishListUpdated: Observable<WishList[]>;
+    // private dataSubject: Subject<WishList[]>;
+    // public dataUpdated: Observable<WishList[]>;
 
     constructor(private http: HttpClient) {
-        this.dataSubject = new Subject<WishList[]>();
-        this.dataUpdated = this.dataSubject.asObservable();
+        this.WishListUpdated = this.WishListSubject.asObservable();
+        // this.dataUpdated = this.dataSubject.asObservable();
     }
-    getWishList(kidId){
-        return this.http.get <WishList[]>("/wishList/getWishListsbyKid/" + kidId).subscribe((data) => {
+
+    getWishList(childId) {
+        this.http.get<any[]>('/wishList/' + childId).subscribe((data) => {
             this.wishData = data;
-            this.dataSubject.next(this.wishData)  } ) } ;
-        }
-  
+            this.WishListSubject.next(this.wishData)
+        })
+    }
+
+    // getTasks(): void {
+    //     console.log("task.service - getTasks");
+    //     this.http.get<any[]>('/child/' + this.userId).subscribe((data) => {
+    //         this.tasksArr = data;
+    //         this.tasksSubject.next(this.tasksArr);
+    //     })
+    // }
+}
+
