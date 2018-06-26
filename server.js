@@ -22,6 +22,7 @@ app.use('/add-user', parentApi);
 app.use('/add-task', parentApi);
 app.use('/wishList', wishListApi);
 
+
 app.all('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/alloweb/index.html'));
 });

@@ -1,4 +1,4 @@
-<!-- <div>
+<div>
   <h1>Welcome to Alloweb!</h1>
 
   <p>
@@ -9,10 +9,8 @@
   </p>
 </div>
 
+
 <div>
-    <input name="mail" [(ngModel)]="userEmail"  class="login" type="text" placeholder="Please enter your email address">
-    <button (click)="parentLogin(userEmail)">Submit</button>
-</div> -->
-
-
-<p>work</p>
+    <input id="get-mail" name="mail" [(ngModel)]="userEmail"  class="login" type="text" placeholder="Please enter your email address">
+    <button (click)="parentLogin(userEmail)" onclick="document.getElementById('get-mail').value = ''">Submit</button>
+</div>

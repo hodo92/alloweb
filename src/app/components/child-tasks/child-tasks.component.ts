@@ -10,6 +10,7 @@ export class ChildTasksComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+      
   }
 
 }
