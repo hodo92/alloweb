@@ -25,7 +25,6 @@ import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { GoalService } from './services/goal.service';
-import { FormsModule } from '@angular/forms';
 
 
 
