@@ -1,5 +1,4 @@
 -- use sql9244365;
-
 -- CREATE TABLE User (
 -- 	user_id INT NOT NULL AUTO_INCREMENT,
 -- 	parent_id INT,
@@ -12,13 +11,11 @@
 -- 	PRIMARY KEY (user_id),
 -- 	FOREIGN KEY (parent_id) REFERENCES User (user_id)
 -- );
-
 -- CREATE TABLE Task_Status(
 -- 	status_id tinyint,
 -- 	status_name VARCHAR(20),
 --     PRIMARY KEY (status_id)
 -- );
-
 -- create table Task (
 -- 	task_id INT NOT NULL AUTO_INCREMENT,
 -- 	user_id INT,
@@ -31,5 +28,17 @@
 -- 	FOREIGN KEY (user_id) REFERENCES User (user_id),
 -- 	FOREIGN KEY (status_id) REFERENCES Task_Status (status_id)
 --  );
- 
- 
+
+-- CREATE TABLE WishList
+-- (
+--     user_id INT ,
+--     goal_id INT,
+--     title text,
+--     description text,
+--     price int,
+--     goal_img text,
+--     link text,
+--     status BOOLEAN,
+--     PRIMARY KEY (goal_id),
+--     FOREIGN KEY (user_id) REFERENCES User (user_id)
+-- );
