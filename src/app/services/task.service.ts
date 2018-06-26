@@ -26,10 +26,10 @@ export class TaskService implements OnInit {
         })
     }
 
-    // addTask(task: Task) {
-    //     this.http.post<any[]>('/task-api', task).subscribe((data) => {
-    //         this.tasksArr = data;
-    //         this.tasksSubject.next(this.tasksArr);
-    //     })
-    // }
+    addTask(task) {
+        this.http.post<any[]>('/child', task).subscribe((data) => {
+            this.tasksArr = data;
+            this.tasksSubject.next(this.tasksArr);
+        })
+    }
 }

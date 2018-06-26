@@ -15,13 +15,31 @@ router.get('/:userId', async (req, res) => {
     }
 })
 
+// Add task
+router.post('/', async (req, res) => {
+    let newTask = req.body
+    console.log('++++++++++++' + newTask);
+    try {
+        await task.addTask(newTask);
+        res.send(JSON.stringify(await task.getAllRows(newTask.user_id)));
+    } catch (err) {
+        alert(err);
+    }
+    // res.send(JSON.stringify(await user.addChild(newTask)));
+})
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
 //add a new child
-router.post('/addChild/', async (req, res) =>{
+router.post('/addChild/', async (req, res) => {
     let newChild = req.body.newChild
-    console.log('++++++++++++'+ newChild)
+    console.log('++++++++++++' + newChild)
 
     res.send(JSON.stringify(await user.addChild(newChild)));
 })
+
 
 
 module.exports = router;

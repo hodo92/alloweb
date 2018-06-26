@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
+
 import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from './app.component';
 import { ParentMainComponent } from './components/parent-main/parent-main.component';
@@ -16,25 +17,34 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/task/task.component';
 import { LoginComponent } from './components/login/login.component';
 import { ChildCardComponent } from './components/child-card/child-card.component';
+import { AddChildComponent } from './add-child/add-child.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
+
 
 import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { WishListService } from './services/wish-list.service';
 
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
+import { MatButtonModule,  MatNativeDateModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { AddChildComponent } from './add-child/add-child.component';
-import { WishListComponent } from './components/wish-list/wish-list.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { AddTaskComponent } from './add-task/add-task.component';
+
+
+
+
 
 @NgModule({
     declarations: [
@@ -47,7 +57,8 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
         LoginComponent,
         ChildCardComponent,
         AddChildComponent,
-        WishListComponent
+        WishListComponent,
+        AddTaskComponent
     ],
     imports: [
         BrowserModule,
@@ -67,14 +78,16 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
         MatSlideToggleModule,
         MatCheckboxModule,
         FlexLayoutModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        MatNativeDateModule
     ],
     providers: [
         ParentService,
         ChildService,
         TaskService,
-        WishListService,  
-        {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+        WishListService
     ],
     bootstrap: [AppComponent]
 })
