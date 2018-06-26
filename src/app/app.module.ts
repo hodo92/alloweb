@@ -25,7 +25,6 @@ import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { GoalService } from './services/goal.service';
-import { FormsModule } from '@angular/forms';
 
 
 
@@ -39,6 +38,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { AddChildComponent } from './add-child/add-child.component';
 
 
 
@@ -51,7 +51,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         ParentChildComponent,
         TasksComponent,
         TaskComponent,
-        LoginComponent
+        LoginComponent,
+        AddChildComponent
     ],
     imports: [
         BrowserModule,
