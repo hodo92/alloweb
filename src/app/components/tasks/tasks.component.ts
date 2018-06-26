@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; //, Input, Inject
 import { Task } from '../../models/task';
 import { TaskService } from '../../services/task.service';
+import { Subscriber } from 'rxjs';
 
 @Component({
     selector: 'app-tasks',
@@ -18,8 +19,10 @@ export class TasksComponent implements OnInit {
             console.log(data);
         });
     }
+    
 
     ngOnInit() {
+        console.log("child-tasks.comp");
         this.taskService.getTasks();
         
     }

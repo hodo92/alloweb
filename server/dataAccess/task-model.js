@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
 const User = require('../dataAccess/user-model');
-const task_status = require('../dataAccess/task-status-model');
+// const task_status = require('../dataAccess/task-status-model');
 
 
 class Task {
@@ -12,7 +12,11 @@ class Task {
                 primaryKey: true
             },
             user_id: {
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                references: {
+                    model: User,
+                    key: 'user_id'
+                }
             },
             title: {
                 type: Sequelize.TEXT
@@ -27,19 +31,15 @@ class Task {
                 type: Sequelize.DATE
             },
             status_id: {
-                type: Sequelize.INTEGER
+                type: Sequelize.TINYINT
             }
         });
-        this.model.belongsTo(User, { foreignKey: 'user_id' });
-        this.model.hasMany(task_status, { foreignKey: 'status_id' });
-        // company.model.hasMany(this.model, { foreignKey: 'company' })
-        // User.hasMany(Foto, { as: 'fotos', foreignKey: 'userId' })
-
+        this.model.belongsTo(User, { foreignKey: 'user_id' })
+        // User.hasMany(this.model, { foreignKey: 'user_id' });
     }
 
     getAllRows(userId) {
-        // return this.model.findAll();
-        return this.model.findAll({ where: { user_id: userId }, include: [User] });
+        return this.model.findAll({ where: { user_id: userId }, include: [User] }); //, include: [User]
     }
 }
 //join the tables 

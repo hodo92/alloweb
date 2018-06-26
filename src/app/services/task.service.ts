@@ -21,7 +21,8 @@ export class TaskService implements OnInit {
     ngOnInit() { }
 
     getTasks(): void {
-        this.http.get<any[]>('/getTasksbyKid' + this.userId).subscribe((data) => {
+        console.log("task.service - getTasks");
+        this.http.get<any[]>('/child/' + this.userId).subscribe((data) => {
             this.tasksArr = data;
             console.log(this.tasksArr);
             console.log(data);

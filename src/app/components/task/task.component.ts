@@ -24,7 +24,8 @@ export class TaskComponent implements OnInit {
     labelPosition = 'after';
     paidDisabled = true;
 
-    @Input() task: Task = new Task();
+    @Input() task: Task; // = new Task();
+    
     // tasks: Task[] = new Array<Task>();
 
     constructor() { //private taskService: TaskService

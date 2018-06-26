@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
+const task = require('../dataAccess/task-model')
+
 
 class Task_Status {
     constructor() {
@@ -12,8 +14,10 @@ class Task_Status {
                 type: Sequelize.STRING(20)
             }
         });
-        this.model.hasMany(task_status, { foreignKey: 'status_id' });
-        // task.model.hasMany(this.model, { foreignKey: 'company' })
+        task.model.hasMany(this.model, { foreignKey: 'status_id' });
+
+        // this.model.belongsTo(task.model);
+        // task.model.hasOne(this.model, { foreignKey: 'status_id' });
     }
 
 }
