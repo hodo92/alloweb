@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
+const User = require('../dataAccess/user-model');
+
 
 const WishList = dataAccess.connection.define('WishList', {
     user_id: {
@@ -9,6 +11,9 @@ const WishList = dataAccess.connection.define('WishList', {
     goal_id: {
         type: Sequelize.INTEGER,
         primaryKey: true
+    },
+    title: {
+        type: Sequelize.TEXT
     },
     description: {
         type: Sequelize.TEXT 

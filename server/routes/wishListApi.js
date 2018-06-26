@@ -3,9 +3,8 @@ const router = express.Router();
 // const Sequelize = require('sequelize');
 // const Op = Sequelize.Op;
 const User = require('../dataAccess/user-model');
-const Task = require('../dataAccess/task-model')
-const Task_Status = require('../dataAccess/task-status-model');
 
+const WishList = require('../dataAccess/wishList-model');
 
 // get wishlist  by user_id 
 

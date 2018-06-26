@@ -1,23 +1,22 @@
 
+<div class="wish-list-item" *ngFor="let wish of wishListData" >
 
 <mat-card class="wish-list-card">
-
-<!-- from the user table  -->
-<p>First Name: {{data.firstName}}</p>
-<p>Last Name: {{data.lastName}}</p>
-<p>Email : {{data.email}}</p>
 
 <br>
 <mat-progress-bar mode="determinate" value="40">goal-bar</mat-progress-bar>
 
-<p>title: {{data.title}}</p> 
-<p>description: {{data.description}}</p>
-<p>price: {{data.price}}</p>
-<p>goal-img: {{data.goal-img}}</p>
-<p>link: {{data.link}}</p>
-
- <button mat-button *ngIf="status" (click)="https://www.amazon.com/">buy the product</button>
+<p>title: {{wish.title}}</p> 
+<p>description: {{wish.description}}</p>
+<p >price: {{wish.price}}$</p>
+<img src="{{wish.goal_img}}">
+<br>
+<a href="{{wish.link}}"  target="_blank"> 
+    <button mat-button > buy the product now</button>
+</a>
 </mat-card>
+</div>
+
 
 <!-- <div class="movie-card-container">
     <mat-card *ngFor="let movie of movies" class="movies-card">
@@ -30,3 +29,7 @@
         <button (click)="selectMovie(movie.id)">Buy</button>
     </mat-card>
 </div> -->
+<!-- (click)="{{wish.link}}" -->
+<!-- {{wish.goal-img}} -->
+
+    
