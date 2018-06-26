@@ -10,21 +10,17 @@ import { Subscriber } from 'rxjs';
 })
 export class TasksComponent implements OnInit {
 
+    public childId: number = 2;
     tasks: Task[] = new Array<Task>();
 
     constructor(private taskService: TaskService) {
         this.taskService.tasksUpdated.subscribe((data) => {
             this.tasks = data;
-            console.log(this.tasks);
-            console.log(data);
         });
     }
     
-
     ngOnInit() {
-        console.log("child-tasks.comp");
-        this.taskService.getTasks();
-        
+        this.taskService.getTasks(this.childId);
     }
 
 }
