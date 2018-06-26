@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from 'selenium-webdriver/http';
 import 'hammerjs';
 
+
+
 import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from './app.component';
 import { ParentMainComponent } from './components/parent-main/parent-main.component';
@@ -18,10 +20,13 @@ import { TaskComponent } from './components/task/task.component';
 import { LoginComponent } from './components/login/login.component';
 
 
+
 import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { GoalService } from './services/goal.service';
+import { FormsModule } from '@angular/forms';
+
 
 
 import { MatToolbarModule } from '@angular/material/toolbar';
