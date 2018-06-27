@@ -82,27 +82,6 @@ router.put('/updateStatus', (req, res) => {
     }
 })
 
-// let taskId = req.body.task_id;
-// let userId = req.body.user_id;
-// try {
-//     await task.taskStatusCompleted(taskId);
-//     // res.send(data);
-//     res.send(JSON.stringify(await task.getAllRows(userId)));
-// }
-// catch (err) {
-//     alert(err);
-// }
-// // Dolphin.update({ name: "new name" },
-//     {
-//         where: {
-//             name: "hi"
-//         }
-//     }).then((data) => {
-//         console.log(data); // rows affected
-//     }, (err) => {
-//         console.error(err)
-//     });
-
 
 
 module.exports = router;
