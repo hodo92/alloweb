@@ -10,7 +10,7 @@ import { Subscriber } from 'rxjs';
 })
 export class TasksComponent implements OnInit {
 
-    public childId: number = 2;
+    public childId: number;
     tasks: Task[] = new Array<Task>();
 
     constructor(private taskService: TaskService) {
