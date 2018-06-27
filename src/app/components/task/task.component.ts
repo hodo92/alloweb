@@ -28,13 +28,13 @@ export class TaskComponent implements OnInit, OnChanges {
     constructor() { }
 
     ngOnInit() { }
-    ngOnChanges() {
-        if (this.taskCompletedCheck == true) {
-            console.log("this.checked = true");
-            this.taskCompletedDisabled = true;
-            this.taskApprovalDisabled = false;
-        }
-    }
+    // ngOnChanges() {
+    //     if (this.taskCompletedCheck == true) {
+    //         console.log("this.checked = true");
+    //         this.taskCompletedDisabled = true;
+    //         this.taskApprovalDisabled = false;
+    //     }
+    // }
 
     taskStatusCompleted(task: Task) {
         // console.log(task);
