@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+
+
 
 @Component({
     selector: 'app-child-tasks',
@@ -7,20 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildTasksComponent implements OnInit {
     // inputFocus: boolean = false;
-    constructor() { }
+    childId: number;
+    constructor(private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
-        //req.params
+        this.route.params.subscribe((params: Params) => {
+            this.childId = params.id;
+            console.log(this.childId);
+        });
     }
-
-    // showAllAddTask() {
-    //     console.log("Trying to focus");
-        
-    //     this.inputFocus = true;
-    // }
-
-    // addTask() {
-    //     this.inputFocus = false;
-    // }
-
 }
