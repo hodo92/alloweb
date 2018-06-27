@@ -2,7 +2,7 @@
     <form class="addTaskForm">
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Task" (click)="showAllAddTask()" [(ngModel)]="newTask.title" name="title">
+                <input matInput required placeholder="Task" (click)="showAllAddTask()" [(ngModel)]="newTask.title" name="title">
             </mat-form-field>
 
         <div *ngIf="inputFocus">
@@ -13,7 +13,7 @@
 
             <mat-form-field>
                 <mat-label>Pay</mat-label>
-                <mat-select #newTask.payment value="10" [(ngModel)]="newTask.payment" name="payment">
+                <mat-select #newTask.payment required [(ngModel)]="newTask.payment" name="payment">
                     <!--  #fontSize value="16px" (selectionChange)="triggerResize()" -->
                     <mat-option value="10">$10</mat-option>
                     <mat-option value="12">$12</mat-option>
@@ -24,7 +24,7 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Deadline" [(ngModel)]="newTask.deadline" name="deadline">
+                <input matInput required [matDatepicker]="picker" placeholder="Deadline" [(ngModel)]="newTask.deadline" name="deadline">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
                 <!-- <mat-datepicker #newTask.deadline></mat-datepicker> 
