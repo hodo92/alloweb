@@ -18,7 +18,7 @@ export class ParentService {
    }
 
   checkParent(email){
-    let parentEmail =  '/parent/parents/' + email;
+    let parentEmail =  '/parent/' + email;
     return this.http.get<Parent>(parentEmail).subscribe( (data) => {
       this.checkEmail = data;
       this.dataSubject.next(this.checkEmail)

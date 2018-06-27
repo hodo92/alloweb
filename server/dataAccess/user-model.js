@@ -37,6 +37,20 @@ this.model.belongsTo(this.model, {foreignKey: 'parent_id'});
 addChild(newChild){
     return this.model.create(newChild)
     }
+getParent(pemail){
+    return user.model.findAll({
+          where: {
+            email: pemail
+          }
+        });
+    }
+getKids(parentId){
+    return user.model.findAll({
+      where: {
+        parent_id: parentId
+      }
+    });
+    }
 }
 
 const user = new User();
