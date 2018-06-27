@@ -33,3 +33,15 @@ img {
     font-family: 'Indie Flower', cursive;
     color: green ; 
 }
+
+#mySearch , .mySearchbtn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 400px;
+}
