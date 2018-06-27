@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
     } else {
       return false;
     }
-
   }
 
    parentLogin(parentEmail) {
@@ -41,19 +40,16 @@ export class LoginComponent implements OnInit {
           if (typeof resp[0] == 'undefined') {
             this.error ='Email address not found';
             setTimeout(() => { this.error = ''; }, 3000);
-            // window.location.reload();
           } else if (resp[0].is_parent == true) {
             this.router.navigate(['parent-main']);
             localStorage.setItem("currentParent", resp[0].email);
           } else  if (resp[0].is_parent == false){
-              this.error = "Please enter a parent's email";
-              setTimeout(() => { this.error = ''; }, 3000);
+            this.router.navigate(['child-main/' + resp[0].user_id]);
             }
           })
          } else {
         this.error = 'Email format not valid';
         setTimeout(() => { this.error = ''; }, 3000);
-       // window.location.reload();
         }
       }
   }

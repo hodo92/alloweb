@@ -9,3 +9,8 @@ mat-card{
     margin: 20px;
     cursor: pointer;
 }
+
+.child-id{
+    float: right;
+    padding-right: 10px;
+}
