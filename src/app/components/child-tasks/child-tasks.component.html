@@ -1,5 +1,6 @@
 <div class="appTasks">
-    <app-add-task></app-add-task>
+    <app-add-task (addTaskEmit)="addTask($event)"></app-add-task>
     <h2 style="padding-top: 20px;">Daily Tasks</h2>
-    <app-tasks></app-tasks>
+    <app-task class="col-3" *ngFor="let task of tasks; let i = index" [task]=task></app-task>
+    <!-- <app-tasks></app-tasks> -->
 </div>
