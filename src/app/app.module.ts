@@ -85,7 +85,6 @@ import { AddTaskComponent } from './add-task/add-task.component';
         MatDatepickerModule,
         MatSelectModule,
         MatNativeDateModule
-
     ],
     entryComponents: [
             AddChildComponent

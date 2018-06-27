@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
   public isParent: Boolean
+  private error: String = '';
 
   // public get currentParent() {
   //   return this._currentParent;
@@ -30,27 +31,25 @@ export class LoginComponent implements OnInit {
     } else {
       return false;
     }
-
   }
 
-  parentLogin(parentEmail) {
+   parentLogin(parentEmail) {
     if (this.ValidateEmail(parentEmail)) {
       this.parentService.checkParent(parentEmail)
       this.parentService.dataUpdated.subscribe((resp) => {
           if (typeof resp[0] == 'undefined') {
-            alert('Email address not found');
-            window.location.reload();
+            this.error ='Email address not found';
+            setTimeout(() => { this.error = ''; }, 3000);
           } else if (resp[0].is_parent == true) {
             this.router.navigate(['parent-main']);
             localStorage.setItem("currentParent", resp[0].email);
           } else  if (resp[0].is_parent == false){
-              alert("Please enter a parent's email");
-              window.location.reload();
+            this.router.navigate(['child-main/' + resp[0].user_id]);
             }
           })
          } else {
-        alert('Email format not valid; Please enter a valid email format');
-        window.location.reload();
+        this.error = 'Email format not valid';
+        setTimeout(() => { this.error = ''; }, 3000);
         }
       }
   }
