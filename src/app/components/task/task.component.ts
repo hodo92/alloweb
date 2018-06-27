@@ -11,6 +11,7 @@ export class TaskComponent implements OnInit, OnChanges {
     color = 'accent';
     taskCompletedCheck = false;
     taskCompletedDisabled = false;
+    checked = true;
 
     taskApprovedCheck = false
     taskApprovalDisabled = true;
