@@ -15,6 +15,7 @@ export class AddChildComponent implements OnInit {
   constructor(private childService: ChildService, private route: ActivatedRoute, private router: Router, public dialogRef: MatDialogRef<AddChildComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
+
   ngOnInit() {
    // this.route.params.subscribe((params) =>{
       this.newChild.parent_id = this.data.user_id
@@ -26,7 +27,7 @@ export class AddChildComponent implements OnInit {
 
   addChild(child: Child){
     this.childService.addNewChild(child)
-
+    this.dialogRef.close();
     
   }
 }

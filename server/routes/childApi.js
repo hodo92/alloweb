@@ -32,14 +32,4 @@ router.post('/', async (req, res) => {
 /////////////////////////////////////////////////////////////////////////////////////
 
 
-//add a new child
-router.post('/addChild/', async (req, res) => {
-    let newChild = req.body.newChild
-    console.log('++++++++++++' + newChild)
-
-    res.send(JSON.stringify(await user.addChild(newChild)));
-})
-
-
-
 module.exports = router;
