@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['parent-main']);
             localStorage.setItem("currentParent", resp[0].email);
           } else  if (resp[0].is_parent == false){
-            this.router.navigate(['child-main/' + resp[0].user_id]);
+            this.router.navigate(['child-view/' + resp[0].user_id]);
             }
           })
          } else {
