@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Child } from '../models/child';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject} from 'rxjs';
+import { Child } from '../models/child';
+
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class ChildService {
-    public childData: Child;
-    public Children: Child[];
-    public getKids: Child[];
-    public dataUpdated: Observable<Child[]>;
-    private dataSubject: Subject<Child[]>;
-
+  
+  public childData: Child
+  public Children: Child[];
+  public getKids: Child[];
+  public dataUpdated: Observable<Child[]>;
+  private dataSubject: Subject<Child[]>;
 
     constructor(private http: HttpClient) {
         this.dataSubject = new Subject<Child[]>();
@@ -35,3 +37,4 @@ export class ChildService {
 
     }
 }
+

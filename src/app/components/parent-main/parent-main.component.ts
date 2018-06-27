@@ -3,7 +3,8 @@ import { ParentService } from '../../services/parent.service';
 import { ChildService } from '../../services/child.service';
 import { Parent } from  '../../models/parent';
 import { Child } from '../../models/child';
-
+import { MatDialog } from '@angular/material';
+import { AddChildComponent } from '../../add-child/add-child.component';
 
 @Component({
   selector: 'app-parent-main',
@@ -26,7 +27,7 @@ export class ParentMainComponent implements OnInit {
     this._currentParent = value;
   }
 
-  constructor(private parentService: ParentService, private childService: ChildService) { 
+  constructor(private parentService: ParentService, private childService: ChildService, public dialog: MatDialog) { 
   }
 
   ngOnInit() {
@@ -34,6 +35,7 @@ export class ParentMainComponent implements OnInit {
     this.parentService.checkParent(this._currentParentEmail);
     this.parentService.dataUpdated.subscribe((resp) => {
     this._currentParent = resp[0]; 
+    console.log(this._currentParent.user_id)
     this.childService.getAllChildren(this._currentParent.user_id);
     this.childService.dataUpdated.subscribe((res) => {
     this.children = res;
@@ -44,4 +46,16 @@ export class ParentMainComponent implements OnInit {
   myFunction() {
     return "Log Me out, Scotty";
 }
+
+  openDialog(parent: Parent): void {
+
+    let dialogRef = this.dialog.open(AddChildComponent, {
+      data: parent
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      window.location.reload();
+      console.log('The dialog was closed');
+    });
+  }
 }
