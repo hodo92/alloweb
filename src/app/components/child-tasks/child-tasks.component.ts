@@ -31,10 +31,16 @@ export class ChildTasksComponent implements OnInit {
     }
 
     addTask(newTask) {
-        console.log(newTask);
+        // console.log(newTask);
         newTask.user_id = this.childId;
-        console.log(newTask);
-        
+        // console.log(newTask);
         this.taskService.addTask(newTask);
+    }
+
+    taskStatusCompleted(taskId) {
+        console.log(taskId);
+        // newTask.user_id = this.childId;
+        // console.log(newTask);
+        this.taskService.taskStatusCompleted(taskId);
     }
 }

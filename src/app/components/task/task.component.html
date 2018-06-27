@@ -12,7 +12,7 @@
         <p>{{ task.description }}</p>
     </mat-card-content>
     <mat-card-actions>
-        <mat-slide-toggle class="example-margin" [color]="color" [(ngModel)]="taskCompletedCheck" [disabled]="taskCompletedDisabled">
+        <mat-slide-toggle class="example-margin" [color]="color" [(ngModel)]="taskCompletedCheck" [disabled]="taskCompletedDisabled" (click)="taskStatusCompleted(task.task_id)">
             <!-- {{ taskCompleted }} -->
             Task completed
         </mat-slide-toggle>

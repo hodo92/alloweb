@@ -32,4 +32,32 @@ export class TaskService implements OnInit {
             this.tasksSubject.next(this.tasksArr);
         })
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    taskStatusCompleted(taskId) {
+        this.http.put<any>('/child/' + taskId).subscribe((data) => {
+            this.tasksArr = data;
+            this.tasksSubject.next(this.tasksArr);
+
+            
+            // let ind = this.finInd(item);
+            // this.generalArray[ind] = item;
+            // this.tasksSubject.next(this.generalArray)
+        });
+
+        this.http.delete<any>('/customer-api/' + id).subscribe((data) => {
+            this.arrCustomers = data;
+            this.customersSubject.next(this.arrCustomers);
+        })
+    }
 }

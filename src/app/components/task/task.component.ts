@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/task';
 
 @Component({
@@ -21,6 +21,8 @@ export class TaskComponent implements OnInit, OnChanges {
     paidDisabled = true;
 
     @Input() task: Task;
+    @Output() taskStatusCompletedEmit: EventEmitter<Number> = new EventEmitter();
+
 
     constructor() { }
 
@@ -31,5 +33,11 @@ export class TaskComponent implements OnInit, OnChanges {
             this.taskCompletedDisabled = true;
             this.taskApprovalDisabled = false;
         }
+    }
+
+    taskStatusCompleted(taskId: number) {
+        console.log(taskId);
+        this.taskStatusCompletedEmit.emit(taskId);
+
     }
 }
