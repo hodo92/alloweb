@@ -18,10 +18,10 @@ router.get('/:email', async (req, res) =>{
 
 //get tasks by parentUserId 
 router.get('/getTasksbyParent/:parentId', async (req, res) => {
-  let parentId = req.params.userId;
+  let parentId = req.params.parentId;
   try {
       res.send(JSON.stringify(await user.getAllTasks(parentId)));
-  } catch (err) {
+   } catch (err) {
       console.log(err);
   }
 })

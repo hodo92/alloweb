@@ -21,7 +21,7 @@ export class TaskService implements OnInit {
 
     constructor(private http: HttpClient) {
         this.tasksUpdated = this.tasksSubject.asObservable();
-        this.allTasksUpdated = this.tasksSubject.asObservable();
+        this.allTasksUpdated = this.allTasksSubject.asObservable();
     }
 
     ngOnInit() { }
@@ -33,12 +33,13 @@ export class TaskService implements OnInit {
         })
     }
     
-    getAllTasks(parentId): void {
+    getAllTasks(parentId) {
         let getTasksRoute = '/parent/getTasksbyParent/' + parentId;
-        this.http.get<Task[]>((getTasksRoute)).subscribe((data) => {
-            this.getAll = data;   
-            console.log(data)  
-            this.allTasksSubject.next(this.allTasksArr);
+       return this.http.get<Task[]>((getTasksRoute)).subscribe((data) => {
+            this.tasksArr = data;     
+            this.allTasksSubject.next(this.tasksArr);
+        console.log(data);
+        
         })
     }
 

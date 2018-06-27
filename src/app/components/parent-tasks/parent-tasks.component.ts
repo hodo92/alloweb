@@ -33,11 +33,15 @@ export class ParentTasksComponent implements OnInit {
     this.parentService.checkParent(this._currentParentEmail);
     this.parentService.dataUpdated.subscribe((resp) => {
     this._currentParent = resp[0]; 
+    console.log(resp);
+    
     this.taskService.getAllTasks(this._currentParent.user_id);
+    console.log(this._currentParent.user_id);
+    
     this.taskService.allTasksUpdated.subscribe((res) => {
-  
-    this.tasks = res;
-    console.log(this.tasks)
+      this.tasks = res;
+      console.log(this.tasks);
+      
      });
    });
     

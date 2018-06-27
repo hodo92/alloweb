@@ -35,16 +35,16 @@ class Task {
        // this.model.belongsTo(user.model, { foreignKey: 'user_id' })
         // User.hasMany(this.model, { foreignKey: 'user_id' });
     }
-    //getAllChildTasks
+
+    // //getAllChildTasks
     getAllRows(userId) {
         return this.model.findAll({ where: { user_id: userId }, include: [user.model] }); //, include: [User]
     }
 
-    // //getAllParentTasks
+    //getAllParentTasks
     //  getAllTasks(userId) {
-    //     return this.model.findAll({ include: [user.model], where: { parent_id: 1 } }); //, include: [User]
+    //     return this.model.findAll({ include: [user.model] }); 
     // }
-
 
     addTask(task) {
         return this.model.create(task);
