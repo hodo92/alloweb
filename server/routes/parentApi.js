@@ -16,6 +16,15 @@ router.get('/:email', async (req, res) =>{
    }
    })
 
+//get tasks by parentUserId 
+router.get('/getTasksbyParent/:parentId', async (req, res) => {
+  let parentId = req.params.userId;
+  try {
+      res.send(JSON.stringify(await user.getAllTasks(parentId)));
+  } catch (err) {
+      console.log(err);
+  }
+})
 
 // get kids by parent ID
 router.get('/getKidsbyParent/:parentId', async (req, res) => {
@@ -23,9 +32,10 @@ router.get('/getKidsbyParent/:parentId', async (req, res) => {
     try {
         res.send(JSON.stringify(await user.getKids(parentId)));
         } catch (err) {
-          alert(err);
+          console.log(err);
         }
         })
+
 //add a new child
 router.post('/addChild/', async (req, res) => {
   let newChild = req.body.newChild;

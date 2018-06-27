@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
+const task = require('../dataAccess/task-model');
 
 
 class User {
@@ -32,6 +33,7 @@ class User {
     }
 }) 
 this.model.belongsTo(this.model, {foreignKey: 'parent_id'});
+this.model.belongsTo(task.model, { foreignKey: 'user_id' });
     }
 
 addChild(newChild){
@@ -44,6 +46,12 @@ getParent(pemail){
           }
         });
     }
+
+    //getAllParentTasks
+    getAllTasks(userId) {
+        return this.model.findAll({ include: [task.model], where: { parent_id: 1 } }); //, include: [User]
+    }
+
 getKids(parentId){
     return user.model.findAll({
       where: {
