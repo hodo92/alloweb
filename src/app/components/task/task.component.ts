@@ -21,7 +21,7 @@ export class TaskComponent implements OnInit, OnChanges {
     paidDisabled = true;
 
     @Input() task: Task;
-    @Output() taskStatusCompletedEmit: EventEmitter<Number> = new EventEmitter();
+    @Output() taskStatusCompletedEmit: EventEmitter<Task> = new EventEmitter();
 
 
     constructor() { }
@@ -35,9 +35,9 @@ export class TaskComponent implements OnInit, OnChanges {
         }
     }
 
-    taskStatusCompleted(taskId: number) {
-        console.log(taskId);
-        this.taskStatusCompletedEmit.emit(taskId);
+    taskStatusCompleted(task: Task) {
+        // console.log(task);
+        this.taskStatusCompletedEmit.emit(task);
 
     }
 }

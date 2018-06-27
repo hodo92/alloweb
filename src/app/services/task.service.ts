@@ -44,20 +44,17 @@ export class TaskService implements OnInit {
 
 
 
-    taskStatusCompleted(taskId) {
-        this.http.put<any>('/child/' + taskId).subscribe((data) => {
+    taskStatusCompleted(task) {
+        console.log("task");
+        console.log(task);
+        
+        // debugger;
+        // task.status_id = 3;
+        this.http.put<any>('/child/updateStatus', {task_id: task.task_id}).subscribe((data) => {
             this.tasksArr = data;
-            this.tasksSubject.next(this.tasksArr);
-
+            console.log(data);
             
-            // let ind = this.finInd(item);
-            // this.generalArray[ind] = item;
-            // this.tasksSubject.next(this.generalArray)
+            this.tasksSubject.next(this.tasksArr);
         });
-
-        this.http.delete<any>('/customer-api/' + id).subscribe((data) => {
-            this.arrCustomers = data;
-            this.customersSubject.next(this.arrCustomers);
-        })
     }
 }

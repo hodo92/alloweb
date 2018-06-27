@@ -43,8 +43,36 @@ class Task {
     addTask(task) {
         return this.model.create(task);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    taskStatusCompleted(updatedTaskId) {
+        console.log("+++++++++++++++++++++++++++++++++++");
+        console.log("task-model");
+        console.log(updatedTaskId);
+        
+        // console.log(updatedTask);
+        // let taskId = updatedTask.task_id;
+        // console.log(taskId);
+        // return this.model.find({ where: { company_id: req.body.company_id } });
+        return this.model.update({ status_id: 2 }, { where: { task_id: updatedTaskId } });
+        // return this.model.update({ status_id: 3 }, { where: { task_id: taskId } });
+    }
 }
-//join the tables 
+
 
 const task = new Task();
 

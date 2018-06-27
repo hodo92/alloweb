@@ -20,6 +20,8 @@ export class ChildTasksComponent implements OnInit {
     constructor(private route: ActivatedRoute, private router: Router, private taskService: TaskService) {
         this.taskService.tasksUpdated.subscribe((data) => {
             this.tasks = data;
+            console.log(this.tasks);
+            
         });
     }
 
@@ -37,10 +39,10 @@ export class ChildTasksComponent implements OnInit {
         this.taskService.addTask(newTask);
     }
 
-    taskStatusCompleted(taskId) {
-        console.log(taskId);
+    taskStatusCompleted(task) {
+        console.log(task);
         // newTask.user_id = this.childId;
         // console.log(newTask);
-        this.taskService.taskStatusCompleted(taskId);
+        this.taskService.taskStatusCompleted(task);
     }
 }

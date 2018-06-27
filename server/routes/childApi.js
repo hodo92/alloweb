@@ -42,4 +42,52 @@ router.post('/addChild/', async (req, res) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.put('/updateStatus', async (req, res) => {
+    // debugger;
+    // let taskCompleted = req.body;
+    // let updatedTask = req.body;
+    // let updatedTask = req.body;
+    let taskId = req.body.task_id;
+    console.log("+++++++++++++++++++++++++++++++++++");
+    console.log("task-Api");
+    console.log(req.body);
+    // console.log(childId);
+
+    // try {
+    await task.taskStatusCompleted(taskId);
+
+    res.send(JSON.stringify(await task.getAllRows(2)));
+
+
+    // } 
+    // catch (err) {
+    //     alert(err);
+    // }
+})
+
+
+
 module.exports = router;
