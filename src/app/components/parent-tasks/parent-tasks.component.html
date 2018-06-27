@@ -1,0 +1,9 @@
+<div class="big-form" > 
+
+    <h1><em>{{_currentParent.last_name}} Family Tasks</em></h1>
+    
+    <div class="flex-container">
+    <app-task  class="col-3"  *ngFor="let task of tasks" [task]= "task"></app-task>
+    </div>
+    
+    </div>
