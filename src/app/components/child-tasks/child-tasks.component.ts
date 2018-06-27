@@ -10,7 +10,7 @@ export class ChildTasksComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        req.params
+        //req.params
     }
 
     // showAllAddTask() {
