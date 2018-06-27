@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Child } from '../models/child';
 import { ChildService } from '../services/child.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-add-child',
@@ -11,15 +12,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AddChildComponent implements OnInit {
   newChild = new Child
 
-  constructor(private childService: ChildService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private childService: ChildService, private route: ActivatedRoute, private router: Router, public dialogRef: MatDialogRef<AddChildComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params) =>{
-      this.newChild.parent_id = params.id
+   // this.route.params.subscribe((params) =>{
+      this.newChild.parent_id = this.data.user_id
       this.newChild.is_parent = false;
       this.newChild.balance = 0
       console.log(this.newChild)
-    })
+    //})
   }
 
   addChild(child: Child){

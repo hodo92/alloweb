@@ -31,7 +31,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule,  MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatNativeDateModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -79,10 +81,14 @@ import { AddTaskComponent } from './add-task/add-task.component';
         MatCheckboxModule,
         FlexLayoutModule,
         MatProgressBarModule,
+        MatDialogModule,
         MatDatepickerModule,
         MatSelectModule,
         MatNativeDateModule
     ],
+    entryComponents: [
+            AddChildComponent
+            ],
     providers: [
         ParentService,
         ChildService,

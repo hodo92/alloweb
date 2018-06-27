@@ -1,4 +1,4 @@
-<button mat-raised-button class="add-kid" color="primary" [routerLink]="['/add-child', _currentParent.user_id]">Add a child</button>
+<button mat-raised-button class="add-kid" color="primary" (click)="openDialog(_currentParent)">Add a child</button>
 <div class="big-form" > 
 
 <h1><em>{{_currentParent.last_name}} Kids</em></h1>
@@ -8,3 +8,6 @@
 </div>
 
 </div>
+
+
+<!-- [routerLink]="['/add-child', _currentParent.user_id]" -->
