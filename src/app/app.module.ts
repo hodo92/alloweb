@@ -25,7 +25,7 @@ import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { WishListService } from './services/wish-list.service';
-
+import { JsonpModule  } from '@angular/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -84,7 +84,8 @@ import { AddTaskComponent } from './add-task/add-task.component';
         MatDialogModule,
         MatDatepickerModule,
         MatSelectModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        JsonpModule
     ],
     entryComponents: [
             AddChildComponent

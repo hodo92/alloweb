@@ -10,10 +10,10 @@ import { WishList } from '../../models/wishList';
 })
 
 export class WishListComponent implements OnInit {
-
+    products: any[] = null;
     public childId: number = 2 ;
     wishListData: WishList[] = new Array<WishList>();
-
+    keyword : string ; 
     constructor(private wishListService : WishListService) {
         this.wishListService.WishListUpdated.subscribe((data) => {
             this.wishListData = data;
@@ -24,6 +24,10 @@ export class WishListComponent implements OnInit {
 
   ngOnInit() {
       this.wishListService.getWishList(this.childId)
+    }
+
+    getItems( ) { 
+        this.wishListService.findItemsByKeywords(this.keyword);
     }
 }
 

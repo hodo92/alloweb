@@ -1,10 +1,8 @@
 
 
+<input type="search" id="mySearch" [(ngModel)]="keyword" placeholder="Search for something..">
 
-
-<input type="search" id="mySearch" placeholder="Search for something..">
-
-<button class="mySearchbtn" onclick="getItems()">Serch</button>
+<button class="mySearchbtn" (click)="getItems()">Search</button>
 
 <div class="wish-list-item" *ngFor="let wish of wishListData">
 
