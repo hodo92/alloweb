@@ -50,9 +50,9 @@ export class TaskService implements OnInit {
         
         // debugger;
         // task.status_id = 3;
-        this.http.put<any>('/child/updateStatus', {task_id: task.task_id}).subscribe((data) => {
+        this.http.put<any>('/child/updateStatus', task).subscribe((data) => {
             this.tasksArr = data;
-            console.log(data);
+            console.log(this.tasksArr);
             
             this.tasksSubject.next(this.tasksArr);
         });

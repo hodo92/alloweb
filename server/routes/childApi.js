@@ -65,28 +65,43 @@ router.post('/addChild/', async (req, res) => {
 
 
 
-router.put('/updateStatus', async (req, res) => {
-    // debugger;
-    // let taskCompleted = req.body;
-    // let updatedTask = req.body;
-    // let updatedTask = req.body;
+router.put('/updateStatus', (req, res) => {
     let taskId = req.body.task_id;
-    console.log("+++++++++++++++++++++++++++++++++++");
-    console.log("task-Api");
-    console.log(req.body);
-    // console.log(childId);
-
-    // try {
-    await task.taskStatusCompleted(taskId);
-
-    res.send(JSON.stringify(await task.getAllRows(2)));
-
-
-    // } 
-    // catch (err) {
-    //     alert(err);
-    // }
+    let userId = req.body.user_id;
+    try {
+         task.taskStatusCompleted(taskId).then((data) => {
+            console.log(data); // rows affected
+        }, (err) => {
+            console.error(err)
+        });
+        // res.send(data);
+        // res.send(JSON.stringify(await task.getAllRows(userId)));
+    }
+    catch (err) {
+        alert(err);
+    }
 })
+
+// let taskId = req.body.task_id;
+// let userId = req.body.user_id;
+// try {
+//     await task.taskStatusCompleted(taskId);
+//     // res.send(data);
+//     res.send(JSON.stringify(await task.getAllRows(userId)));
+// }
+// catch (err) {
+//     alert(err);
+// }
+// // Dolphin.update({ name: "new name" },
+//     {
+//         where: {
+//             name: "hi"
+//         }
+//     }).then((data) => {
+//         console.log(data); // rows affected
+//     }, (err) => {
+//         console.error(err)
+//     });
 
 
 
