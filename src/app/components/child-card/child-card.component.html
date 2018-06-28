@@ -1,19 +1,19 @@
-<mat-card>
+<mat-card class="child-card" data-id="{{child.user_id}}">
 
-  <div class="child-data" [routerLink]="['../child-view', child.user_id]">
+    <div class="child-data" [routerLink]="['../child-view', child.user_id]">
 
-    <div class="img">
-      <img src="{{child.user_img}}" alt="Avatar">
+        <div class="img">
+            <img src="{{child.user_img}}" alt="Avatar">
+        </div>
+
+        <div class="child-name">
+            <h2>{{child.first_name}}</h2>
+        </div>
+
+        <div class="child-balance">
+            <h4>${{child.balance}}</h4>
+        </div>
+
     </div>
-
-    <div class="child-name">
-      <h4>{{child.first_name}}</h4>
-    </div>
-
-    <div class="desc">
-      <h2>Balance:{{child.balance}}</h2>
-    </div>
-
-  </div>
 
 </mat-card>
