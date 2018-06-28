@@ -32,12 +32,14 @@ class Task {
                 type: Sequelize.TINYINT
             }
         });
-       // this.model.belongsTo(user.model, { foreignKey: 'user_id' })
-        // User.hasMany(this.model, { foreignKey: 'user_id' });
+       this.model.belongsTo(user.model, { foreignKey: 'user_id' })
+
     }
 
     // //getAllChildTasks
     getAllRows(userId) {
+        console.log("++++++++++++++++++++++++++");
+        console.log(userId);
         return this.model.findAll({ where: { user_id: userId }, include: [user.model] }); //, include: [User]
     }
 
@@ -49,8 +51,13 @@ class Task {
     addTask(task) {
         return this.model.create(task);
     }
+
+
+    taskStatusCompleted(updatedTaskId) {
+        return this.model.update({ status_id: 2 }, { where: { task_id: updatedTaskId } });
+    }
 }
-//join the tables 
+
 
 const task = new Task();
 

@@ -1,6 +1,6 @@
 use sql9244365;
 
-SELECT * FROM Task
+SELECT * FROM User
 
 
 -- SELECT * FROM Task 

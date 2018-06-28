@@ -14,13 +14,13 @@ export class TasksComponent implements OnInit {
     tasks: Task[] = new Array<Task>();
 
     constructor(private taskService: TaskService) {
-        this.taskService.tasksUpdated.subscribe((data) => {
-            this.tasks = data;
-        });
+        // this.taskService.tasksUpdated.subscribe((data) => {
+        //     this.tasks = data;
+        // });
     }
     
     ngOnInit() {
-        this.taskService.getTasks(this.childId);
+        // this.taskService.getTasks(this.childId);
     }
 
 }

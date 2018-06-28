@@ -17,12 +17,12 @@ use sql9244365;
 -- insert into Task
 -- (user_id, title, description, payment ,deadline, status_id)
 -- values
--- (2,'clean your room ', 'have a nice room child', 20, '2019-02-22', 1);
+-- (8,'Clean your room ', 'Have a nice room child', 20, '2019-02-22', 1);
  
 --  insert into Task
 -- (user_id, title, description, payment ,deadline, status_id)
 -- values
--- (2,'Prepare dinner ', 'Prepare dinner for all 4 of us. Toasts, big salad, eggs & mozzarella.', 10, '2019-06-25', 1);
+-- (8,'Prepare dinner ', 'Prepare dinner for all 4 of us. Toasts, big salad, eggs & mozzarella.', 10, '2019-06-25', 1);
 -- 
 -- insert into Task
 -- (user_id, title, description, payment ,deadline, status_id)

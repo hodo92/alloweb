@@ -13,10 +13,19 @@
         <p>{{ task.description }}</p>
     </mat-card-content>
     <mat-card-actions>
-        <mat-slide-toggle class="example-margin" [color]="color" [(ngModel)]="taskCompletedCheck" [disabled]="taskCompletedDisabled">
-            <!-- {{ taskCompleted }} -->
-            Task completed
-        </mat-slide-toggle>
+        <!-- <mat-slide-toggle class="example-margin" [color]="color" [(ngModel)]="taskCompletedCheck" 
+        [disabled]="taskCompletedDisabled" (click)="taskStatusCompleted(task)" attr.checked="{{task.status_id}} == 2">
+           
+            Completed
+        </mat-slide-toggle> -->
+
+        <mat-checkbox class="example-margin" [(indeterminate)]="indeterminate" [labelPosition]="labelPosition" [checked]="task.status_id == 2" (click)="taskStatusCompleted(task)">
+            <!-- [(ngModel)]="taskCompletedCheck" -->
+            <!-- [(ngModel)]="paidChecked" -->
+             Completed
+        </mat-checkbox>
+        <!-- <p *ngIf="(task.status_id == 1)">Not completed</p>
+        <p *ngIf="(task.status_id == 2)">Completed</p> -->
         <!--[checked]="checked" *ngIf="!taskCompletedCheck"  *ngIf="taskCompletedCheck"-->
 
         <mat-slide-toggle class="example-margin" [color]="color" [(ngModel)]="taskApprovedCheck"
@@ -24,8 +33,7 @@
             Approve
         </mat-slide-toggle>
 
-        <mat-checkbox class="example-margin" [(indeterminate)]="indeterminate"
-            [labelPosition]="labelPosition" [disabled]="paidDisabled">
+        <mat-checkbox class="example-margin" [(indeterminate)]="indeterminate" [labelPosition]="labelPosition" [disabled]="paidDisabled" [checked]="task.status_id == 2">
             <!-- [(ngModel)]="paidChecked" -->
             Paid
         </mat-checkbox>
@@ -58,3 +66,6 @@
         <i class="fa fa-trash" *ngIf="deleteMoviesFromPrivate == true" (click)="removePrivateMovie(movie)"></i>
     </div>
 </li> -->
+
+
+<!-- {{ taskCompleted }} [checked]="task.status_id == 2"-->
