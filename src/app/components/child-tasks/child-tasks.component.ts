@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { Task } from '../../models/task';
+import { TaskService } from '../../services/task.service';
+import { Subscriber } from 'rxjs';
+
+
 
 @Component({
     selector: 'app-child-tasks',
@@ -7,20 +13,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildTasksComponent implements OnInit {
     // inputFocus: boolean = false;
-    constructor() { }
+    // childId: number;
+    public childId: number;
+    tasks: Task[] = new Array<Task>();
 
-    ngOnInit() {
-        //req.params
+    constructor(private route: ActivatedRoute, private router: Router, private taskService: TaskService) {
+        this.taskService.tasksUpdated.subscribe((data) => {
+            this.tasks = data;
+            console.log(this.tasks);
+            
+        });
     }
 
-    // showAllAddTask() {
-    //     console.log("Trying to focus");
-        
-    //     this.inputFocus = true;
-    // }
+    ngOnInit() {
+        this.route.params.subscribe((params: Params) => {
+            this.childId = params.id;
+            this.taskService.getTasks(this.childId);
+        });
+    }
 
-    // addTask() {
-    //     this.inputFocus = false;
-    // }
+    addTask(newTask) {
+        // console.log(newTask);
+        newTask.user_id = this.childId;
+        // console.log(newTask);
+        this.taskService.addTask(newTask);
+    }
 
+    taskStatusCompleted(task) {
+        console.log(task);
+        // newTask.user_id = this.childId;
+        // console.log(newTask);
+        this.taskService.taskStatusCompleted(task);
+    }
 }

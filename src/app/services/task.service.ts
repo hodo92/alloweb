@@ -49,4 +49,29 @@ export class TaskService implements OnInit {
             this.tasksSubject.next(this.tasksArr);
         })
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    taskStatusCompleted(task) {
+        console.log("task");
+        console.log(task);
+        
+        // debugger;
+        // task.status_id = 3;
+        this.http.put<any>('/child/updateStatus', task).subscribe((data) => {
+            this.tasksArr = data;
+            console.log(this.tasksArr);
+            
+            this.tasksSubject.next(this.tasksArr);
+        });
+    }
 }

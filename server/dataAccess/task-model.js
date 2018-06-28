@@ -49,8 +49,33 @@ class Task {
     addTask(task) {
         return this.model.create(task);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+    taskStatusCompleted(updatedTaskId) {
+        return this.model.update({ status_id: 2 }, { where: { task_id: updatedTaskId } });
+    }
 }
-//join the tables 
+
 
 const task = new Task();
 
