@@ -41,6 +41,10 @@ export class AddTaskComponent implements OnInit {
         //this.taskService.addTask(this.newTask);
         this.newTask = new Task();
         this.inputFocus = false;
+    }
 
+    cancel() {
+        this.newTask = new Task();
+        this.inputFocus = false;
     }
 }
