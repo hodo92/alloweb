@@ -15,4 +15,5 @@ export class AllTasks {
     payment: string;
     deadline: Date;
     status_id: number;
+    first_name: string;
 }
