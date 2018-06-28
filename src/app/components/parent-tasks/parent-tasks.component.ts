@@ -37,13 +37,11 @@ export class ParentTasksComponent implements OnInit {
     this.taskService.getAllTasks(this._currentParent.user_id);    
     this.taskService.allTasksUpdated.subscribe((res) => {
       for(let i=0; i<res.length;i++){
-       
-        for (let j = 0; j < res[i].Tasks.length; j++) {
+       for (let j = 0; j < res[i].Tasks.length; j++) {
           res[i].Tasks[j].first_name =  res[i].first_name;
           this.tasks.push(res[i].Tasks[j]);
         }   
       }
-    
      });
    });
   }
