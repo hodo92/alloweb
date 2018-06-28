@@ -29,12 +29,11 @@ export class ChildService {
             this.dataSubject.next(this.getKids);
         });
     }
+
     addNewChild(child: Child) {
         console.log(child);
-        return this.http.post<Child>('/child/addChild', { newChild: child }).subscribe((resp) => {
-
+        return this.http.post<Child>('/parent/addChild', { newChild: child }).subscribe((resp) => {
         })
-
     }
 }
 

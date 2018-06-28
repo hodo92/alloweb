@@ -43,6 +43,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { AddTaskComponent } from './add-task/add-task.component';
+import { ParentTasksComponent } from './components/parent-tasks/parent-tasks.component';
 
 
 
@@ -60,7 +61,8 @@ import { AddTaskComponent } from './add-task/add-task.component';
         ChildCardComponent,
         AddChildComponent,
         WishListComponent,
-        AddTaskComponent
+        AddTaskComponent,
+        ParentTasksComponent
     ],
     imports: [
         BrowserModule,
