@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 
     parentLogin(parentEmail) {
         if (this.ValidateEmail(parentEmail)) {
-            this.parentService.checkParent(parentEmail)
+            this.parentService.checkParent(parentEmail);
             this.parentService.dataUpdated.subscribe((resp) => {
                 if (typeof resp[0] == 'undefined') {
                     this.error = '*Email address not found';

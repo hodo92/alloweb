@@ -23,7 +23,6 @@ export class ChildTasksComponent implements OnInit {
             this.tasks = data;
             // this._isParent = data[0].User.is_parent;
             console.log("child-tasks data");
-            
             console.log(this.tasks);
             
         });
@@ -44,7 +43,7 @@ export class ChildTasksComponent implements OnInit {
     }
 
     taskStatusCompleted(task) {
-        console.log(task);
+        // console.log(task);
         // newTask.user_id = this.childId;
         // console.log(newTask);
         this.taskService.taskStatusCompleted(task);

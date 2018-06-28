@@ -4,9 +4,18 @@
     width: 400px;
 }
 
-h2 {
-    font-weight: 300;
+.childTitle {
+    /* padding-top: 20px; */
+    text-align: center;
+    color: #4CAF50;
+    font-weight: 600;
     font-size: 20px;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 15px;
+    color: #616161;
 }
 
 mat-grid-tile {

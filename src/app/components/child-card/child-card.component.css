@@ -9,8 +9,9 @@ mat-card {
 }
 
 .child-card {
-    width: 130px;
+    /* width: 130px; */
     background-color: #42A5F5;
+    padding: 14px;
 }
 
 .child-data {
@@ -30,7 +31,15 @@ mat-card {
     text-align: center;
 }
 
+.child-name h2 {
+    margin: 10px 0px;
+}
+
 .child-balance {
     text-align: center;
     color: #B2EBF2;
+}
+
+.child-balance h4 {
+    margin: 10px 0px;
 }
