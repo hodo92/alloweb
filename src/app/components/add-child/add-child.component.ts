@@ -29,6 +29,5 @@ export class AddChildComponent implements OnInit {
   addChild(child: Child){
     this.childService.addNewChild(child)
     this.dialogRef.close();
-    
   }
 }

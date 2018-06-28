@@ -1,16 +1,35 @@
-img{
-    border-radius: 50%;
-    vertical-align: middle;
-    width: 200px;
-    height: 150px;
-}
-
-mat-card{
+mat-card {
     margin: 20px;
     cursor: pointer;
 }
 
-.child-id{
+.child-id {
     float: right;
     padding-right: 10px;
+}
+
+.child-card {
+    width: 130px;
+    background-color: #42A5F5;
+}
+
+.child-data {
+    text-align: center;
+}
+
+.child-data img {
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+}
+
+.child-name {
+    color: #1A237E;
+    text-align: center;
+}
+
+.child-balance {
+    text-align: center;
+    color: #B2EBF2;
 }
