@@ -2,21 +2,20 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Task } from '../models/task';
 import { Observable, Subject } from 'rxjs';
-
-
+import { AllTasks } from '../models/allTasks';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TaskService implements OnInit {
 
-    tasksArr: Task[] = new Array<Task>();
-    allTasksArr: Task[] = new Array<Task>();
+    tasksArr: AllTasks[] = new Array<AllTasks>();
+    
     public getAll: Task[];
     public tasksSubject: Subject<Task[]> = new Subject<Task[]>();
     public tasksUpdated: Observable<Task[]>;
-    public allTasksSubject: Subject<Task[]> = new Subject<Task[]>();
-    public allTasksUpdated: Observable<Task[]>;
+    public allTasksSubject: Subject<AllTasks[]> = new Subject<AllTasks[]>();
+    public allTasksUpdated: Observable<AllTasks[]>;
 
 
     constructor(private http: HttpClient) {
@@ -37,11 +36,9 @@ export class TaskService implements OnInit {
     
     getAllTasks(parentId) {
         let getTasksRoute = '/parent/getTasksbyParent/' + parentId;
-       return this.http.get<Task[]>((getTasksRoute)).subscribe((data) => {
-            this.tasksArr = data;     
-            this.allTasksSubject.next(this.tasksArr);
-        console.log(data);
-        
+       return this.http.get<AllTasks[]>((getTasksRoute)).subscribe((data) => {
+           this.tasksArr = data;
+            this.allTasksSubject.next(this.tasksArr);            
         })
     }
 

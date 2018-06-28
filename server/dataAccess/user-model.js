@@ -49,57 +49,27 @@ class User {
         })
     }
 
-    getParent(pemail) {
+    getParent(pemail){
         return user.model.findAll({
-            where: {
+              where: {
                 email: pemail
-            }
-        });
+              }
+            });
+        }
+
+    getAllTasks(parentId) {
+        return this.model.findAll({ include: [task.model], where:{ parent_id: parentId} }); 
     }
 
-    getKids(parentId) {
+    getKids(parentId){
         return user.model.findAll({
-            where: {
-                parent_id: parentId
-            }
+          where: {
+            parent_id: parentId
+          }
         });
-    }
 
-    // getAllParentTasks
-    getAllTasks(userId) {
-        return this.model.findAll({ include: [task.model], where: { parent_id: userId } });
     }
-}
 
 
 const user = new User();
 module.exports = user;
-
-
-
-
-// <<<<<<< HEAD
-//     //    //getAllChildTasks
-//     //    getAllRows(userId) {
-//     //     return this.model.findAll({ where: { user_id: userId }, include: [task.model] }); //, include: [User]
-//     // }
-
-//     getKids(parentId) {
-//         return user.model.findAll({
-//             where: {
-//                 parent_id: parentId
-//             }
-//         });
-//     }
-// }
-
-// const user = new User();
-// module.exports = user;
-// =======
-// //    //getAllChildTasks
-// //    getAllRows(userId) {
-// //     return this.model.findAll({ where: { user_id: userId }, include: [task.model] }); //, include: [User]
-// // }
-// // this.model.belongsTo(this.model, {foreignKey: 'parent_id'});
-// // this.model.hasMany(task.model, { foreignKey: 'user_id' });
-// >>>>>>> 75151eaef116cd3552b5d7a804d2419c70186aee
