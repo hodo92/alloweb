@@ -28,19 +28,19 @@ export class ParentMainComponent implements OnInit {
   }
 
   constructor(private parentService: ParentService, private childService: ChildService, public dialog: MatDialog) { 
+    
   }
 
   ngOnInit() {
-    
     this.parentService.checkParent(this._currentParentEmail);
     this.parentService.dataUpdated.subscribe((resp) => {
-    this._currentParent = resp[0]; 
-    console.log(this._currentParent.user_id)
-    this.childService.getAllChildren(this._currentParent.user_id);
-    this.childService.dataUpdated.subscribe((res) => {
-    this.children = res;
+      this._currentParent = resp[0];
+      this.childService.getAllChildren(this._currentParent.user_id);
+      this.childService.dataUpdated.subscribe((res) => {
+        this.children = res;
       });
     });
+  
     }
   
   myFunction() {

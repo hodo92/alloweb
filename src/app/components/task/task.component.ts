@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/task';
+// import { TaskService } from '../../services/task.service';
+import { ParentTasksComponent } from '../parent-tasks/parent-tasks.component';
+
 
 @Component({
     selector: 'app-task',
@@ -21,23 +24,19 @@ export class TaskComponent implements OnInit {
     labelPosition = 'after';
     paidDisabled = true;
 
-    @Input() task: Task;
+  
+    @Input() task: Task; 
     @Output() taskStatusCompletedEmit: EventEmitter<Task> = new EventEmitter();
 
+     tasks: Task[] = new Array<Task>();
 
-    constructor() { }
+
+    constructor() {}
+    // constructor(private parentTask: ParentTasksComponent ) {}
 
     ngOnInit() { }
-    // ngOnChanges() {
-    //     if (this.taskCompletedCheck == true) {
-    //         console.log("this.checked = true");
-    //         this.taskCompletedDisabled = true;
-    //         this.taskApprovalDisabled = false;
-    //     }
-    // }
 
     taskStatusCompleted(task: Task) {
-        // console.log(task);
         this.taskStatusCompletedEmit.emit(task);
 
     }

@@ -40,31 +40,7 @@ router.post('/addChild/', async (req, res) => {
     res.send(JSON.stringify(await user.addChild(newChild)));
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Update status
 router.put('/updateStatus', (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
@@ -81,7 +57,4 @@ router.put('/updateStatus', (req, res) => {
         alert(err);
     }
 })
-
-
-
 module.exports = router;
