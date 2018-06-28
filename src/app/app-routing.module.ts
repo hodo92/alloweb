@@ -5,9 +5,10 @@ import { LoginComponent } from './components/login/login.component';
 import { ParentMainComponent } from './components/parent-main/parent-main.component';
 import { ParentTasksComponent } from './components/parent-tasks/parent-tasks.component';
 import { ChildTasksComponent } from './components/child-tasks/child-tasks.component';
-import { WishListComponent } from './components/wish-list/wish-list.component';
 import { AddChildComponent } from './components/add-child/add-child.component';
 import { ChildMainComponent } from './components/child-main/child-main.component';
+import { WishListSearchComponent } from './components/wish-list-search/wish-list-search.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
 
 
 const routes: Routes = [
