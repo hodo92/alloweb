@@ -5,6 +5,7 @@ import { Parent } from  '../../models/parent';
 import { Task } from '../../models/task';
 import { MatDialog } from '@angular/material';
 import { TaskService } from '../../services/task.service';
+import { AllTasks } from '../../models/allTasks';
 
 
 @Component({
@@ -15,8 +16,8 @@ import { TaskService } from '../../services/task.service';
 
 export class ParentTasksComponent implements OnInit {
 
-  public tasks: Task[];
-
+  public tasks: AllTasks[] = new Array<AllTasks>();
+  
   private _currentParentEmail = localStorage.getItem("currentParent");
   public _currentParent: Parent = new Parent();
 
@@ -32,19 +33,13 @@ export class ParentTasksComponent implements OnInit {
   ngOnInit() {
     this.parentService.checkParent(this._currentParentEmail);
     this.parentService.dataUpdated.subscribe((resp) => {
-    this._currentParent = resp[0]; 
-    console.log(resp);
-    
-    this.taskService.getAllTasks(this._currentParent.user_id);
-    console.log(this._currentParent.user_id);
-    
+    this._currentParent = resp[0];    
+    this.taskService.getAllTasks(this._currentParent.user_id);    
     this.taskService.allTasksUpdated.subscribe((res) => {
-      this.tasks = res;
+      this.tasks = res;    
       console.log(this.tasks);
-      
      });
    });
-    
   }
 
 }

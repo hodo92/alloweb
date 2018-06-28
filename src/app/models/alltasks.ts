@@ -1,4 +1,4 @@
-export class Task {
+export class AllTasks {
     Tasks: Array<{
         user_id: number;
         parent_id: number;

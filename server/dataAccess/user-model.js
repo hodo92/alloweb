@@ -39,6 +39,7 @@ this.model.hasMany(task.model, { foreignKey: 'user_id' });
 addChild(newChild){
     return this.model.create(newChild)
     }
+
 getParent(pemail){
     return user.model.findAll({
           where: {
@@ -47,15 +48,9 @@ getParent(pemail){
         });
     }
 
-    // getAllParentTasks
-    getAllTasks(userId) {
-        return this.model.findAll({ include: [task.model], where:{ parent_id: userId} }); 
+    getAllTasks(parentId) {
+        return this.model.findAll({ include: [task.model], where:{ parent_id: parentId} }); 
     }
-
-//    //getAllChildTasks
-//    getAllRows(userId) {
-//     return this.model.findAll({ where: { user_id: userId }, include: [task.model] }); //, include: [User]
-// }
 
 getKids(parentId){
     return user.model.findAll({
