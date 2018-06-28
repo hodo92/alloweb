@@ -12,7 +12,7 @@ import { WishList } from '../../models/wishList';
 export class WishListComponent implements OnInit {
     products: any[] = null;
     public childId: number = 2 ;
-    wishListData: WishList[] = new Array<WishList>();
+    wishListData: any = new Array<any>();
     keyword : string ; 
     constructor(private wishListService : WishListService) {
         this.wishListService.WishListUpdated.subscribe((data) => {
@@ -23,11 +23,16 @@ export class WishListComponent implements OnInit {
      }
 
   ngOnInit() {
-      this.wishListService.getWishList(this.childId)
+     // this.wishListService.getWishList(this.childId)
     }
 
     getItems() { 
-        this.wishListService.findItemsByKeywords(this.keyword);
+        this.wishListService.findItemsByKeywords(this.keyword)
+        this.wishListService.WishListUpdated.subscribe((data)=>{
+            this.wishListData = data;
+            console.log(this.wishListData);
+        })
+        
     }
 }
 

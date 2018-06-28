@@ -5,6 +5,17 @@ for (let product of data.json().findItemsByKeywordsResponse[0].searchResult[0].i
 
 product.title[0], product.subtitle[0], product.galleryURL[0], product.sellingStatus.currentPrice[0].__value__ ; 
 
+       let obj = data.json().findItemsByKeywordsResponse[0].searchResult[0].item;
+            for (let i=0 ; i<obj.length;i++){
+              this.ebayData.push(obj[i]);
+              this.WishListSubject.next(this.ebayData)
+              console.log("here, hcecking")
+                console.log(obj.sellingStatus[0]);
+            }
+          // console.log(this.ebayData).currentPrice[0].__value__
+    });
+    }
+    
 
 
 // correct line 

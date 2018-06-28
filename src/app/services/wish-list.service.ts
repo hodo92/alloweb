@@ -14,15 +14,16 @@ import { Jsonp } from '@angular/http';
 })
 export class WishListService {
     ebayData: WishList[] = new Array<WishList>();
-    wishData: WishList[] = new Array<WishList>();
-    public WishListSubject: Subject<WishList[]> = new Subject<WishList[]>();
+    wishData: WishList[]// = new Array<WishList>();
+    public WishListSubject: Subject<WishList[]> //= new Subject<WishList[]>();
     public WishListUpdated: Observable<WishList[]>;
     // private dataSubject: Subject<WishList[]>;
     // public dataUpdated: Observable<WishList[]>;
     
     constructor(private http: HttpClient, private jsonp: Jsonp) {
+        this.WishListSubject = new Subject<WishList[]>();
         this.WishListUpdated = this.WishListSubject.asObservable();
-        // this.dataUpdated = this.dataSubject.asObservable();
+       
     }
 
     getWishList(childId) {
@@ -42,9 +43,9 @@ export class WishListService {
             for (let i=0 ; i<arr.length;i++){
               this.ebayData.push(arr[i]);
               
-                // console.log(arr.title[0], arr.subtitle[0], arr.galleryURL[0], arr.sellingStatus[0].currentPrice[0].__value__);
-            }
-            console.log(this.ebayData)
+                // console.log(arr.title[0], arr.subtitle[0], arr.galleryURL[0], arr.sellingStatus[0].currentPrice[0].__value__,arr.viewItemURL[0]);
+            } this.WishListSubject.next(this.ebayData)
+            // console.log(this.ebayData)
     });
     }
     
