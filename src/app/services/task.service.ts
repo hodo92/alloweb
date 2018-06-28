@@ -14,8 +14,8 @@ export class TaskService implements OnInit {
     public getAll: Task[];
     public tasksSubject: Subject<Task[]> = new Subject<Task[]>();
     public tasksUpdated: Observable<Task[]>;
-    public allTasksSubject: Subject<Task[]> = new Subject<Task[]>();
-    public allTasksUpdated: Observable<Task[]>;
+    public allTasksSubject: Subject<AllTasks[]> = new Subject<AllTasks[]>();
+    public allTasksUpdated: Observable<AllTasks[]>;
 
 
     constructor(private http: HttpClient) {
@@ -35,8 +35,8 @@ export class TaskService implements OnInit {
     getAllTasks(parentId) {
         let getTasksRoute = '/parent/getTasksbyParent/' + parentId;
        return this.http.get<AllTasks[]>((getTasksRoute)).subscribe((data) => {
-            this.allTasksSubject.next(this.tasksArr);
-        console.log(data);
+           this.tasksArr = data;
+            this.allTasksSubject.next(this.tasksArr);            
         })
     }
 

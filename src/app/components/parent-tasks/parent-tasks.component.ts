@@ -16,7 +16,7 @@ import { AllTasks } from '../../models/allTasks';
 
 export class ParentTasksComponent implements OnInit {
 
-  public tasks: AllTasks[] = new Array<AllTasks>();
+  public tasks=[];
   
   private _currentParentEmail = localStorage.getItem("currentParent");
   public _currentParent: Parent = new Parent();
@@ -36,8 +36,14 @@ export class ParentTasksComponent implements OnInit {
     this._currentParent = resp[0];    
     this.taskService.getAllTasks(this._currentParent.user_id);    
     this.taskService.allTasksUpdated.subscribe((res) => {
-      this.tasks = res;    
-      console.log(this.tasks);
+
+      for(let i=0; i<res.length;i++){
+        for (let j = 0; j < res[i].Tasks.length; j++) {
+          
+          this.tasks.push(res[i].Tasks[j]);
+        }
+      }
+      console.log(this.tasks)
      });
    });
   }
