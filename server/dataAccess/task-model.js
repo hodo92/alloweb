@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const dataAccess = require('./dataAccess');
-const user = require('../dataAccess/user-model');
 
 class Task {
     constructor() {
@@ -10,11 +9,7 @@ class Task {
                 primaryKey: true
             },
             user_id: {
-                type: Sequelize.INTEGER,
-                references: {
-                    model: user.model,
-                    key: 'user_id'
-                }
+                type: Sequelize.INTEGER
             },
             title: {
                 type: Sequelize.TEXT
@@ -32,15 +27,13 @@ class Task {
                 type: Sequelize.TINYINT
             }
         });
-       this.model.belongsTo(user.model, { foreignKey: 'user_id' })
 
     }
 
     // //getAllChildTasks
     getAllRows(userId) {
-        console.log("++++++++++++++++++++++++++");
-        console.log(userId);
-        return this.model.findAll({ where: { user_id: userId }, include: [user.model] }); //, include: [User]
+        console.log("++++++++++++++++++++++++++"); 
+        return this.model.findAll({ where: { user_id: userId }, include: ["User" ] }); //, include: [User]
     }
 
     //getAllParentTasks

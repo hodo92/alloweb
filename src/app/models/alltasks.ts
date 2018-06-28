@@ -7,7 +7,7 @@ export class AllTasks {
         email: string;
         user_img: string;
         balance: number;
-        is_parent: boolean}>
+        is_parent: number}>;
     task_id: number;
     user_id: number;
     title: string;
