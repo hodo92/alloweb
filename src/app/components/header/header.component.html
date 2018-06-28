@@ -9,8 +9,21 @@
     <span class="example-spacer"></span>
     <!-- <mat-icon class="example-icon">favorite</mat-icon> -->
     <!-- <mat-icon class="example-icon">attach_money</mat-icon> -->
-    <span *ngIf="parentObj" style="font-size: 14px;">{{parentObj.first_name}} {{parentObj.last_name}}<mat-icon>keyboard_arrow_down</mat-icon></span>
-    <button mat-button (click)="logOut()">Log Out</button>
+    <!-- <span *ngIf="parentObj" style="font-size: 14px;">{{parentObj.first_name}} {{parentObj.last_name}}<mat-icon>keyboard_arrow_down</mat-icon></span> -->
+    
+
+    <div class="parentImage" *ngIf="parent">
+        <img src="{{parent.user_img}}" alt="User Image">
+    </div>
+
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="parent">
+        {{parent.first_name}} {{parent.last_name}}
+        <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logOut()">Log Out</button>
+        <!-- <button mat-menu-item>Item 1</button> -->
+    </mat-menu>
     
     <!-- <span>$5</span> -->
 </mat-toolbar>

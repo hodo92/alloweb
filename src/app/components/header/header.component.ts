@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-    public parentObj: Parent;
+    public parent: Parent;
     constructor(private parentService: ParentService, private router: Router) {
         this.parentService.dataUpdated.subscribe((data) => {
-            this.parentObj = data[0];
-            console.log(this.parentObj);
+            this.parent = data[0];
+            console.log(this.parent);
         });
     }
 
