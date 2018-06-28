@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/task';
 // import { TaskService } from '../../services/task.service';
 import { ParentTasksComponent } from '../parent-tasks/parent-tasks.component';
@@ -9,7 +9,7 @@ import { ParentTasksComponent } from '../parent-tasks/parent-tasks.component';
     templateUrl: './task.component.html',
     styleUrls: ['./task.component.css']
 })
-export class TaskComponent implements OnInit, OnChanges {
+export class TaskComponent implements OnInit {
 
     color = 'accent';
     taskCompletedCheck = false;
