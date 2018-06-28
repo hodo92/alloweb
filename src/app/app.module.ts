@@ -46,6 +46,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatBadgeModule } from '@angular/material/badge';
+
 
 
 
@@ -93,6 +95,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatSelectModule,
         MatNativeDateModule,
         MatMenuModule,
+        MatBadgeModule,
         JsonpModule
     ],
     entryComponents: [
