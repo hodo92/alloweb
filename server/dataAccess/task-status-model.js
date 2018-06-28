@@ -14,8 +14,8 @@ class Task_Status {
                 type: Sequelize.STRING(20)
             }
         });
+        // task.model.hasMany(this.model, { foreignKey: 'status_id' });
         task.model.hasMany(this.model, { foreignKey: 'status_id' });
-
         // this.model.belongsTo(task.model);
         // task.model.hasOne(this.model, { foreignKey: 'status_id' });
     }

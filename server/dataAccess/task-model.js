@@ -32,7 +32,7 @@ class Task {
                 type: Sequelize.TINYINT
             }
         });
-       // this.model.belongsTo(user.model, { foreignKey: 'user_id' })
+       this.model.belongsTo(user.model, { foreignKey: 'user_id' })
         // User.hasMany(this.model, { foreignKey: 'user_id' });
     }
 
