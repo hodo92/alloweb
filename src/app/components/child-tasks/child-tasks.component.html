@@ -1,6 +1,6 @@
 <div class="appTasks">
     <app-add-task (addTaskEmit)="addTask($event)"></app-add-task>
     <h2 style="padding-top: 20px;">Daily Tasks</h2>
-    <app-task-card class="col-3" *ngFor="let task of tasks; let i = index" [task]=task (taskStatusCompletedEmit)="taskStatusCompleted($event)"></app-task-card>
+    <app-task-card class="col-3" *ngFor="let task of tasks; let i = index" [task]="task" [_isParent]="_isParent" (taskStatusCompletedEmit)="taskStatusCompleted($event)"></app-task-card>
     <!-- <app-tasks></app-tasks> -->
 </div>

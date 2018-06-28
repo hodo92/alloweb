@@ -12,6 +12,8 @@ import { ParentTasksComponent } from '../parent-tasks/parent-tasks.component';
 export class TaskCardComponent implements OnInit {
 
     color = 'accent';
+    @Input() _isParent: Boolean;
+    // _isParent: Boolean = true;
     taskCompletedCheck = false;
     taskCompletedDisabled = false;
     checked = true;
@@ -34,10 +36,15 @@ export class TaskCardComponent implements OnInit {
     constructor() {}
     // constructor(private parentTask: ParentTasksComponent ) {}
 
-    ngOnInit() { }
+    ngOnInit() {
+        console.log("_isParen");
+        console.log(this._isParent);
+        
+    }
 
     taskStatusCompleted(task: Task) {
         this.taskStatusCompletedEmit.emit(task);
 
     }
+
 }
