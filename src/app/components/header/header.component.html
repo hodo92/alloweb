@@ -1,13 +1,16 @@
 <mat-toolbar color="primary">
-    <span routerLink="/" style="margin-right: 25px; font-family: 'Quicksand', sans-serif;">Alloweb</span>
+    <span routerLink="/parent-main" style="margin-right: 25px; font-family: 'Quicksand', sans-serif;">Alloweb</span>
     <div class="button-row">
         <button mat-button routerLink="/parent-main">Parent Main</button>
         <button mat-button routerLink="/child-view">Tasks</button>
         <!-- <a mat-button routerLink=".">Link</a> -->
-        <button mat-button routerLink="/wish-list">wishList</button>
+        <button mat-button routerLink="/wish-list">WishList</button>
     </div>
     <span class="example-spacer"></span>
     <!-- <mat-icon class="example-icon">favorite</mat-icon> -->
     <!-- <mat-icon class="example-icon">attach_money</mat-icon> -->
-    <span>$5</span>
+    <span *ngIf="parentObj" style="font-size: 14px;">{{parentObj.first_name}} {{parentObj.last_name}}<mat-icon>keyboard_arrow_down</mat-icon></span>
+    <button mat-button (click)="logOut()">Log Out</button>
+    
+    <!-- <span>$5</span> -->
 </mat-toolbar>

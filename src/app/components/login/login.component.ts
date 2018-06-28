@@ -25,10 +25,8 @@ export class LoginComponent implements OnInit {
     ngOnInit() { }
 
     ValidateEmail(mail) {
-        console.log(mail);
         var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (mail.match(mailformat)) {
-            console.log("mail match");
             return true;
         } else {
             return false;
@@ -36,7 +34,6 @@ export class LoginComponent implements OnInit {
     }
 
     parentLogin(parentEmail) {
-        console.log(parentEmail);
         if (this.ValidateEmail(parentEmail)) {
             this.parentService.checkParent(parentEmail)
             this.parentService.dataUpdated.subscribe((resp) => {
