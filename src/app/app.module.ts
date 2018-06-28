@@ -46,7 +46,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 
-
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -87,7 +87,9 @@ import { MatSelectModule } from '@angular/material/select';
         MatDatepickerModule,
         MatSelectModule,
         MatNativeDateModule,
-        JsonpModule
+        JsonpModule,
+        FileUploadModule,
+        MatSelectModule 
     ],
     entryComponents: [
             AddChildComponent

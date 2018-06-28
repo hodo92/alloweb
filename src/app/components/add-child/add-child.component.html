@@ -2,27 +2,51 @@
   add-child works!
 </p>
 <form class="child-form">
+
   <mat-form-field class="example-full-width">
     <input matInput [(ngModel)]="newChild.last_name"
       name="last_name" placeholder="Enter Last Name"
       value="">
   </mat-form-field>
+
+
   <mat-form-field class="example-full-width">
     <input matInput [(ngModel)]="newChild.first_name"
       name="first_name" placeholder="Enter First Name"
       value="">
   </mat-form-field>
+
+
   <mat-form-field class="example-full-width">
     <input matInput [(ngModel)]="newChild.email"
       name="email" type="email" placeholder="Enter Email"
       value="">
   </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <input matInput [(ngModel)]="newChild.user_img"
-      name="image" placeholder="Paste Img url"
-      value="">
-  </mat-form-field>
+
+
+  <!-- <mat-form-field class="example-full-width"> -->
+        <div>
+        <input type="file" [(ngModel)]="newChild.user_img"  name="image" id="fileUpload" multiple ng2FileSelect
+            [uploader]="uploader" value="">
+        </div>
+        <div class="row uploadList" *ngFor="let item of uploader.queue">
+            <div>{{item.file.name}}</div>
+            <div>
+                <div class="progress">
+                    <div class="progress-bar bg-success" [ngStyle]="{'width':item.progresss+'%'}"></div>
+                </div>
+            </div>
+            <div>
+                
+                <button type="button" class="btn btn-dark" (click)="item.upload()">Upload Image</button>
+                <button type="button" class="btn btn-danger" (click)="item.remove()">Cancel Image</button>
+            </div>
+            
+            </div>
+  <!-- </mat-form-field> -->
+
+
   <button mat-raised-button type="button"
-    color="primary" (click)="addChild(newChild)"
+    color="primary" (click)="addChild(newChild)"  (click)="uploader.uploadAll()"
     class="add-child">Add</button>
 </form>
