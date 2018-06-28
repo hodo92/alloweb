@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 
 const parentApi = require('./server/routes/parentApi');
 const childApi = require('./server/routes/childApi');
-const taskApi = require('./server/routes/taskApi');
 const wishListApi = require('./server/routes/wishListApi');
 
 app.use(bodyParser.json());

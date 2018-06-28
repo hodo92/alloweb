@@ -13,20 +13,23 @@ import { AppComponent } from './app.component';
 import { ParentMainComponent } from './components/parent-main/parent-main.component';
 import { ChildTasksComponent } from './components/child-tasks/child-tasks.component';
 import { HeaderComponent } from './components/header/header.component';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { TaskComponent } from './components/task/task.component';
+import { TaskCardComponent } from './components/task-card/task-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { ChildCardComponent } from './components/child-card/child-card.component';
-import { AddChildComponent } from './add-child/add-child.component';
+import { AddChildComponent } from './components/add-child/add-child.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import { ParentTasksComponent } from './components/parent-tasks/parent-tasks.component';
+import { ChildMainComponent } from './components/child-main/child-main.component';
 
 
 import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { WishListService } from './services/wish-list.service';
-import { JsonpModule  } from '@angular/http';
 
+
+import { JsonpModule  } from '@angular/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -42,9 +45,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
-import { AddTaskComponent } from './add-task/add-task.component';
-import { ParentTasksComponent } from './components/parent-tasks/parent-tasks.component';
-
 
 
 
@@ -55,14 +55,14 @@ import { ParentTasksComponent } from './components/parent-tasks/parent-tasks.com
         ParentMainComponent,
         ChildTasksComponent,
         HeaderComponent,
-        TasksComponent,
-        TaskComponent,
+        TaskCardComponent,
         LoginComponent,
         ChildCardComponent,
         AddChildComponent,
         WishListComponent,
         AddTaskComponent,
-        ParentTasksComponent
+        ParentTasksComponent,
+        ChildMainComponent
     ],
     imports: [
         BrowserModule,

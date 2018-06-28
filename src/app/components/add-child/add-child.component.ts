@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Child } from '../models/child';
-import { ChildService } from '../services/child.service';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Child } from '../../models/child';
+import { ChildService } from '../../services/child.service';
 
 @Component({
   selector: 'app-add-child',
@@ -10,7 +11,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./add-child.component.css']
 })
 export class AddChildComponent implements OnInit {
-  newChild = new Child
+  newChild = new Child;
 
   constructor(private childService: ChildService, private route: ActivatedRoute, private router: Router, public dialogRef: MatDialogRef<AddChildComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }

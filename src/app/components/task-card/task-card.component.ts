@@ -5,11 +5,11 @@ import { ParentTasksComponent } from '../parent-tasks/parent-tasks.component';
 
 
 @Component({
-    selector: 'app-task',
-    templateUrl: './task.component.html',
-    styleUrls: ['./task.component.css']
+    selector: 'app-task-card',
+    templateUrl: './task-card.component.html',
+    styleUrls: ['./task-card.component.css']
 })
-export class TaskComponent implements OnInit {
+export class TaskCardComponent implements OnInit {
 
     color = 'accent';
     taskCompletedCheck = false;

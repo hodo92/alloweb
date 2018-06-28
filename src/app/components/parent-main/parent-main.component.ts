@@ -4,7 +4,8 @@ import { ChildService } from '../../services/child.service';
 import { Parent } from  '../../models/parent';
 import { Child } from '../../models/child';
 import { MatDialog } from '@angular/material';
-import { AddChildComponent } from '../../add-child/add-child.component';
+import { AddChildComponent } from '../add-child/add-child.component';
+
 
 @Component({
   selector: 'app-parent-main',
