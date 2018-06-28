@@ -35,7 +35,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule, MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatNativeDateModule, MatMenuModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
@@ -92,6 +92,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatDatepickerModule,
         MatSelectModule,
         MatNativeDateModule,
+        MatMenuModule,
         JsonpModule
     ],
     entryComponents: [

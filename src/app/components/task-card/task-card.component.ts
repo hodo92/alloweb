@@ -37,8 +37,6 @@ export class TaskCardComponent implements OnInit {
     // constructor(private parentTask: ParentTasksComponent ) {}
 
     ngOnInit() {
-        console.log("_isParen");
-        console.log(this._isParent);
         
     }
 
