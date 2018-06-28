@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Task } from '../../models/task';
 import { TaskService } from '../../services/task.service';
+import { ParentTasksComponent } from '../parent-tasks/parent-tasks.component';
 
 @Component({
     selector: 'app-task',
@@ -21,12 +22,12 @@ export class TaskComponent implements OnInit, OnChanges {
     labelPosition = 'after';
     paidDisabled = true;
 
-    @Input() task: Task; // = new Task();
+    @Input() task: Task; 
 
-    // tasks: Task[] = new Array<Task>();
+     tasks: Task[] = new Array<Task>();
 
-    constructor(private parentTask) {
-        //private taskService: TaskService
+    constructor(private parentTask: ParentTasksComponent ) {
+        // private taskService: TaskService
         // this.taskService.tasksUpdated.subscribe((data) => {
         //     this.tasks = data;
         //     console.log(this.tasks);
