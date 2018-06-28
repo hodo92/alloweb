@@ -33,7 +33,7 @@ class Task {
             }
         });
        this.model.belongsTo(user.model, { foreignKey: 'user_id' })
-        // User.hasMany(this.model, { foreignKey: 'user_id' });
+
     }
 
     // //getAllChildTasks
