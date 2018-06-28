@@ -4,19 +4,17 @@
 
 <button class="mySearchbtn" (click)="getItems()">Search</button>
 
-<div class="wish-list-item" *ngFor="let wish of wishListData">
+<!-- <div class="wish-list-item" *ngFor="let wish of wishListData">
 
     <mat-card class="wish-list-card">
 
         <br>
         <mat-progress-bar mode="determinate" value="40">goal-bar</mat-progress-bar>
 
-
-        <img src="{{wish.goal_img}}">
-        <b> {{wish.title}}</b>
-        <br> {{wish.description}}
-        <br> price: {{wish.price}}$
-
+        <img src="{{wish.galleryURL[0]}}">
+        <b> {{wish.title[0]}}</b>
+        <br> {{wish.subtitle[0]}}
+        <br> price: {{wish.sellingStatus[0].currentPrice[0].__value__}}$
         <br>
         <a href="{{wish.link}}" target="_blank">
             <button mat-button class="go">
@@ -24,4 +22,26 @@
             </button>
         </a>
     </mat-card>
-</div>
+</div> -->
+
+<!-- work with data-base only  -->
+
+<div class="wish-list-item" *ngFor="let wish of wishListData">
+
+    <mat-card class="wish-list-card">
+
+        <br>
+        <mat-progress-bar mode="determinate" value="40">goal-bar</mat-progress-bar>
+
+        <img src="{{wish.goal_img}}">
+        <b> {{wish.title}}</b>
+        <br> {{wish.description}}
+        <br> price: {{wish.price}}$
+        <br>
+        <a href="{{wish.link}}" target="_blank">
+            <button mat-button class="go">
+                <b> buy the product now</b>
+            </button>
+        </a>
+    </mat-card>
+</div> 

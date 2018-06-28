@@ -17,7 +17,7 @@ export class WishListComponent implements OnInit {
     constructor(private wishListService : WishListService) {
         this.wishListService.WishListUpdated.subscribe((data) => {
             this.wishListData = data;
-            console.log(data);
+            // console.log(data);
             
         })
      }
@@ -26,7 +26,7 @@ export class WishListComponent implements OnInit {
       this.wishListService.getWishList(this.childId)
     }
 
-    getItems( ) { 
+    getItems() { 
         this.wishListService.findItemsByKeywords(this.keyword);
     }
 }
