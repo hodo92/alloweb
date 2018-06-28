@@ -17,10 +17,11 @@ import { TaskCardComponent } from './components/task-card/task-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { ChildCardComponent } from './components/child-card/child-card.component';
 import { AddChildComponent } from './components/add-child/add-child.component';
-import { WishListComponent } from './components/wish-list/wish-list.component';
+import { WishListSearchComponent } from './components/wish-list-search/wish-list-search.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { ParentTasksComponent } from './components/parent-tasks/parent-tasks.component';
 import { ChildMainComponent } from './components/child-main/child-main.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
 
 
 import { ParentService } from './services/parent.service';
@@ -49,6 +50,9 @@ import { MatSelectModule } from '@angular/material/select';
 
 
 
+
+
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -59,10 +63,11 @@ import { MatSelectModule } from '@angular/material/select';
         LoginComponent,
         ChildCardComponent,
         AddChildComponent,
-        WishListComponent,
+        WishListSearchComponent,
         AddTaskComponent,
         ParentTasksComponent,
-        ChildMainComponent
+        ChildMainComponent,
+        WishListComponent
     ],
     imports: [
         BrowserModule,

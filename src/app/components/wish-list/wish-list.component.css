@@ -1,47 +1,58 @@
-.wish-list-item{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    
- }
-
- .mat-progress-bar{
-     margin: 15px ; 
-     width: 300px;
- }
-img {
-    width: 30%;
-    height: 150px;
-    float:left ; 
-    padding: 20px ; 
- }
-        
- .wish-list-card {
-    margin-top: 15px;
-    width: 400px;
-    background-color: #FFFFFF ; 
-    font-family: 'Indie Flower', cursive;
- }
-
- .mat-card{
-    padding: 0.5% ;
- }
-
-.go{
-    font-family: 'Indie Flower', cursive;
-    color: green ; 
+.container {
+  display: flex;
+}
+.tasks {
+  flex: 3;
+}
+.expander-container {
+  flex: 1;
 }
 
-#mySearch , .mySearchbtn {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    width: 400px;
+.wish-list-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.mat-progress-bar {
+  margin: 15px;
+  width: 300px;
+}
+
+img {
+  width: 35%;
+  height: 150px;
+  float: left;
+  padding: 20px;
+}
+
+.wish-list-card {
+  margin-top: 15px;
+  width: 400px;
+  background-color: #FFFFFF;
+  font-family: 'Indie Flower', cursive;
+}
+
+.mat-card {
+  padding: 0.5%;
+}
+
+.go {
+  font-family: 'Indie Flower', cursive;
+  color: green;
+}
+
+#mySearch,
+.mySearchbtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  width: 400px;
 }

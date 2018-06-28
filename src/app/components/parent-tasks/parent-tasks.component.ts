@@ -5,7 +5,6 @@ import { Parent } from  '../../models/parent';
 import { Task } from '../../models/task';
 import { MatDialog } from '@angular/material';
 import { TaskService } from '../../services/task.service';
-import { AllTasks } from '../../models/allTasks';
 
 
 @Component({

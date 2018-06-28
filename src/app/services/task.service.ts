@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Task } from '../models/task';
 import { Observable, Subject } from 'rxjs';
-import { AllTasks } from '../models/allTasks';
+import { AllTasks } from '../models/alltasks';
 
 @Injectable({
     providedIn: 'root'

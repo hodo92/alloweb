@@ -1,0 +1,50 @@
+
+
+<input type="search" id="mySearch" [(ngModel)]="keyword" placeholder="Search for something..">
+
+<button class="mySearchbtn" (click)="getItems()">Search</button>
+<p class="err">{{error}}</p>
+
+<div class="wish-list-item" *ngFor="let wish of wishSearchData">
+
+    <mat-card class="wish-list-card">
+
+        <br>
+        <mat-progress-bar mode="determinate" value="40">goal-bar</mat-progress-bar>
+
+        <img class="wish-img" src="{{wish.galleryURL}}">
+        <b class="wish-title"> {{wish.title}}</b>
+        <br class="wish-cond"> {{wish.condition[0].conditionDisplayName}}
+        <br class="wish-price"> price: {{wish.sellingStatus[0].currentPrice[0].__value__ | currency}} 
+        <br>
+        <a class="wish-url" href="{{wish.viewItemURL}}" target="_blank">
+            <button mat-button class="go">
+                <b> buy the product now</b>
+            </button>
+        </a>
+    </mat-card>
+</div>
+
+
+
+<!-- work with data-base only  -->
+
+<!-- <div class="wish-list-item" *ngFor="let wish of wishListData">
+
+    <mat-card class="wish-list-card">
+
+        <br>
+        <mat-progress-bar mode="determinate" value="40">goal-bar</mat-progress-bar>
+
+        <img src="{{wish.goal_img}}">
+        <b> {{wish.title}}</b>
+        <br> {{wish.description}}
+        <br> price: {{wish.price}}$
+        <br>
+        <a href="{{wish.link}}" target="_blank">
+            <button mat-button class="go">
+                <b> buy the product now</b>
+            </button>
+        </a>
+    </mat-card>
+</div>  -->
