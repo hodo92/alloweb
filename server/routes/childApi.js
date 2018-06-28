@@ -8,10 +8,13 @@ const task = require('../dataAccess/task-model')
 //get tasks by childuserID -- this will go in Child API
 router.get('/:userId', async (req, res) => {
     let childId = req.params.userId;
+    console.log("++++++++++++++++++++++++++")
+    console.log(childId);
+    
     try {
         res.send(JSON.stringify(await task.getAllRows(childId)));
     } catch (err) {
-        alert(err);
+        console.log(err);
     }
 })
 
@@ -39,6 +42,7 @@ router.post('/addChild/', async (req, res) => {
 
     res.send(JSON.stringify(await user.addChild(newChild)));
 })
+
 
 // Update status
 router.put('/updateStatus', (req, res) => {

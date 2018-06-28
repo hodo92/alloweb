@@ -38,6 +38,8 @@ class Task {
 
     // //getAllChildTasks
     getAllRows(userId) {
+        console.log("++++++++++++++++++++++++++");
+        console.log(userId);
         return this.model.findAll({ where: { user_id: userId }, include: [user.model] }); //, include: [User]
     }
 
@@ -49,26 +51,6 @@ class Task {
     addTask(task) {
         return this.model.create(task);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
 
 
     taskStatusCompleted(updatedTaskId) {
