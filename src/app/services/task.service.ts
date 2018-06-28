@@ -27,7 +27,9 @@ export class TaskService implements OnInit {
 
     getTasks(childId): void {
         this.http.get<any[]>('/child/' + childId).subscribe((data) => {
-            this.tasksArr = data;            
+            this.tasksArr = data;
+            console.log(data);
+                      
             this.tasksSubject.next(this.tasksArr);
         })
     }
@@ -45,5 +47,30 @@ export class TaskService implements OnInit {
             this.tasksArr = data;
             this.tasksSubject.next(this.tasksArr);
         })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    taskStatusCompleted(task) {
+        console.log("task");
+        console.log(task);
+        
+        // debugger;
+        // task.status_id = 3;
+        this.http.put<any>('/child/updateStatus', task).subscribe((data) => {
+            this.tasksArr = data;
+            console.log(this.tasksArr);
+            
+            this.tasksSubject.next(this.tasksArr);
+        });
     }
 }

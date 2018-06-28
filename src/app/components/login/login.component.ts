@@ -3,54 +3,59 @@ import { ParentService } from '../../services/parent.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
 
 
 export class LoginComponent implements OnInit {
-  public isParent: Boolean
-  private error: String = '';
+    public isParent: Boolean
+    private error: String = '';
 
-  // public get currentParent() {
-  //   return this._currentParent;
-  // }
-  // public set currentParent(value) {
-  //   this._currentParent = value;
-  // }
+    // public get currentParent() {
+    //   return this._currentParent;
+    // }
+    // public set currentParent(value) {
+    //   this._currentParent = value;
+    // }
 
-  constructor(private parentService: ParentService, private route: ActivatedRoute, private router: Router) {}
+    constructor(private parentService: ParentService, private route: ActivatedRoute, private router: Router) { }
 
-  ngOnInit() {}
+    ngOnInit() { }
 
-  ValidateEmail(mail) {
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (mail.match(mailformat)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-   parentLogin(parentEmail) {
-    if (this.ValidateEmail(parentEmail)) {
-      this.parentService.checkParent(parentEmail)
-      this.parentService.dataUpdated.subscribe((resp) => {
-          if (typeof resp[0] == 'undefined') {
-            this.error ='Email address not found';
-            setTimeout(() => { this.error = ''; }, 3000);
-          } else if (resp[0].is_parent == true) {
-            this.router.navigate(['parent-main']);
-            localStorage.setItem("currentParent", resp[0].email);
-          } else  if (resp[0].is_parent == false){
-            this.router.navigate(['child-view/' + resp[0].user_id]);
-            }
-          })
-         } else {
-        this.error = 'Email format not valid';
-        setTimeout(() => { this.error = ''; }, 3000);
+    ValidateEmail(mail) {
+        console.log(mail);
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (mail.match(mailformat)) {
+            console.log("mail match");
+            return true;
+        } else {
+            return false;
         }
-      }
-  }
+    }
+
+    parentLogin(parentEmail) {
+        console.log(parentEmail);
+        if (this.ValidateEmail(parentEmail)) {
+            this.parentService.checkParent(parentEmail)
+            this.parentService.dataUpdated.subscribe((resp) => {
+                if (typeof resp[0] == 'undefined') {
+                    this.error = '*Email address not found';
+                    setTimeout(() => { this.error = ''; }, 4000);
+                } else if (resp[0].is_parent == true) {
+                    this.error = '';
+                    this.router.navigate(['parent-main']);
+                    localStorage.setItem("currentParent", resp[0].email);
+                } else if (resp[0].is_parent == false) {
+                    this.error = '';
+                    this.router.navigate(['child-view/' + resp[0].user_id]);
+                }
+            })
+        } else {
+            this.error = '*Email format not valid';
+            setTimeout(() => { this.error = ''; }, 3000);
+        }
+    }
+}
 
