@@ -41,17 +41,19 @@ export class LoginComponent implements OnInit {
             this.parentService.checkParent(parentEmail)
             this.parentService.dataUpdated.subscribe((resp) => {
                 if (typeof resp[0] == 'undefined') {
-                    this.error = 'Email address not found';
-                    setTimeout(() => { this.error = ''; }, 3000);
+                    this.error = '*Email address not found';
+                    setTimeout(() => { this.error = ''; }, 4000);
                 } else if (resp[0].is_parent == true) {
+                    this.error = '';
                     this.router.navigate(['parent-main']);
                     localStorage.setItem("currentParent", resp[0].email);
                 } else if (resp[0].is_parent == false) {
+                    this.error = '';
                     this.router.navigate(['child-view/' + resp[0].user_id]);
                 }
             })
         } else {
-            this.error = 'Email format not valid';
+            this.error = '*Email format not valid';
             setTimeout(() => { this.error = ''; }, 3000);
         }
     }
