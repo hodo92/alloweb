@@ -1,0 +1,73 @@
+
+.appTasks {
+    padding: 15px;
+    margin: 0 auto;
+    width: 400px;
+}
+
+h1{
+    padding-top: 20px
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+mat-grid-tile {
+    background: lightblue;
+}
+
+.justifyLeft {
+    /* background-color: red; */
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.mat-grid-tile, .mat-figure {
+    /* background-color: red; */
+    display: flex;
+    justify-content: left;
+}
+
+.row-example div {
+    border: 1px solid red;
+}
+
+.column-example div {
+    border: 1px solid red;
+}
+
+img{
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 80px;
+    height: 60px;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 50px;
+  }
+  
+  .left {
+    left: 0;
+  }
+  
+  .right {
+    right: 0;
+  }
+
+  .ebayimg{
+        width: 150px;
+  }
+  
+  .split right{
+margin-top: 10px;
+  }

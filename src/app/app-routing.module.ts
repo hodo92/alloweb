@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'parent-main', component: ParentMainComponent },
     { path: 'child-main', component: ChildMainComponent },
   { path: 'parent-tasks', component: ParentTasksComponent },
-  { path: 'child-view/:id', component: ChildTasksComponent},
+  { path: 'child-view/:id', component: ChildMainComponent},
   { path: 'add-child/:id', component: AddChildComponent },
   { path: 'wish-list', component: WishListComponent}
 ];
