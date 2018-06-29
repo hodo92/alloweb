@@ -15,4 +15,19 @@ router.get('/:userId', async (req, res) => {
     }
 })
 
+//add new item to wishlist
+router.post('/addToWishList', async (req, res) =>{
+    let item = req.body.newitem;
+    console.log('!!!!!!!!!!!!!!!!!!');
+    console.log(item);
+    try {
+        await wishList.addToWishList(item);
+        console.log(item.title+ 'added to your wishlist!')
+        res.send((await wishList.getAllRows(item.user_id)));
+    } catch (err) {
+        alert(err)
+    }
+
+})
+
 module.exports = router;

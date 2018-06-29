@@ -18,17 +18,18 @@ export class WishListSearchComponent implements OnInit {
         this.wishListService.EbayDataUpdated.subscribe((data) => {
             this.wishSearchData = data;
             // console.log(data);
-            
+
         })
      }
 
   ngOnInit() {
      // this.wishListService.getWishList(this.childId)
+   
     }
 
     getItems() { 
         this.wishListService.findItemsByKeywords(this.keyword)
-        this.wishListService.WishListUpdated.subscribe((data)=>{
+        this.wishListService.EbayDataUpdated.subscribe((data)=>{
         
            this.wishSearchData = data;
             console.log(this.wishSearchData);
@@ -36,5 +37,22 @@ export class WishListSearchComponent implements OnInit {
         })
         
     }
+    addToWishList(item){
+        
+        let itemToAdd = {
+            user_id : this.childId,
+            goal_id: null,
+            title: item.title[0],
+            description: "description",
+            price: item.sellingStatus[0].currentPrice[0].__value__,
+            goal_img: item.galleryURL[0],
+            link: item.viewItemURL[0],
+            status: false 
+        }
+        
+        this.wishListService.addToWishList(itemToAdd)
+        
+    }
+
 }
 

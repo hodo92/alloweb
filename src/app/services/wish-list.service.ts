@@ -16,7 +16,7 @@ export class WishListService {
     public error: String
     ebayData: WishList[] = new Array<WishList>();
     wishData: WishList[] = new Array<WishList>();
-    public WishListSubject: Subject<WishList[]> //= new Subject<WishList[]>();
+    public WishListSubject: Subject<WishList[]> 
     public WishListUpdated: Observable<WishList[]>;
     public EbayDataSubject: Subject<WishList[]>;
     public EbayDataUpdated: Observable<WishList[]>;
@@ -60,12 +60,13 @@ export class WishListService {
     }
     
 
-    // getTasks(): void {
-    //     console.log("task.service - getTasks");
-    //     this.http.get<any[]>('/child/' + this.userId).subscribe((data) => {
-    //         this.tasksArr = data;
-    //         this.tasksSubject.next(this.tasksArr);
-    //     })
-    // }
+    addToWishList(item:WishList){
+        //console.log(item)
+        this.http.post<WishList[]>('/wishList/addToWishList', {newitem: item}).subscribe((data) =>{
+            this.wishData = data;
+            this.WishListSubject.next(this.wishData)
+        })
+        
+    }
 }
 
