@@ -47,6 +47,10 @@ class WishList {
     addToWishList(item){
        return this.model.create(item);
     }
+
+    removeFromWishList(wish){
+        return this.model.destroy({where: { goal_id: wish}})
+    }    
 }
 
 // WishList.belongsTo(User, { foreignKey: 'user_id' });
