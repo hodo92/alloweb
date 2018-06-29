@@ -13,19 +13,28 @@ export class HeaderComponent implements OnInit {
 
     public parent: Parent;
     constructor(private parentService: ParentService, private router: Router) {
+        
+    }
+
+    ngOnInit() {
         this.parentService.dataUpdated.subscribe((data) => {
             this.parent = data[0];
             console.log(this.parent);
         });
     }
 
-    ngOnInit() {
-    }
-
     logOut() {
         localStorage.removeItem("currentParent");
+        this.parent = undefined;
         this.router.navigate(['']);
-        
     }
 
+    navigateToChildTasks(userId) {
+        this.router.navigate(['child-view/' + userId]);
+    }
+
+    navigateToChildWishList(userId) {
+        this.router.navigate(['/wish-list']);
+        
+    }
 }

@@ -17,7 +17,6 @@ const routes: Routes = [
     { path: 'child-view/:id', component: ChildMainComponent },
     { path: 'add-child/:id', component: AddChildComponent },
 
-    
     { path: 'child-main', component: ChildMainComponent },
     { path: 'wish-list', component: WishListComponent },
 
