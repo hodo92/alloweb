@@ -34,7 +34,8 @@ export class HeaderComponent implements OnInit {
     }
 
     navigateToChildWishList(userId) {
-        this.router.navigate(['/wish-list']);
+        console.log(userId);
+        this.router.navigate(['/wish-list/' + userId]);
         
     }
 }

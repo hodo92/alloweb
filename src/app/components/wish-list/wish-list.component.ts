@@ -3,6 +3,7 @@ import { WishListService } from '../../services/wish-list.service';
 import { WishList } from '../../models/wishList';
 import { MatDialog } from '@angular/material';
 import { WishListSearchComponent } from '../wish-list-search/wish-list-search.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-wish-list',
@@ -10,12 +11,19 @@ import { WishListSearchComponent } from '../wish-list-search/wish-list-search.co
   styleUrls: ['./wish-list.component.css']
 })
 export class WishListComponent implements OnInit {
-  public childId = 2;
+  public childId: number;
   public wishListData: WishList[];
 
-  constructor(private wishListService: WishListService, public dialog: MatDialog) { }
+  constructor(private wishListService: WishListService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
+    this.route.params.subscribe((params) => {
+      this.childId = params.id;
+      console.log(this.childId);
+    });
+   }
 
   ngOnInit() {
+    
+
     this.wishListService.getWishList(this.childId)
     this.wishListService.WishListUpdated.subscribe((data)=>{
       this.wishListData = data
