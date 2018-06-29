@@ -6,4 +6,5 @@ export class Task {
     payment: string;
     deadline: Date;
     status_id: number;
+    User?: any;
 }
