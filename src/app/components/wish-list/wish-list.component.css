@@ -28,6 +28,14 @@ img {
   padding: 20px;
 }
 
+.ebayimg {
+  border-radius: 50%;
+  vertical-align: middle;
+  width: 150px;
+  height: 60px;
+  position: sticky;
+}
+
 .wish-list-card {
   margin-top: 15px;
   width: 400px;
@@ -39,11 +47,33 @@ img {
   padding: 0.5%;
 }
 
+.search-popup{
+  margin-top: 30px;
+  margin-left: 15px;
+  padding: 5px;
+}
 .go {
+  top: 25px;
   font-family: 'Indie Flower', cursive;
   color: green;
 }
+.remove-wish{
+  border-radius: 50%;
+  background-color: rgba(197, 44, 44, 0.877);
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  box-shadow: 1px 1px 1px rgba(83, 81, 81, 0.61);
+  line-height: 15px;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+}
 
+.remove-wish:hover{
+  cursor: pointer;
+  transform: scale(1.1)
+}
 #mySearch,
 .mySearchbtn {
   display: flex;

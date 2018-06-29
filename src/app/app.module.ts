@@ -99,7 +99,8 @@ import { MatBadgeModule } from '@angular/material/badge';
         JsonpModule
     ],
     entryComponents: [
-            AddChildComponent
+            AddChildComponent,
+            WishListSearchComponent
             ],
     providers: [
         ParentService,

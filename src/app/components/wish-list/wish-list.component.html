@@ -1,4 +1,6 @@
+<img class="ebaylogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4VtUsBNnK6cSYzAe7qQi1T9LMZBe34Pkl_uBCKa-J5oNVq8ab" alt="Ebay Wish List" class="ebayimg">
 <div class="container">
+
 <div class="tasks">
 <!-- work with data-base only  -->
 
@@ -11,7 +13,7 @@
 
         <img src="{{wish.goal_img}}">
         <b> {{wish.title}}</b>
-        <br> {{wish.description}}
+        <br>
         <br> price: {{wish.price | currency}}
         <br>
         <a href="{{wish.link}}" target="_blank">
@@ -19,10 +21,14 @@
                 <b> buy the product now</b>
             </button>
         </a>
+        <a (click)="removeWish(wish)"><div class="remove-wish">
+            
+        </div></a>
     </mat-card>
 </div> 
 </div>
 <div class="expander-container">
-<app-wish-list-search></app-wish-list-search>
+<!-- <app-wish-list-search></app-wish-list-search> -->
+<button mat-raised-button class="search-popup" (click)="openDialog()">Add a new Wish!</button>
 </div>
 </div>

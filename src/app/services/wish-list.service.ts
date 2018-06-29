@@ -68,5 +68,13 @@ export class WishListService {
         })
         
     }
+
+    removeFromWishList(wish:WishList){
+      return  this.http.delete<WishList[]>('/wishList/removeFromWishList/' + wish.goal_id).subscribe((data)=>{
+            // this.wishData = data;
+            // this.WishListSubject.next(this.wishData);
+        })
+    }
+    
 }
 

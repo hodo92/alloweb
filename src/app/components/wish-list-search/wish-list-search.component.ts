@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { WishListService } from '../../services/wish-list.service';
 import { WishList } from '../../models/wishList';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
 @Component({
@@ -11,10 +13,12 @@ import { WishList } from '../../models/wishList';
 
 export class WishListSearchComponent implements OnInit {
     products: any[] = null;
-    public childId: number = 2 ;
+    public childId: number;
     wishSearchData: any = new Array<any>();
     keyword : string ; 
-    constructor(private wishListService : WishListService) {
+    constructor(private wishListService: WishListService, private route: ActivatedRoute, private router: Router, public dialogRef: MatDialogRef<WishListSearchComponent>,
+        @Inject(MAT_DIALOG_DATA) public data: any) {
+
         this.wishListService.EbayDataUpdated.subscribe((data) => {
             this.wishSearchData = data;
             // console.log(data);
@@ -24,7 +28,8 @@ export class WishListSearchComponent implements OnInit {
 
   ngOnInit() {
      // this.wishListService.getWishList(this.childId)
-   
+        this.childId = this.data
+        console.log(this.childId)
     }
 
     getItems() { 
@@ -51,6 +56,7 @@ export class WishListSearchComponent implements OnInit {
         }
         
         this.wishListService.addToWishList(itemToAdd)
+        this.dialogRef.close();
         
     }
 

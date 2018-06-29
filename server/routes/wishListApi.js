@@ -18,8 +18,6 @@ router.get('/:userId', async (req, res) => {
 //add new item to wishlist
 router.post('/addToWishList', async (req, res) =>{
     let item = req.body.newitem;
-    console.log('!!!!!!!!!!!!!!!!!!');
-    console.log(item);
     try {
         await wishList.addToWishList(item);
         console.log(item.title+ 'added to your wishlist!')
@@ -28,6 +26,19 @@ router.post('/addToWishList', async (req, res) =>{
         alert(err)
     }
 
+})
+
+//remove item from the wishlist
+
+router.delete('/removeFromWishList/:wish', async (req, res) => {
+    let wish = req.params.wish
+    console.log(wish);
+    try {
+        await wishList.removeFromWishList(wish);
+        res.send(JSON.stringify(wish + 'deleted'))
+    } catch (err){
+        alert(err);
+    }
 })
 
 module.exports = router;
