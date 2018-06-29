@@ -10,18 +10,18 @@
     <mat-card class="wish-list-card">
 
         <br>
-        <mat-progress-bar mode="determinate" value="40">goal-bar</mat-progress-bar>
+        <!-- <mat-progress-bar mode="determinate" value="40">goal-bar</mat-progress-bar> -->
 
         <img class="wish-img" src="{{wish.galleryURL}}">
         <b class="wish-title"> {{wish.title}}</b>
         <br class="wish-cond"> {{wish.condition[0].conditionDisplayName}}
         <br class="wish-price"> price: {{wish.sellingStatus[0].currentPrice[0].__value__ | currency}} 
         <br>
-        <a class="wish-url" href="{{wish.viewItemURL}}" target="_blank">
-            <button mat-button class="go">
-                <b> buy the product now</b>
+      
+            <button mat-button class="go" (click)="addToWishList(wish)">
+                <b>Add to Wish List</b>
             </button>
-        </a>
+        
     </mat-card>
 </div>
 

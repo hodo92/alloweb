@@ -43,6 +43,10 @@ class WishList {
     getAllRows(userId) {
         return this.model.findAll({ where: { user_id: userId }, include: [user.model] });
     }
+
+    addToWishList(item){
+       return this.model.create(item);
+    }
 }
 
 // WishList.belongsTo(User, { foreignKey: 'user_id' });
