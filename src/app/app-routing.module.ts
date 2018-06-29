@@ -12,17 +12,20 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
-  { path: 'parent-main', component: ParentMainComponent },
+    { path: '', component: LoginComponent },
+    { path: 'parent-main', component: ParentMainComponent },
+    { path: 'child-view/:id', component: ChildMainComponent },
+    { path: 'add-child/:id', component: AddChildComponent },
+
     { path: 'child-main', component: ChildMainComponent },
-  { path: 'parent-tasks', component: ParentTasksComponent },
-  { path: 'child-view/:id', component: ChildMainComponent},
-  { path: 'add-child/:id', component: AddChildComponent },
-  { path: 'wish-list', component: WishListComponent}
+    { path: 'wish-list', component: WishListComponent },
+
+
+    { path: 'parent-tasks', component: ParentTasksComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

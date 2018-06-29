@@ -48,6 +48,12 @@ export class ParentMainComponent implements OnInit {
     });
   
     }
+
+    // Must unsubscribe from 
+    // ngOnDestroy() {
+    //     this.ngUnsubscribe.next();
+    //     this.ngUnsubscribe.complete();
+    // }
   
   myFunction() {
     return "Log Me out, Scotty";
