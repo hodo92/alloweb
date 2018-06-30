@@ -1,15 +1,17 @@
 <!-- <div class="split left centered"> -->
-<div class="appTasks">
+<div class="appTasks" *ngIf="currentRoute">
     <h2 class="childTitle" *ngIf="currentRoute == 'child-task'">My Tasks</h2>
      <!-- {{tasks[0].User.first_name}}'s -->
     <h2 class="childTitle" *ngIf="currentRoute == 'child-view'">
         <img src="{{ img }}">
-        <span>{{user}}'s Tasks</span>
+        <span>{{user}}</span>
         <span class="example-spacer"></span>
-        <span style="margin-left: 50px; font-size: 20px;">${{balance}}</span>
+        <span class="childBalance">${{balance}}</span>
     </h2>
 
-    <!-- <app-add-task (addTaskEmit)="addTask($event)"></app-add-task> -->
+    <app-add-task (addTaskEmit)="addTask($event)"></app-add-task>
+
+    <h2 class="childSubTitle" *ngIf="currentRoute == 'child-view'">Tasks</h2>
 
     <app-task-card class="col-3" *ngFor="let task of tasks; let i = index"
         [task]=task (taskStatusCompletedEmit)="taskStatusCompleted($event)"></app-task-card>
