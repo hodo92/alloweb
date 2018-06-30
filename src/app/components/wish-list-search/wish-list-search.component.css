@@ -45,3 +45,11 @@ img {
     width: 50%;
     width: 400px;
 }
+
+.ebayimg {
+  border-radius: 50%;
+  vertical-align: middle;
+  width: 150px;
+  height: 60px;
+  position: sticky;
+}
