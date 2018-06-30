@@ -12,6 +12,9 @@ mat-card {
     /* width: 130px; */
     background-color: #42A5F5;
     padding: 14px;
+    margin: 0px;
+    width: 120px;
+    min-height: 180px
 }
 
 .child-data {

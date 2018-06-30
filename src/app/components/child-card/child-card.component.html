@@ -2,7 +2,7 @@
 
     <div class="child-data" [routerLink]="['../child-view', child.user_id]">
 
-        <div class="img">
+        <div class="img" *ngIf="child.user_img">
             <img src="{{child.user_img}}" alt="User Image">
         </div>
 
