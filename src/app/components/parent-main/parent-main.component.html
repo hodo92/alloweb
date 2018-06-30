@@ -5,6 +5,6 @@
     <h1>{{_currentParent.last_name}} Kids</h1>
 
     <div class="flex-container">
-        <app-child-card class="col-3" *ngFor="let child of children" [child]="child"></app-child-card>
+        <app-child-card class="appChildCard" *ngFor="let child of children" [child]="child"></app-child-card>
     </div>
 </div>

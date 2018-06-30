@@ -13,15 +13,17 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
 
 const routes: Routes = [
     { path: '', component: LoginComponent },
+    // Parent routes
     { path: 'parent-main', component: ParentMainComponent },
     { path: 'child-view/:id', component: ChildMainComponent },
     { path: 'add-child/:id', component: AddChildComponent },
 
-    { path: 'child-main', component: ChildMainComponent },
+    // Child routes
+    { path: 'child-tasks/:id', component: ChildMainComponent },
     { path: 'wish-list/:id', component: WishListComponent },
 
-
     { path: 'parent-tasks', component: ParentTasksComponent }
+    // { path: 'child-main', component: ChildMainComponent },
 ];
 
 @NgModule({

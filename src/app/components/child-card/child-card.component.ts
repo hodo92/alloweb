@@ -10,15 +10,15 @@ import { Child } from  '../../models/child';
 export class ChildCardComponent implements OnInit {
 
   @Input() child: Child = new Child();
-  @Output() clickedChild: EventEmitter<Child> = new EventEmitter();
+//   @Output() clickedChild: EventEmitter<Child> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
   
-  childWasClicked(child: Child) {
-    this.clickedChild.emit(child);
-  }
+//   childWasClicked(child: Child) {
+//     this.clickedChild.emit(child);
+//   }
 
 }

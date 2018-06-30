@@ -22,3 +22,7 @@ h1 {
 .add-kid {
     float: right;
 }
+
+.appChildCard {
+    margin: 15px;
+}

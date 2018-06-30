@@ -1,8 +1,9 @@
 <mat-card class="child-card" data-id="{{child.user_id}}" matBadge="4" matBadgeColor="warn" matBadgeOverlap="true">
 
     <div class="child-data" [routerLink]="['../child-view', child.user_id]">
+         <!-- {{_currentParent.last_name}} -->
 
-        <div class="img">
+        <div class="img" *ngIf="child.user_img">
             <img src="{{child.user_img}}" alt="User Image">
         </div>
 
