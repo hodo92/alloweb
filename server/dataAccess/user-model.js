@@ -49,6 +49,14 @@ class User {
         });
     }
 
+    getChildById(childId) {
+        return user.model.find({
+            where: {
+                user_id: childId
+            }
+        })
+    }
+
     getAllTasks(parentId) {
         return this.model.findAll({ include: [{model:task.model  }], where: { parent_id: parentId } });
     }

@@ -61,4 +61,17 @@ router.put('/updateStatus', (req, res) => {
         alert(err);
     }
 })
+
+//get child data by childId
+
+router.get('/getChildById/:childId', async (req, res) =>{
+    let childId = req.params.childId;
+    console.log(childId);
+    try {
+         res.send(JSON.stringify(await user.getChildById(childId)));
+    } 
+    catch (err){
+        alert(err);
+    }
+})
 module.exports = router;
