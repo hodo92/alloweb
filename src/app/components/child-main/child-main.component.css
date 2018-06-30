@@ -1,6 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Column container */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+
+/* Sidebar/left column */
+
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Main column */
+
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 700px) {
+    .row, .navbar {
+        flex-direction: column;
+    }
+}
+
 .appTasks {
-    padding: 15px;
-    margin: 0 auto;
+    /* padding: 15px; */
+    /* margin: 0 auto; */
     /* width: 400px; */
 }
 
@@ -15,9 +52,10 @@
 .childName {
     text-align: left;
     color: #4CAF50;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 25px;
-    margin: 0px 0px;
+    padding: 10px 0px;
+    margin: 0px;
 }
 
 .childName img {
@@ -27,6 +65,28 @@
     height: 40px;
     object-fit: cover;
     margin-right: 15px;
+}
+
+.myTasks {
+    padding: 15px;
+    margin: 0 auto;
+    width: 400px;
+}
+
+h2.columnTitle {
+    color: #4CAF50;
+    font-weight: 500;
+    font-size: 21px;
+    /* margin-top: 30px; */
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+h3.filterTitle {
+    color: #4CAF50;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 30px;
 }
 
 .childSubTitle {
