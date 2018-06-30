@@ -47,6 +47,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatBadgeModule } from '@angular/material/badge';
+import { CompletedTasksPipe } from './pipes/completed-tasks.pipe';
+import { OutstandingTasksPipe } from './pipes/outstanding-tasks.pipe';
 
 
 
@@ -66,7 +68,9 @@ import { MatBadgeModule } from '@angular/material/badge';
         AddTaskComponent,
         ParentTasksComponent,
         ChildMainComponent,
-        WishListComponent
+        WishListComponent,
+        CompletedTasksPipe,
+        OutstandingTasksPipe
     ],
     imports: [
         BrowserModule,
@@ -103,7 +107,9 @@ import { MatBadgeModule } from '@angular/material/badge';
         ParentService,
         ChildService,
         TaskService,
-        WishListService
+        WishListService,
+        CompletedTasksPipe,
+        OutstandingTasksPipe
     ],
     bootstrap: [AppComponent]
 })
