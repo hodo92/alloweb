@@ -1,14 +1,15 @@
+<mat-toolbar class="childToolbar" *ngIf="currentRoute == 'child-view'">
+    <h2 class="childName">
+        <img src="{{ img }}">
+        <span>{{user}}</span>
+    </h2>
+    <span class="example-spacer"></span>
+    <span class="childBalance">${{balance}}</span>
+</mat-toolbar>
 <!-- <div class="split left centered"> -->
 <div class="appTasks" *ngIf="currentRoute">
 
-    <mat-toolbar *ngIf="currentRoute == 'child-view'">
-        <h2 class="childTitle">
-            <img src="{{ img }}">
-            <span>{{user}}</span>
-        </h2>
-        <span class="example-spacer"></span>
-        <span class="childBalance">${{balance}}</span>
-    </mat-toolbar>
+    
 
     <h2 class="childTitle" *ngIf="currentRoute == 'child-task'">My Tasks</h2>
     <!-- {{tasks[0].User.first_name}}'s -->

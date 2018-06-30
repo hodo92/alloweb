@@ -1,6 +1,7 @@
 .logo {
-    margin: 0px 25px;
+    /* margin: 0px 25px 0px 0px; */
     cursor: pointer;
+    padding-right: 25px;
 }
 
 .button-row {
@@ -23,9 +24,10 @@
     width: 40px;
     height: 40px;
     object-fit: cover;
+    /* padding: 0px 0px 0px 15px; */
 }
 
 .childBalance {
     font-size: 14px;
-    margin: 0px 25px 0px 15px;
+    padding: 0px 0px 0px 15px;
 }
