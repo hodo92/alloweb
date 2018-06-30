@@ -1,3 +1,7 @@
+.mat-dialog-container {
+  background: grey !important;
+  color: rgba(0, 0, 0, .87)}
+
 .wish-list-item{
     display: flex;
     flex-wrap: wrap;
