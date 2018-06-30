@@ -4,6 +4,7 @@ import { WishList } from '../../models/wishList';
 import { MatDialog } from '@angular/material';
 import { WishListSearchComponent } from '../wish-list-search/wish-list-search.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ChildService } from '../../services/child.service';
 
 @Component({
   selector: 'app-wish-list',
@@ -14,12 +15,17 @@ export class WishListComponent implements OnInit {
   public childId: number;
   public wishListData: WishList[];
   public progress;
-  public balance = 20
+  public balance;
 
-  constructor(private wishListService: WishListService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
+  constructor(private wishListService: WishListService, private childService: ChildService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
     this.route.params.subscribe((params) => {
       this.childId = params.id;
       console.log(this.childId);
+      this.childService.getChildById(this.childId)
+      this.childService.childUpdated.subscribe((resp)=>{
+        this.balance = resp.balance
+        console.log(this.balance)
+      })
     });
    }
 
