@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     }
 
     navigateToChildTasks(userId) {
-        this.router.navigate(['child-view/' + userId]);
+        this.router.navigate(['child-tasks/' + userId]);
     }
 
     navigateToChildWishList(userId) {
