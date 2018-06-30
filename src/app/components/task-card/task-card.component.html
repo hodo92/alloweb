@@ -18,22 +18,41 @@
            
             Completed
         </mat-slide-toggle> -->
+        <!-- Incomplete task state - complete click -->
+        <mat-checkbox class="example-margin" *ngIf="!taskCompletionCheck" [(indeterminate)]="indeterminate"
+            [labelPosition]="labelPosition" [checked]="task.status_id == 2"
+            (click)="taskStatusCompleted(task)">
+            Incompleted
+        </mat-checkbox>
 
-        <mat-checkbox class="example-margin" [(indeterminate)]="indeterminate" [labelPosition]="labelPosition" [checked]="task.status_id == 2" (click)="taskStatusCompleted(task)">
+        <!-- Complete task state - incomplete click -->
+        <mat-checkbox class="example-margin" *ngIf="taskCompletionCheck" [(indeterminate)]="indeterminate"
+            [labelPosition]="labelPosition" [checked]="task.status_id == 2"
+            (click)="taskStatusCompleted(task)">
             <!-- [(ngModel)]="taskCompletedCheck" -->
             <!-- [(ngModel)]="paidChecked" -->
-             Completed
+            Completed
         </mat-checkbox>
         <!-- <p *ngIf="(task.status_id == 1)">Not completed</p>
         <p *ngIf="(task.status_id == 2)">Completed</p> -->
         <!--[checked]="checked" *ngIf="!taskCompletedCheck"  *ngIf="taskCompletedCheck"-->
 
+        <!-- Approve button -->
+        <span *ngIf="taskCompletionCheck">
+            <mat-checkbox class="example-margin" *ngIf="taskCompletionCheck" [(indeterminate)]="indeterminate"
+                [labelPosition]="labelPosition" [checked]="task.status_id == 2"
+                (click)="taskStatusCompleted(task)">
+                Approve
+            </mat-checkbox>
+        </span>
+
         <mat-slide-toggle class="example-margin" [color]="color" [(ngModel)]="taskApprovedCheck"
-            [disabled]="taskApprovalDisabled">
+            [disabled]="!taskCompletionCheck">
             Approve
         </mat-slide-toggle>
 
-        <mat-checkbox class="example-margin" [(indeterminate)]="indeterminate" [labelPosition]="labelPosition" [disabled]="paidDisabled" [checked]="task.status_id == 2">
+        <mat-checkbox class="example-margin" [(indeterminate)]="indeterminate"
+            [labelPosition]="labelPosition" [disabled]="paidDisabled" [checked]="task.status_id == 2">
             <!-- [(ngModel)]="paidChecked" -->
             Paid
         </mat-checkbox>

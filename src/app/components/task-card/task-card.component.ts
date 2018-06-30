@@ -25,24 +25,27 @@ export class TaskCardComponent implements OnInit {
     indeterminate = false;
     labelPosition = 'after';
     paidDisabled = true;
+    taskCompletionCheck: Boolean = false;
 
   
     @Input() task: Task; 
     @Output() taskStatusCompletedEmit: EventEmitter<Task> = new EventEmitter();
+    @Output() taskStatusIncompleteEmit: EventEmitter<Task> = new EventEmitter();
 
      tasks: Task[] = new Array<Task>();
 
 
     constructor() {}
-    // constructor(private parentTask: ParentTasksComponent ) {}
 
-    ngOnInit() {
-        
-    }
+    ngOnInit() {}
 
     taskStatusCompleted(task: Task) {
         this.taskStatusCompletedEmit.emit(task);
-
+        this.taskCompletionCheck = true;
     }
 
+    taskStatusIncomplete(task: Task) {
+        this.taskStatusIncompleteEmit.emit(task);
+        this.taskCompletionCheck = false;
+    }
 }
