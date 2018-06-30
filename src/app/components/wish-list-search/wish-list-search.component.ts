@@ -52,7 +52,8 @@ export class WishListSearchComponent implements OnInit {
             price: item.sellingStatus[0].currentPrice[0].__value__,
             goal_img: item.galleryURL[0],
             link: item.viewItemURL[0],
-            status: false 
+            status: false,
+            progress: 0 
         }
         
         this.wishListService.addToWishList(itemToAdd)

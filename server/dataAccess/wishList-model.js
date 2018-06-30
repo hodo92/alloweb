@@ -34,6 +34,9 @@ class WishList {
             },
             status: {
                 type: Sequelize.BOOLEAN
+            },
+            progress: {
+                type: Sequelize.INTEGER
             }
 
         })
