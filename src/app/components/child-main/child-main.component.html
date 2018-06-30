@@ -1,13 +1,18 @@
 <!-- <div class="split left centered"> -->
 <div class="appTasks" *ngIf="currentRoute">
-    <h2 class="childTitle" *ngIf="currentRoute == 'child-task'">My Tasks</h2>
-    <!-- {{tasks[0].User.first_name}}'s -->
-    <h2 class="childTitle" *ngIf="currentRoute == 'child-view'">
-        <img src="{{ img }}">
-        <span>{{user}}</span>
+
+    <mat-toolbar *ngIf="currentRoute == 'child-view'">
+        <h2 class="childTitle">
+            <img src="{{ img }}">
+            <span>{{user}}</span>
+        </h2>
         <span class="example-spacer"></span>
         <span class="childBalance">${{balance}}</span>
-    </h2>
+    </mat-toolbar>
+
+    <h2 class="childTitle" *ngIf="currentRoute == 'child-task'">My Tasks</h2>
+    <!-- {{tasks[0].User.first_name}}'s -->
+    
 
     <app-add-task (addTaskEmit)="addTask($event)"></app-add-task>
 
