@@ -46,8 +46,19 @@ class Task {
     }
 
 
-    taskStatusCompleted(updatedTaskId) {
+    taskComplete(updatedTaskId) {
         return this.model.update({ status_id: 2 }, { where: { task_id: updatedTaskId } });
+    }
+
+    taskIncomplete(updatedTaskId) {
+        // console.log("++++++++++++++++++++++++++");
+        // console.log("childApi - updatedTaskId");
+        // console.log(updatedTaskId);
+        return this.model.update({ status_id: 1 }, { where: { task_id: updatedTaskId } });
+    }
+
+    approveTask(updatedTaskId) {
+        return this.model.update({ status_id: 3 }, { where: { task_id: updatedTaskId } });
     }
 }
 

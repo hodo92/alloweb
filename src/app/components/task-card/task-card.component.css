@@ -48,3 +48,14 @@ Angular 2 - Material Horizontal card:
 display: flex;
 flex-flow: row wrap;
     */
+
+.example-button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.toolTip_ {
+    background-color: rgb(190, 190, 190);
+    padding: 5px;
+}

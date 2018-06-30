@@ -46,9 +46,21 @@ export class ChildMainComponent implements OnInit {
         this.taskService.addTask(newTask);
     }
 
-    taskStatusCompleted(task) {
+    // Change task status_id to 2 complete with a put request
+    taskComplete(task) {
         // newTask.user_id = this.childId;
-        this.taskService.taskStatusCompleted(task);
+        this.taskService.taskComplete(task);
     }
 
+    // Change back the task status_id to 1 outstanding / incomplete with a put request
+    taskIncomplete(task) {
+        this.taskService.taskIncomplete(task);
+    }
+
+    approveTask(task) {
+        console.log("child-main approveTask");
+        console.log(task);
+        
+        this.taskService.approveTask(task);
+    }
 }
