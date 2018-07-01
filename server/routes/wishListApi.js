@@ -30,12 +30,14 @@ router.post('/addToWishList', async (req, res) =>{
 
 //remove item from the wishlist
 
-router.delete('/removeFromWishList/:wish', async (req, res) => {
-    let wish = req.params.wish
+router.delete('/removeFromWishList/:wishId/user/:userId', async (req, res) => {
+    let wish = req.params.wishId
+    let user = req.params.userId
     console.log(wish);
+    console.log(user);
     try {
         await wishList.removeFromWishList(wish);
-        res.send(JSON.stringify(wish + 'deleted'))
+         res.send(JSON.stringify(await wishList.getAllRows(user)));
     } catch (err){
         alert(err);
     }

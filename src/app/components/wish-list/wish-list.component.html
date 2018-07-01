@@ -8,7 +8,7 @@
     <mat-card class="wish-list-card">
 
         <br>
-        <mat-progress-bar mode="determinate" value="{{wish.progress}}">goal-bar</mat-progress-bar>
+        <mat-progress-bar mode="determinate" value="{{wish.progress}}">goal-bar</mat-progress-bar><p class="percent">{{wish.progress}}%</p>
 
         <img src="{{wish.goal_img}}">
         <b> {{wish.title}}</b>
@@ -20,9 +20,7 @@
                 <b> buy the product now!!</b>
             </button>
         </a>
-        <a (click)="removeWish(wish)"><div class="remove-wish">
-            
-        </div></a>
+        <a (click)="removeWish(wish)"><mat-icon class="remove-wish">delete</mat-icon></a>
     </mat-card>
 </div> 
 </div>
