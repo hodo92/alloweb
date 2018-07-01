@@ -41,7 +41,7 @@ export class WishListComponent implements OnInit {
         if (Math.floor(this.balance / this.wishListData[i].price * 100) >=100){
         this.wishListData[i].progress = 100
         } else {
-        this.wishListData[i].progress = Math.floor(this.balance / this.wishListData[i].price * 100);
+        this.wishListData[i].progress = Math.floor(this.balance / this.wishListData[i].price) * 100;
         console.log(this.wishListData[i].progress)}
       }
    
