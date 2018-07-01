@@ -52,10 +52,19 @@ export class TaskService implements OnInit {
     }
 
     taskIncomplete(task: Task) {
-        console.log(task);
+        // console.log(task);
         this.http.put<any>('/child/taskIncomplete', task).subscribe((data) => {
             this.tasksArr = data;
-            console.log(this.tasksArr);
+            // console.log(this.tasksArr);
+            this.tasksSubject.next(this.tasksArr);
+        });
+    }
+
+    taskIncompleteUnpay(task: Task) {
+        // console.log(task);
+        this.http.put<any>('/child/taskIncompleteUnpay', task).subscribe((data) => {
+            this.tasksArr = data;
+            // console.log(this.tasksArr);
             this.tasksSubject.next(this.tasksArr);
         });
     }
