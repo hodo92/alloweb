@@ -14,7 +14,7 @@ import { ChildService } from '../../services/child.service';
 export class WishListComponent implements OnInit {
   public childId: number;
   public wishListData: WishList[];
-  //public progress;
+  public progress;
   public currentRoute: String;
   public balance;
 
