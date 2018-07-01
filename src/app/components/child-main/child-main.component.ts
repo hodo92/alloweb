@@ -73,14 +73,13 @@ export class ChildMainComponent implements OnInit {
     // Change back the task status_id to 1 outstanding / incomplete with a put request
     taskIncomplete(task) {
         console.log(task);
-        
+
         this.taskService.taskIncomplete(task);
     }
 
     approveTask(task) {
         console.log("child-main approveTask");
         console.log(task);
-
         this.taskService.approveTask(task);
     }
 }
