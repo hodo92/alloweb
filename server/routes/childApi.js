@@ -98,14 +98,12 @@ router.put('/taskComplete', async (req, res) => {
 })
 
 
-// Task incomplete - status & unpay update
+// Task incomplete - status update
 router.put('/taskIncomplete', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
-    let payment = req.body.payment;
     try {
         await task.taskIncomplete(taskId);
-        await user.taskUnPay(userId, payment);
         res.send(JSON.stringify(await task.getAllRows(userId)));
     }
     catch (err) {
@@ -114,7 +112,8 @@ router.put('/taskIncomplete', async (req, res) => {
 })
 
 
-// Task approve & pay - status update
+
+// Task approve & pay - update
 router.put('/approveTask', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
@@ -123,6 +122,22 @@ router.put('/approveTask', async (req, res) => {
         await task.approveTask(taskId);
         await user.taskPay(userId, payment);
         res.send(JSON.stringify(await task.getAllRows(userId)));     
+    }
+    catch (err) {
+        console.log(err);
+    }
+})
+
+
+// Task incomplete & unpay - update
+router.put('/taskIncompleteUnpay', async (req, res) => {
+    let taskId = req.body.task_id;
+    let userId = req.body.user_id;
+    let payment = req.body.payment;
+    try {
+        await task.taskIncomplete(taskId);
+        await user.taskUnPay(userId, payment);
+        res.send(JSON.stringify(await task.getAllRows(userId)));
     }
     catch (err) {
         console.log(err);
