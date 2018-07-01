@@ -7,26 +7,40 @@
 
             <mat-card class="wish-list-card">
 
+                <p style="width:90%" attr.data-value="{{wish.progress}}">${{balance}} of ${{wish.price}}</p>
+                <progress max="100" value="{{wish.progress}}" class="html5">
+                    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+                    <div class="progress-bar">
+                        <span style="width: 80%">80%</span>
+                    </div>
+                </progress>
+
+
+
+<!-- 
                 <br>
                 <mat-progress-bar mode="determinate" value="{{wish.progress}}">goal-bar</mat-progress-bar>
-                <p class="percent">{{wish.progress}}%</p>
+                <p class="percent">{{wish.progress}}%</p> -->
 
-        <img src="{{wish.goal_img}}">
-        <b> {{wish.title}}</b>
-        <br>
-        <br> price: {{wish.price | currency}}
-        <br>
-        <a *ngIf="wish.progress >=100"href="{{wish.link}}" target="_blank">
-            <button mat-button class="go">
-                <b> buy the product now!!</b>
-            </button>
-        </a>
-        <a (click)="removeWish(wish)"><mat-icon class="remove-wish">delete</mat-icon></a>
-    </mat-card>
-</div> 
-</div>
-<div class="expander-container">
-<!-- <app-wish-list-search></app-wish-list-search> -->
-<button mat-raised-button *ngIf= "currentRoute =='wish-list/'"class="search-popup" (click)="openDialog()">Add a new Wish!</button>
-</div>
+                <img src="{{wish.goal_img}}">
+                <b> {{wish.title}}</b>
+                <br>
+                <br> price: {{wish.price | currency}}
+                <br>
+                <a *ngIf="wish.progress >=100" href="{{wish.link}}" target="_blank">
+                    <button mat-button class="go">
+                        <b> buy the product now!!</b>
+                    </button>
+                </a>
+                <a (click)="removeWish(wish)">
+                    <mat-icon class="remove-wish">delete</mat-icon>
+                </a>
+            </mat-card>
+        </div>
+    </div>
+    <div class="expander-container">
+        <!-- <app-wish-list-search></app-wish-list-search> -->
+        <button mat-raised-button *ngIf="currentRoute =='wish-list/'" class="search-popup"
+            (click)="openDialog()">Add a new Wish!</button>
+    </div>
 </div>

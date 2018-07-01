@@ -12,11 +12,11 @@ import { ChildService } from '../../services/child.service';
     styleUrls: ['./wish-list.component.css']
 })
 export class WishListComponent implements OnInit {
-    public childId: number;
-    public wishListData: WishList[];
-    //public progress;
-    public currentRoute: String;
-    public balance;
+  public childId: number;
+  public wishListData: WishList[];
+  public progress;
+  public currentRoute: String;
+  public balance;
 
     constructor(private wishListService: WishListService,
         private childService: ChildService,
