@@ -1,8 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
 import { Task } from '../../models/task';
-import { TaskService } from '../../services/task.service';
-// import { EventEmitter } from 'events';
 
 @Component({
     selector: 'app-add-task',
@@ -15,7 +12,7 @@ export class AddTaskComponent implements OnInit {
     @Output() addTaskEmit: EventEmitter<Task> = new EventEmitter();
     // @Output() addTaskEmit: EventEmitter<Task> = new EventEmitter();
 
-    constructor(private taskService: TaskService) { }
+    constructor() { }
 
     ngOnInit() {
     }
@@ -27,18 +24,19 @@ export class AddTaskComponent implements OnInit {
 
     addTask() {
         this.newTask.status_id = 1;
-        // this.newTask.user_id = 2;
+        // Default deadline - tommorow
         if (!this.newTask.deadline) { 
             let tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             this.newTask.deadline = tomorrow;
         }
+
+        // Default payment $10
         if (!this.newTask.payment) {
             this.newTask.payment = '10';
         }
-        console.log(this.newTask);
+
         this.addTaskEmit.emit(this.newTask);
-        //this.taskService.addTask(this.newTask);
         this.newTask = new Task();
         this.inputFocus = false;
     }

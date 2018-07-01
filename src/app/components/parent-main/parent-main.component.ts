@@ -33,16 +33,27 @@ export class ParentMainComponent implements OnInit {
   }
 
   ngOnInit() {
+      console.log("parent-main");
+      
     this.parentService.checkParent(this._currentParentEmail);
     this.parentService.dataUpdated.subscribe((resp) => {
       this._currentParent = resp[0];
       this.childService.getAllChildren(this._currentParent.user_id);
+
       this.childService.dataUpdated.subscribe((res) => {
+          console.log(res);
+          
         this.children = res;
       });
     });
   
     }
+
+    // Must unsubscribe from 
+    // ngOnDestroy() {
+    //     this.ngUnsubscribe.next();
+    //     this.ngUnsubscribe.complete();
+    // }
   
   myFunction() {
     return "Log Me out, Scotty";

@@ -7,4 +7,5 @@ export class WishList {
     goal_img: string;
     link: string;
     status: boolean;
+    progress: number;
 }

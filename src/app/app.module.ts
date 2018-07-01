@@ -17,10 +17,14 @@ import { TaskCardComponent } from './components/task-card/task-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { ChildCardComponent } from './components/child-card/child-card.component';
 import { AddChildComponent } from './components/add-child/add-child.component';
-import { WishListComponent } from './components/wish-list/wish-list.component';
+import { WishListSearchComponent } from './components/wish-list-search/wish-list-search.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { ParentTasksComponent } from './components/parent-tasks/parent-tasks.component';
 import { ChildMainComponent } from './components/child-main/child-main.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
+import { CompletedTasksPipe } from './pipes/completed-tasks.pipe';
+import { OutstandingTasksPipe } from './pipes/outstanding-tasks.pipe';
+import { ApprovedTasksPipe } from './pipes/approved-tasks.pipe';
 
 
 import { ParentService } from './services/parent.service';
@@ -34,7 +38,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule, MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatNativeDateModule, MatMenuModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
@@ -45,6 +49,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { FileUploadModule } from 'ng2-file-upload';
 
@@ -59,10 +65,14 @@ import { FileUploadModule } from 'ng2-file-upload';
         LoginComponent,
         ChildCardComponent,
         AddChildComponent,
-        WishListComponent,
+        WishListSearchComponent,
         AddTaskComponent,
         ParentTasksComponent,
-        ChildMainComponent
+        ChildMainComponent,
+        WishListComponent,
+        CompletedTasksPipe,
+        OutstandingTasksPipe,
+        ApprovedTasksPipe
     ],
     imports: [
         BrowserModule,
@@ -88,17 +98,23 @@ import { FileUploadModule } from 'ng2-file-upload';
         MatSelectModule,
         MatNativeDateModule,
         JsonpModule,
-        FileUploadModule,
-        MatSelectModule 
+        FileUploadModule, 
+        MatMenuModule,
+        MatBadgeModule,
+        MatTooltipModule
     ],
     entryComponents: [
-            AddChildComponent
+            AddChildComponent,
+            WishListSearchComponent
             ],
     providers: [
         ParentService,
         ChildService,
         TaskService,
-        WishListService
+        WishListService,
+        CompletedTasksPipe,
+        OutstandingTasksPipe,
+        ApprovedTasksPipe
     ],
     bootstrap: [AppComponent]
 })

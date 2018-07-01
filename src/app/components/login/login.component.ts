@@ -25,10 +25,8 @@ export class LoginComponent implements OnInit {
     ngOnInit() { }
 
     ValidateEmail(mail) {
-        console.log(mail);
         var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (mail.match(mailformat)) {
-            console.log("mail match");
             return true;
         } else {
             return false;
@@ -36,20 +34,20 @@ export class LoginComponent implements OnInit {
     }
 
     parentLogin(parentEmail) {
-        console.log(parentEmail);
         if (this.ValidateEmail(parentEmail)) {
-            this.parentService.checkParent(parentEmail)
+            this.parentService.checkParent(parentEmail);
             this.parentService.dataUpdated.subscribe((resp) => {
                 if (typeof resp[0] == 'undefined') {
                     this.error = '*Email address not found';
                     setTimeout(() => { this.error = ''; }, 4000);
                 } else if (resp[0].is_parent == true) {
                     this.error = '';
-                    this.router.navigate(['parent-main']);
                     localStorage.setItem("currentParent", resp[0].email);
+                    this.router.navigate(['parent-main']);
                 } else if (resp[0].is_parent == false) {
                     this.error = '';
-                    this.router.navigate(['child-view/' + resp[0].user_id]);
+                    localStorage.setItem("currentParent", resp[0].email);
+                    this.router.navigate(['child-tasks/' + resp[0].user_id]);
                 }
             })
         } else {

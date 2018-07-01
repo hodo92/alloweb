@@ -1,49 +1,46 @@
+<div class="container">
+
+    <div class="tasks">
+        <!-- work with data-base only  -->
+
+        <div class="wish-list-item" *ngFor="let wish of wishListData">
+
+            <mat-card class="wish-list-card">
+
+                <p style="width:90%" attr.data-value="{{wish.progress}}">${{balance}} of ${{wish.price}}</p>
+                <progress max="100" value="{{wish.progress}}" class="html5">
+                    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+                    <div class="progress-bar">
+                        <span style="width: 80%">80%</span>
+                    </div>
+                </progress>
 
 
-<input type="search" id="mySearch" [(ngModel)]="keyword" placeholder="Search for something..">
 
-<button class="mySearchbtn" (click)="getItems()">Search</button>
+<!-- 
+                <br>
+                <mat-progress-bar mode="determinate" value="{{wish.progress}}">goal-bar</mat-progress-bar>
+                <p class="percent">{{wish.progress}}%</p> -->
 
-<div class="wish-list-item" *ngFor="let wish of wishListData">
-
-    <mat-card class="wish-list-card">
-
-        <br>
-        <mat-progress-bar mode="determinate" value="40">goal-bar</mat-progress-bar>
-
-        <img src="{{wish.galleryURL}}">
-        <b> {{wish.title}}</b>
-        <br> {{wish.subtitle}}
-        <br> price: {{wish.sellingStatus[0].currentPrice[0].__value__}}$
-        <br>
-        <a href="{{wish.viewItemURL}}" target="_blank">
-            <button mat-button class="go">
-                <b> buy the product now</b>
-            </button>
-        </a>
-    </mat-card>
+                <img src="{{wish.goal_img}}">
+                <b> {{wish.title}}</b>
+                <br>
+                <br> price: {{wish.price | currency}}
+                <br>
+                <a *ngIf="wish.progress >=100" href="{{wish.link}}" target="_blank">
+                    <button mat-button class="go">
+                        <b> buy the product now!!</b>
+                    </button>
+                </a>
+                <a (click)="removeWish(wish)">
+                    <mat-icon class="remove-wish">delete</mat-icon>
+                </a>
+            </mat-card>
+        </div>
+    </div>
+    <div class="expander-container">
+        <!-- <app-wish-list-search></app-wish-list-search> -->
+        <button mat-raised-button *ngIf="currentRoute =='wish-list/'" class="search-popup"
+            (click)="openDialog()">Add a new Wish!</button>
+    </div>
 </div>
-
-
-
-<!-- work with data-base only  -->
-
-<!-- <div class="wish-list-item" *ngFor="let wish of wishListData">
-
-    <mat-card class="wish-list-card">
-
-        <br>
-        <mat-progress-bar mode="determinate" value="40">goal-bar</mat-progress-bar>
-
-        <img src="{{wish.goal_img}}">
-        <b> {{wish.title}}</b>
-        <br> {{wish.description}}
-        <br> price: {{wish.price}}$
-        <br>
-        <a href="{{wish.link}}" target="_blank">
-            <button mat-button class="go">
-                <b> buy the product now</b>
-            </button>
-        </a>
-    </mat-card>
-</div>  -->

@@ -34,6 +34,9 @@ class WishList {
             },
             status: {
                 type: Sequelize.BOOLEAN
+            },
+            progress: {
+                type: Sequelize.INTEGER
             }
 
         })
@@ -43,6 +46,14 @@ class WishList {
     getAllRows(userId) {
         return this.model.findAll({ where: { user_id: userId }, include: [user.model] });
     }
+
+    addToWishList(item){
+       return this.model.create(item);
+    }
+
+    removeFromWishList(wish){
+        return this.model.destroy({where: { goal_id: wish}})
+    }    
 }
 
 // WishList.belongsTo(User, { foreignKey: 'user_id' });

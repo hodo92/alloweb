@@ -2,7 +2,7 @@
     <form class="addTaskForm">
 
             <mat-form-field class="example-full-width">
-                <input matInput required placeholder="Task" (click)="showAllAddTask()" [(ngModel)]="newTask.title" name="title">
+                <input matInput required placeholder="Add Task" (click)="showAllAddTask()" [(ngModel)]="newTask.title" name="title">
             </mat-form-field>
 
         <div *ngIf="inputFocus">

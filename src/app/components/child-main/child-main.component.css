@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+}
+
+.sidePadding {
+    padding: 0px 30px;
+}
+
+/* Column container */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+
+/* Main column */
+
+.main {
+    flex: 60%;
+    background-color: white;
+    padding: 20px 30px;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 700px) {
+    .row, .navbar {
+        flex-direction: column;
+    }
+}
+
+/* .appTasks {
+    padding: 15px; */
+
+/* margin: 0 auto; */
+
+/* width: 400px;
+} */
+
+.childTitle {
+    /* padding-top: 20px; */
+    text-align: left;
+    color: #4CAF50;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.childName {
+    text-align: left;
+    color: #4CAF50;
+    font-weight: 700;
+    font-size: 25px;
+    padding: 10px 0px;
+    margin: 0px;
+}
+
+.childName img {
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.myTasks {
+    padding: 15px;
+    margin: 0 auto;
+    width: 400px;
+}
+
+h2.columnTitle {
+    color: #4CAF50;
+    font-weight: 500;
+    font-size: 21px;
+    /* margin-top: 30px; */
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+h3.filterTitle {
+    color: #4CAF50;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+.childSubTitle {
+    /* text-align: left; */
+    color: #4CAF50;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.childBalance {
+    margin-left: 50px;
+    font-size: 20px;
+}
+
+h1 {
+    padding-top: 20px
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+mat-grid-tile {
+    background: lightblue;
+}
+
+.justifyLeft {
+    /* background-color: red; */
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.mat-grid-tile, .mat-figure {
+    /* background-color: red; */
+    display: flex;
+    justify-content: left;
+}
+
+/* Sidebar/left column ------------------------------------------ */
+
+.side {
+    flex: 40%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Wishlist */
+
+.wish-list-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.wish-list-card {
+    margin-top: 15px;
+    width: 400px;
+    background-color: #FFFFFF;
+    font-family: 'Indie Flower', cursive;
+}
+
+.remove-wish {
+    border-radius: 50%;
+    background-color: rgba(197, 44, 44, 0.877);
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgba(83, 81, 81, 0.61);
+    line-height: 15px;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
+.remove-wish:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+/* Check if can be deleted ------------------------------------------ */
+
+.row-example div {
+    border: 1px solid red;
+}
+
+.column-example div {
+    border: 1px solid red;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 50px;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.ebayimg {
+    width: 150px;
+}
+
+.split right {
+    margin-top: 10px;
+}
