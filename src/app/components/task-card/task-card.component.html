@@ -1,44 +1,38 @@
 <mat-card class="task-card">
 
-    <div class="row" *ngIf="currentRoute == 'child-view'">
+    <div class="taskContent">
         <h1 class="taskTitle">{{ task.title }}</h1>
-        <h2 class="taskDescription">{{ task.description }}</h2>
-    </div>
-    <div class="row" *ngIf="currentRoute == 'child-view'">
-        <!-- <div class="main">
+        <h2 class="taskDescription" *ngIf="task.description">{{ task.description }}</h2>
+        <div>
+            <span class="taskParagraph">${{ task.payment }}</span>
+            <span class="taskParagraph">{{ task.deadline }}</span>
         </div>
-
-        <div class="side">
-            <h2 class="columnTitle">Wishlist</h2>
-            <app-wish-list></app-wish-list>
-        </div> -->
     </div>
 
-    <mat-card-header>
-
-        <!-- <mat-card-title class="taskTitle">{{ task.title }}</mat-card-title>
-        <mat-card-subtitle class="taskDescription">{{ task.description }}</mat-card-subtitle> -->
-    </mat-card-header>
-
-    <mat-card-content>
-        <span class="taskParagraph">${{ task.payment }}</span>
-        <span class="taskParagraph">{{ task.deadline }}</span>
-        <!-- <mat-card-subtitle class="taskPayment">${{ task.payment }}</mat-card-subtitle>
-        <mat-card-subtitle class="taskDeadline">{{ task.deadline }}</mat-card-subtitle> -->
-    </mat-card-content>
-
-    <mat-card-actions style="border-top: 1px solid black;">
+    <mat-card-actions class="taskActions">
         <!-- Incomplete task state - complete click -->
-        <mat-checkbox class="example-margin" color="primary" [(indeterminate)]="indeterminate"
-            [labelPosition]="labelPosition" [checked]="task.status_id >= 2"
-            matTooltip="Task completion" matTooltipClass="toolTip_" (click)="taskStatusChange(task)">
+
+        <mat-checkbox class="completeCheck" color="primary" [(indeterminate)]="indeterminate"
+            [labelPosition]="labelPosition" [checked]="task.status_id == 2 || task.status_id == 3"
+            matTooltip="Task completion" matTooltipClass="toolTip_" (click)="taskStatusChange(task)">Completed
         </mat-checkbox>
+
+        <!-- <span *ngIf="task.status_id == 3">and approved</span> -->
+
         <!--  *ngIf="task.status_id < 3 " -->
 
-        <button mat-icon-button color="primary" *ngIf="currentRoute == 'child-view'"
+        <mat-checkbox class="approveCheck" color="primary" [(indeterminate)]="indeterminate"
+            [labelPosition]="labelPosition" [checked]="task.status_id == 3" [disabled]="currentRoute == 'child-task'"
+            matTooltip="Task approval" matTooltipClass="toolTip_" 
+            (click)="approveTask(task)">Approved
+        </mat-checkbox>
+        <!-- *ngIf="currentRoute == 'child-view'" -->
+        
+        <!-- <button mat-icon-button color="primary" *ngIf="currentRoute == 'child-view'"
             matTooltip="Task approval" matTooltipClass="toolTip_" (click)="approveTask(task)">
-            <mat-icon aria-label="Approve task">credit_card</mat-icon>
-        </button>
+
+            <mat-icon class="approveIcon" aria-label="Approve task">credit_card</mat-icon>
+        </button> -->
     </mat-card-actions>
 </mat-card>
 
@@ -46,7 +40,18 @@
 
 
 
+<!--
+        <mat-card-header></mat-card-header>
+        <mat-card-content class="taskContent"></mat-card-content>
+    <div class="row" *ngIf="currentRoute == 'child-view'">
+    <div class="main">
+        </div>
 
+        <div class="side">
+            <h2 class="columnTitle">Wishlist</h2>
+            <app-wish-list></app-wish-list>
+        </div>
+</div> -->
 
 
 <!-- <mat-card class="task-card">

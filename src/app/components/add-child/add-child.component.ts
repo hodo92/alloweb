@@ -36,16 +36,26 @@ export class AddChildComponent implements OnInit {
 
 
   ngOnInit() {
-   // this.route.params.subscribe((params) =>{
-      this.newChild.parent_id = this.data.user_id
-      this.newChild.is_parent = false;
-      this.newChild.balance = 0
-      console.log(this.newChild)
-    //})
+    this.route.params.subscribe((params) =>{
+     this.newChild.parent_id = this.data.user_id
+    // this.newChild.is_parent = false;
+    // this.newChild.balance = 0
+    //   console.log(this.newChild)
+    })
   }
 
   addChild(child: Child){
+<<<<<<< HEAD
     this.childService.addNewChild(child)
+=======
+    if(this.newChild.user_img == null){
+      this.newChild.user_img = 'http://3.bp.blogspot.com/-qDc5kIFIhb8/UoJEpGN9DmI/AAAAAAABl1s/BfP6FcBY1R8/s1600/BlueHead.jpg'
+    }
+    this.newChild.parent_id = this.data.user_id
+    this.newChild.is_parent = false;
+    this.newChild.balance = 0;
+    this.childService.addNewChild(child);
+>>>>>>> 8c6f52c4b651d341b14736ac7f07c4ba4c7612a5
     this.dialogRef.close();
   }
 }
