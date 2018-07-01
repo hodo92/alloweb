@@ -33,8 +33,8 @@ class User {
             }
         })
 
-        task.model.belongsTo(this.model, { foreignKey: 'user_id'  });
-        this.model.hasMany(task.model, { foreignKey: 'user_id'  });
+        task.model.belongsTo(this.model, { foreignKey: 'user_id' });
+        this.model.hasMany(task.model, { foreignKey: 'user_id' });
     }
 
     addChild(newChild) {
@@ -58,7 +58,7 @@ class User {
     }
 
     getAllTasks(parentId) {
-        return this.model.findAll({ include: [{model:task.model  }], where: { parent_id: parentId } });
+        return this.model.findAll({ include: [{ model: task.model }], where: { parent_id: parentId } });
     }
 
     getKids(parentId) {
@@ -68,6 +68,37 @@ class User {
             }
         });
     }
+
+
+
+
+
+
+
+
+
+
+    taskPay(userId, payment) {
+        this.model.findById(userId).then(user => {
+            return user.increment('balance', { by: 'payment' });
+        }).then(user => {
+            // Postgres will return the updated user by default (unless disabled by setting { returning: false })
+            // In other dialects, you'll want to call user.reload() to get the updated instance...
+        })
+    }
+
+    taskUnPay(userId, payment) {
+        // console.log("++++++++++++++++++++++++++");
+        // console.log("user-model taskPay userId");
+        // console.log(payment);
+        this.model.findById(userId).then(user => {
+            return user.decrement('balance', { by: 'payment' });
+        }).then(user => {
+            
+        })
+    }
+
+    // decrement
 }
 
 const user = new User();

@@ -10,7 +10,7 @@ import { AllTasks } from '../models/alltasks';
 export class TaskService implements OnInit {
 
     tasksArr: AllTasks[] = new Array<AllTasks>();
-    
+
     public getAll: Task[];
     public tasksSubject: Subject<Task[]> = new Subject<Task[]>();
     public tasksUpdated: Observable<Task[]>;
@@ -29,16 +29,16 @@ export class TaskService implements OnInit {
         this.http.get<any[]>('/child/' + childId).subscribe((data) => {
             this.tasksArr = data;
             console.log(data);
-                      
+
             this.tasksSubject.next(this.tasksArr);
         })
     }
-    
+
     getAllTasks(parentId) {
         let getTasksRoute = '/parent/getTasksbyParent/' + parentId;
-       return this.http.get<AllTasks[]>((getTasksRoute)).subscribe((data) => {
-           this.tasksArr = data;
-            this.allTasksSubject.next(this.tasksArr);            
+        return this.http.get<AllTasks[]>((getTasksRoute)).subscribe((data) => {
+            this.tasksArr = data;
+            this.allTasksSubject.next(this.tasksArr);
         })
     }
 
@@ -49,28 +49,32 @@ export class TaskService implements OnInit {
         })
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    taskStatusCompleted(task) {
-        console.log("task");
-        console.log(task);
-        
-        // debugger;
-        // task.status_id = 3;
-        this.http.put<any>('/child/updateStatus', task).subscribe((data) => {
+    taskComplete(task: Task) {
+        // console.log("task");
+        // console.log(task);
+        this.http.put<any>('/child/taskComplete', task).subscribe((data) => {
             this.tasksArr = data;
             console.log(this.tasksArr);
-            
+
             this.tasksSubject.next(this.tasksArr);
         });
+    }
+
+    taskIncomplete(task: Task) {
+        this.http.put<any>('/child/taskIncomplete', task).subscribe((data) => {
+            this.tasksArr = data;
+            console.log(this.tasksArr);
+            this.tasksSubject.next(this.tasksArr);
+        });
+    }
+
+    approveTask(task: Task) {
+        this.http.put<any>('/child/approveTask', task).subscribe((data) => {
+            this.tasksArr = data;
+            console.log(this.tasksArr);
+            this.tasksSubject.next(this.tasksArr);
+        });
+
+        // Add payment (put request) to child balance
     }
 }

@@ -44,12 +44,12 @@ router.post('/addChild/', async (req, res) => {
 })
 
 
-// Update status
-router.put('/updateStatus', (req, res) => {
+// Task complete - status update
+router.put('/taskComplete', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
     try {
-         task.taskStatusCompleted(taskId).then((data) => {
+        await task.taskComplete(taskId).then((data) => {
             console.log(data); // rows affected
         }, (err) => {
             console.error(err)
@@ -58,15 +58,71 @@ router.put('/updateStatus', (req, res) => {
         // res.send(JSON.stringify(await task.getAllRows(userId)));
     }
     catch (err) {
-        alert(err);
+        console.log(err);
+    }
+})
+
+// Task incomplete - status & unpay update
+router.put('/taskIncomplete', async (req, res) => {
+    let taskId = req.body.task_id;
+    let userId = req.body.user_id;
+    let payment = req.body.payment;
+    console.log("++++++++++++++++++++++++++");
+    console.log("childApi - taskIncomplete - taskId");
+    console.log(req.body);
+
+    try {
+        await task.taskIncomplete(taskId).then((data) => {
+            console.log(data);
+        }, (err) => {
+            console.error(err)
+        });
+
+        await user.taskUnPay(userId, payment).then((data) => {
+            console.log(data);
+        }, (err) => {
+            console.error(err)
+        });
+    }
+    catch (err) {
+        console.log(err);
+    }
+})
+
+// Task approve & pay - status update
+router.put('/approveTask', async (req, res) => {
+    let taskId = req.body.task_id;
+    let userId = req.body.user_id;
+    let payment = req.body.payment;
+    console.log("++++++++++++++++++++++++++");
+    console.log("router.put approveTask - userId");
+    console.log(payment);
+
+    try {
+        await task.approveTask(taskId).then((data) => {
+            console.log(data);
+        }, (err) => {
+            console.error(err)
+        });
+
+        await user.taskPay(userId, payment).then((data) => {
+            // console.log("++++++++++++++++++++++++++");
+            // console.log("router.put user.taskPay - data");
+            // console.log(data);
+            console.log(data);
+        }, (err) => {
+            console.error(err)
+        });        
+    }
+    catch (err) {
+        console.log(err);
     }
 })
 
 //get child data by childId
-
 router.get('/getChildById/:childId', async (req, res) =>{
     let childId = req.params.childId;
-    console.log(childId);
+    // console.log(childId);
     try {
          res.send(JSON.stringify(await user.getChildById(childId)));
     } 

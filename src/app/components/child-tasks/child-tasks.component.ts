@@ -19,33 +19,32 @@ export class ChildTasksComponent implements OnInit {
     tasks: Task[] = new Array<Task>();
 
     constructor(private route: ActivatedRoute, private router: Router, private taskService: TaskService) {
-        this.taskService.tasksUpdated.subscribe((data) => {
-            this.tasks = data;
-            // this._isParent = data[0].User.is_parent;
-            console.log("child-tasks data");
-            console.log(this.tasks);
-            
-        });
+        // this.taskService.tasksUpdated.subscribe((data) => {
+        //     this.tasks = data;
+        //     // this._isParent = data[0].User.is_parent;
+        //     console.log("child-tasks data");
+        //     console.log(this.tasks);
+        // });
     }
 
     ngOnInit() {
-        this.route.params.subscribe((params: Params) => {
-            this.childId = params.id;
-            this.taskService.getTasks(this.childId);
-        });
+        // this.route.params.subscribe((params: Params) => {
+        //     this.childId = params.id;
+        //     this.taskService.getTasks(this.childId);
+        // });
     }
 
-    addTask(newTask) {
-        // console.log(newTask);
-        newTask.user_id = this.childId;
-        // console.log(newTask);
-        this.taskService.addTask(newTask);
-    }
+    // addTask(newTask) {
+    //     // console.log(newTask);
+    //     newTask.user_id = this.childId;
+    //     // console.log(newTask);
+    //     this.taskService.addTask(newTask);
+    // }
 
-    taskStatusCompleted(task) {
-        // console.log(task);
-        // newTask.user_id = this.childId;
-        // console.log(newTask);
-        this.taskService.taskStatusCompleted(task);
-    }
+    // taskStatusCompleted(task) {
+    //     // console.log(task);
+    //     // newTask.user_id = this.childId;
+    //     // console.log(newTask);
+    //     this.taskService.taskStatusCompleted(task);
+    // }
 }

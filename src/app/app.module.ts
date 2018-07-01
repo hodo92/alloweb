@@ -22,6 +22,9 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { ParentTasksComponent } from './components/parent-tasks/parent-tasks.component';
 import { ChildMainComponent } from './components/child-main/child-main.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
+import { CompletedTasksPipe } from './pipes/completed-tasks.pipe';
+import { OutstandingTasksPipe } from './pipes/outstanding-tasks.pipe';
+import { ApprovedTasksPipe } from './pipes/approved-tasks.pipe';
 
 
 import { ParentService } from './services/parent.service';
@@ -47,9 +50,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatBadgeModule } from '@angular/material/badge';
-import { CompletedTasksPipe } from './pipes/completed-tasks.pipe';
-import { OutstandingTasksPipe } from './pipes/outstanding-tasks.pipe';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -70,7 +71,8 @@ import { OutstandingTasksPipe } from './pipes/outstanding-tasks.pipe';
         ChildMainComponent,
         WishListComponent,
         CompletedTasksPipe,
-        OutstandingTasksPipe
+        OutstandingTasksPipe,
+        ApprovedTasksPipe
     ],
     imports: [
         BrowserModule,
@@ -97,6 +99,7 @@ import { OutstandingTasksPipe } from './pipes/outstanding-tasks.pipe';
         MatNativeDateModule,
         MatMenuModule,
         MatBadgeModule,
+        MatTooltipModule,
         JsonpModule
     ],
     entryComponents: [
@@ -109,7 +112,8 @@ import { OutstandingTasksPipe } from './pipes/outstanding-tasks.pipe';
         TaskService,
         WishListService,
         CompletedTasksPipe,
-        OutstandingTasksPipe
+        OutstandingTasksPipe,
+        ApprovedTasksPipe
     ],
     bootstrap: [AppComponent]
 })
