@@ -80,7 +80,7 @@ class User {
 
     taskPay(userId, payment) {
         this.model.findById(userId).then(user => {
-            return user.increment('balance', { by: 'payment' });
+            return user.increment('balance', { by: payment });
         }).then(user => {
             // Postgres will return the updated user by default (unless disabled by setting { returning: false })
             // In other dialects, you'll want to call user.reload() to get the updated instance...
@@ -88,17 +88,12 @@ class User {
     }
 
     taskUnPay(userId, payment) {
-        // console.log("++++++++++++++++++++++++++");
-        // console.log("user-model taskPay userId");
-        // console.log(payment);
         this.model.findById(userId).then(user => {
-            return user.decrement('balance', { by: 'payment' });
+            return user.decrement('balance', { by: payment });
         }).then(user => {
             
         })
     }
-
-    // decrement
 }
 
 const user = new User();
