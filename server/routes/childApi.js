@@ -4,6 +4,59 @@ const router = express.Router();
 // const Op = Sequelize.Op;
 const user = require('../dataAccess/user-model');
 const task = require('../dataAccess/task-model')
+const multer = require('multer'); 
+
+
+// upload a photo for the child 
+
+var path = require('path');
+
+var store = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '.' + file.originalname);
+    }
+});
+
+var upload = multer({ storage: store }).single('file');
+
+router.post('/upload', function (req, res, next) {
+    console.log(req.path);
+    upload(req, res, function (err) {
+        if (err) {
+            return res, status(501).json({ error: err });
+        }
+        //do all database record saving activity
+        return res.json({ originalname: req.file.originalname, uploadname: req.file.filename });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //get tasks by childuserID -- this will go in Child API
 router.get('/:userId', async (req, res) => {
