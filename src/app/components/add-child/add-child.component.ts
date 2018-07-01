@@ -45,9 +45,6 @@ export class AddChildComponent implements OnInit {
   }
 
   addChild(child: Child){
-<<<<<<< HEAD
-    this.childService.addNewChild(child)
-=======
     if(this.newChild.user_img == null){
       this.newChild.user_img = 'http://3.bp.blogspot.com/-qDc5kIFIhb8/UoJEpGN9DmI/AAAAAAABl1s/BfP6FcBY1R8/s1600/BlueHead.jpg'
     }
@@ -55,7 +52,6 @@ export class AddChildComponent implements OnInit {
     this.newChild.is_parent = false;
     this.newChild.balance = 0;
     this.childService.addNewChild(child);
->>>>>>> 8c6f52c4b651d341b14736ac7f07c4ba4c7612a5
     this.dialogRef.close();
   }
 }
