@@ -5,8 +5,10 @@ mat-card {
 
 mat-card.task-card {
     padding: 16px 30px 30px 30px;
-    background-color: #eafb9e;
+    background-color: white;
+    /* background-color: rgb(130, 201, 133); */
     max-width: 220px;
+    min-width: 180px;
     margin: 0px 15px 15px 0px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -19,21 +21,21 @@ mat-card.task-card {
 }
 
 .taskTitle {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 500;
     padding: 0px 0px 8px 0px;
     margin: 0px;
 }
 
 .taskDescription {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     margin: 0px;
     padding: 0px 0px 8px 0px;
 }
 
 .taskParagraph {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.616);
     padding: 0px;
@@ -41,9 +43,9 @@ mat-card.task-card {
     margin: 0px;
 }
 
-.taskContent {
+.taskTexts {
     /* border-bottom: 1px solid rgb(68, 68, 68); */
-    margin: -30px -12px 0px -12px;
+    margin: -25px -8px 0px -8px;
     padding-bottom: 10px;
 }
 
