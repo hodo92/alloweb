@@ -8,9 +8,8 @@ const task = require('../dataAccess/task-model')
 //get tasks by childuserID -- this will go in Child API
 router.get('/:userId', async (req, res) => {
     let childId = req.params.userId;
-    console.log("++++++++++++++++++++++++++")
-    console.log(childId);
-    
+    // console.log("++++++++++++++++++++++++++")
+    // console.log(childId);
     try {
         res.send(JSON.stringify(await task.getAllRows(childId)));
     } catch (err) {
@@ -18,29 +17,17 @@ router.get('/:userId', async (req, res) => {
     }
 })
 
+
 // Add task
 router.post('/', async (req, res) => {
     let newTask = req.body
-    console.log('++++++++++++' + newTask);
+    // console.log('++++++++++++' + newTask);
     try {
         await task.addTask(newTask);
         res.send(JSON.stringify(await task.getAllRows(newTask.user_id)));
     } catch (err) {
-        alert(err);
+        console.log(err);
     }
-    // res.send(JSON.stringify(await user.addChild(newTask)));
-})
-
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-
-//add a new child
-router.post('/addChild/', async (req, res) => {
-    let newChild = req.body.newChild
-    console.log('++++++++++++' + newChild)
-
-    res.send(JSON.stringify(await user.addChild(newChild)));
 })
 
 
@@ -49,18 +36,21 @@ router.put('/taskComplete', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
     try {
-        await task.taskComplete(taskId).then((data) => {
-            console.log(data); // rows affected
-        }, (err) => {
-            console.error(err)
-        });
-        // res.send(data);
-        // res.send(JSON.stringify(await task.getAllRows(userId)));
+        await task.taskComplete(taskId);
+        res.send(JSON.stringify(await task.getAllRows(newTask.user_id)));
+        // .then((data) => {
+        //     console.log(data); // rows affected
+        // }, (err) => {
+        //     console.error(err)
+        // });
+        // // res.send(data);
+        // // res.send(JSON.stringify(await task.getAllRows(userId)));
     }
     catch (err) {
         console.log(err);
     }
 })
+
 
 // Task incomplete - status & unpay update
 router.put('/taskIncomplete', async (req, res) => {
@@ -88,6 +78,7 @@ router.put('/taskIncomplete', async (req, res) => {
         console.log(err);
     }
 })
+
 
 // Task approve & pay - status update
 router.put('/approveTask', async (req, res) => {
@@ -118,6 +109,17 @@ router.put('/approveTask', async (req, res) => {
         console.log(err);
     }
 })
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//add a new child
+router.post('/addChild/', async (req, res) => {
+    let newChild = req.body.newChild
+    console.log('++++++++++++' + newChild)
+
+    res.send(JSON.stringify(await user.addChild(newChild)));
+})
+
 
 //get child data by childId
 router.get('/getChildById/:childId', async (req, res) =>{
