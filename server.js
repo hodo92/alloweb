@@ -13,10 +13,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, 'dist/alloweb')));
+app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/parent', parentApi);
-app.use('/child', childApi);
+app.use('/childApi', childApi);
 app.use('/add-user', parentApi);
 app.use('/add-task', parentApi);
 app.use('/wishList', wishListApi);

@@ -6,7 +6,7 @@ import { Child } from '../../models/child';
 import { ChildService } from '../../services/child.service';
 import {FileUploader } from 'ng2-file-upload';
 
-const uri = 'http://localhost:3000/childApi/upload';
+const uri = '/childApi/upload';
 
 
 @Component({
@@ -29,6 +29,7 @@ export class AddChildComponent implements OnInit {
 
         
       this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+          this.newChild.user_img = JSON.parse(response).uploadname;
           this.attachmentList.push(JSON.parse(response));
       };
     }
@@ -43,7 +44,7 @@ export class AddChildComponent implements OnInit {
     //})
   }
 
-  addChild(child: Child){
+  addChild(child: Child){debugger;
     this.childService.addNewChild(child)
     this.dialogRef.close();
     

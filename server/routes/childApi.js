@@ -7,7 +7,6 @@ const task = require('../dataAccess/task-model')
 const multer = require('multer'); 
 
 
-
 // upload a photo for the child 
 
 var path = require('path');
@@ -24,6 +23,7 @@ var store = multer.diskStorage({
 var upload = multer({ storage: store }).single('file');
 
 router.post('/upload', function (req, res, next) {
+    console.log(req.path);
     upload(req, res, function (err) {
         if (err) {
             return res, status(501).json({ error: err });
