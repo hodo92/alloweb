@@ -26,7 +26,8 @@
   <!-- <mat-form-field class="example-full-width"> -->
 <div>
         <input type="file" name="image" id="fileUpload" multiple ng2FileSelect
-            [uploader]="uploader" value="">
+            [uploader]="uploader" value="" accept="image/*" style="color: white;">
+            
 </div>
 
         <div class="row uploadList" *ngFor="let item of uploader.queue">

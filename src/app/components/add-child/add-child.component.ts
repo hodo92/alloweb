@@ -6,7 +6,7 @@ import { Child } from '../../models/child';
 import { ChildService } from '../../services/child.service';
 import {FileUploader } from 'ng2-file-upload';
 
-const uri = '/childApi/upload';
+const uri = '/child/upload';
 
 
 @Component({
