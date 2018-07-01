@@ -52,16 +52,14 @@ img {
   color: green;
 }
 .remove-wish{
-  border-radius: 50%;
-  background-color: rgba(197, 44, 44, 0.877);
+  color: rgba(158, 15, 15, 0.842);
   width: 15px;
   height: 15px;
   text-align: center;
-  box-shadow: 1px 1px 1px rgba(83, 81, 81, 0.61);
   line-height: 15px;
   position: absolute;
-  bottom: 2%;
-  right: 2%;
+  bottom: 3%;
+  right: 3%;
 }
 
 .remove-wish:hover{

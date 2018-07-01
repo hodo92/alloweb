@@ -36,8 +36,11 @@ export class WishListComponent implements OnInit {
     this.wishListService.WishListUpdated.subscribe((data)=>{
       this.wishListData = data;
       for(let i=0; i< this.wishListData.length; i++){
-        this.wishListData[i].progress = this.balance / this.wishListData[i].price * 100;
-        console.log(this.wishListData[1].progress);
+        if (Math.floor(this.balance / this.wishListData[i].price * 100) >=100){
+        this.wishListData[i].progress = 100
+        } else {
+        this.wishListData[i].progress = Math.floor(this.balance / this.wishListData[i].price * 100);
+        console.log(this.wishListData[1].progress)}
       }
    
       console.log(this.wishListData)
@@ -62,5 +65,8 @@ export class WishListComponent implements OnInit {
   removeWish(wish){
 
     this.wishListService.removeFromWishList(wish);
+    this.wishListService.WishListUpdated.subscribe((resp)=>{
+      console.log(resp);
+    })
   }
 }

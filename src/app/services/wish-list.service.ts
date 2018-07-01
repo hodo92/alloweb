@@ -70,9 +70,11 @@ export class WishListService {
     }
 
     removeFromWishList(wish:WishList){
-      return  this.http.delete<WishList[]>('/wishList/removeFromWishList/' + wish.goal_id).subscribe((data)=>{
-            // this.wishData = data;
-            // this.WishListSubject.next(this.wishData);
+        console.log(wish)
+      return  this.http.delete<WishList[]>('/wishList/removeFromWishList/' + wish.goal_id + '/user/' + wish.user_id).subscribe((data)=>{
+            this.wishData = data;
+            console.log(this.wishData)
+            this.WishListSubject.next(this.wishData);
         })
     }
     
