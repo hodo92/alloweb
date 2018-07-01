@@ -3,7 +3,7 @@
     <div class="child-data" [routerLink]="['../child-view', child.user_id]">
          <!-- {{_currentParent.last_name}} -->
 
-        <div class="img" *ngIf="child.user_img">
+        <div class="img">
             <img src="{{child.user_img}}" alt="User Image">
         </div>
 
@@ -18,3 +18,5 @@
     </div>
 
 </mat-card>
+
+<!-- *ngIf="child.user_img" -->
