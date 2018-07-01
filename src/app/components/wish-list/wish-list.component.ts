@@ -14,7 +14,8 @@ import { ChildService } from '../../services/child.service';
 export class WishListComponent implements OnInit {
   public childId: number;
   public wishListData: WishList[];
-  public progress;
+  //public progress;
+  public currentRoute: String;
   public balance;
 
   constructor(private wishListService: WishListService, private childService: ChildService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
@@ -31,7 +32,8 @@ export class WishListComponent implements OnInit {
 
   ngOnInit() {
     
-
+    this.currentRoute = this.router.url.slice(1, 11);
+    console.log(this.currentRoute);
     this.wishListService.getWishList(this.childId)
     this.wishListService.WishListUpdated.subscribe((data)=>{
       this.wishListData = data;
@@ -40,7 +42,7 @@ export class WishListComponent implements OnInit {
         this.wishListData[i].progress = 100
         } else {
         this.wishListData[i].progress = Math.floor(this.balance / this.wishListData[i].price * 100);
-        console.log(this.wishListData[1].progress)}
+        console.log(this.wishListData[i].progress)}
       }
    
       console.log(this.wishListData)
