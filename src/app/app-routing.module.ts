@@ -23,7 +23,7 @@ const routes: Routes = [
     { path: 'wish-list/:id', component: WishListComponent },
 
     { path: 'parent-tasks', component: ParentTasksComponent }
-    // { path: 'child-main', component: ChildMainComponent },
+
 ];
 
 @NgModule({

@@ -7,20 +7,20 @@
 
     <mat-form-field class="example-full-width">
 
-        <input matInput placeholder="Email" [(ngModel)]="userEmail" text="text">
+        <input matInput placeholder="Email" [(ngModel)]="parent.email" text="text">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
 
-        <input matInput placeholder="Password" text="password">
+        <input matInput placeholder="Password" [(ngModel)]="parent.pw" text="password">
     </mat-form-field>
     <p class="err">{{error}}</p>
 
     <!-- </form> -->
     <mat-card-actions class="loginActions">
         <div style="margin: 0 auto; width: 100px; padding-bottom: 20px;">
-            <!-- <button mat-raised-button color="primary" (click)="addTask()">Add</button> -->
-            <button mat-raised-button class="login" color="primary" (click)="parentLogin(userEmail)">
+         
+            <button mat-raised-button class="login" color="primary" (click)="parentLogin()">
                 <mat-icon style="padding-right: 10px;">input</mat-icon> Login
             </button>
         </div>

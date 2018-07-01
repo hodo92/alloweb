@@ -30,6 +30,9 @@ class User {
             },
             is_parent: {
                 type: Sequelize.BOOLEAN
+            },
+            pw: {
+                type: Sequelize.STRING(15)
             }
         })
 

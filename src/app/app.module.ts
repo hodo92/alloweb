@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
-
 import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from './app.component';
 import { ParentMainComponent } from './components/parent-main/parent-main.component';
@@ -26,11 +25,11 @@ import { CompletedTasksPipe } from './pipes/completed-tasks.pipe';
 import { OutstandingTasksPipe } from './pipes/outstanding-tasks.pipe';
 import { ApprovedTasksPipe } from './pipes/approved-tasks.pipe';
 
-
 import { ParentService } from './services/parent.service';
 import { ChildService } from './services/child.service';
 import { TaskService } from './services/task.service';
 import { WishListService } from './services/wish-list.service';
+import { LoginService } from './services/login.service';
 
 
 import { JsonpModule  } from '@angular/http';

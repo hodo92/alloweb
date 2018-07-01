@@ -20,10 +20,18 @@ export class ParentService {
     checkParent(email) {
         let parentEmail = '/parent/' + email;
         return this.http.get<Parent>(parentEmail).subscribe((data) => {
-            console.log(data);
-
             this.checkEmail = data;
             this.dataSubject.next(this.checkEmail)
         })
     }
+
+    ValidateEmail(mail) {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (mail.match(mailformat)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
