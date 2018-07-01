@@ -1,82 +1,84 @@
 .container {
-  display: flex;
+    display: flex;
 }
+
 .tasks {
-  flex: 1;
+    flex: 1;
 }
+
 .expander-container {
-  flex: 1;
+    flex: 1;
 }
 
 .wish-list-item {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 15px;
-  margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .mat-progress-bar {
-  margin: 15px;
-  width: 300px;
+    margin: 15px;
+    width: 300px;
 }
 
 img {
-  width: 35%;
-  height: 150px;
-  float: left;
-  padding: 20px;
+    width: 35%;
+    height: 150px;
+    float: left;
+    padding: 20px;
 }
 
-
-
 .wish-list-card {
-  margin-top: 15px;
-  width: 400px;
-  background-color: #FFFFFF;
-  font-family: 'Indie Flower', cursive;
+    margin-top: 15px;
+    width: 400px;
+    background-color: #FFFFFF;
+    font-family: 'Indie Flower', cursive;
 }
 
 .mat-card {
-  padding: 0.5%;
+    padding: 0.5%;
 }
 
-.search-popup{
-  margin-top: 30px;
-  margin-left: 15px;
-  padding: 5px;
+.search-popup {
+    margin-top: 30px;
+    margin-left: 15px;
+    padding: 5px;
 }
+
 .go {
-  top: 25px;
-  font-family: 'Indie Flower', cursive;
-  color: green;
-}
-.remove-wish{
-  border-radius: 50%;
-  background-color: rgba(197, 44, 44, 0.877);
-  width: 15px;
-  height: 15px;
-  text-align: center;
-  box-shadow: 1px 1px 1px rgba(83, 81, 81, 0.61);
-  line-height: 15px;
-  position: absolute;
-  bottom: 2%;
-  right: 2%;
+    top: 25px;
+    font-family: 'Indie Flower', cursive;
+    color: green;
 }
 
-.remove-wish:hover{
-  cursor: pointer;
-  transform: scale(1.1)
+.remove-wish {
+    border-radius: 50%;
+    background-color: rgba(197, 44, 44, 0.877);
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgba(83, 81, 81, 0.61);
+    line-height: 15px;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
 }
-#mySearch,
-.mySearchbtn {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  width: 400px;
+
+.remove-wish:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+#mySearch, .mySearchbtn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 400px;
 }

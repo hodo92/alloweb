@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="sidePadding" color="primary">
     <span class="logo" routerLink="/parent-main">Alloweb</span>
     <div class="button-row" *ngIf="parent">
         <button mat-button routerLink="/parent-main" *ngIf="parent.is_parent">{{parent.last_name}} Kids</button>
@@ -17,7 +17,7 @@
         <img src="{{parent.user_img}}" alt="User Image">
     </div>
 
-    <button mat-button [matMenuTriggerFor]="menu" *ngIf="parent">
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="parent" style="padding: 0px 5px;">
         {{parent.first_name}} {{parent.last_name}}
         <mat-icon>keyboard_arrow_down</mat-icon>
     </button>

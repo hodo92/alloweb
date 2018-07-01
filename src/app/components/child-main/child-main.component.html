@@ -1,4 +1,6 @@
-<mat-toolbar class="childToolbar" *ngIf="currentRoute == 'child-view'">
+<!-- Parent view of child - info ////////////////////////////////////////// -->
+<!-- Child toolbal -->
+<mat-toolbar class="sidePadding" *ngIf="currentRoute == 'child-view'">
     <h1 class="childName">
         <img src="{{ img }}">
         <span>{{user}}</span>
@@ -7,7 +9,7 @@
     <span class="childBalance">${{balance}}</span>
 </mat-toolbar>
 
-<!-- Parent view of child tasks -->
+<!-- Tasks main pane -->
 <div class="row" *ngIf="currentRoute == 'child-view'">
     <div class="main">
         <div class="appTasks">
@@ -33,14 +35,38 @@
         </div>
     </div>
 
+    <!-- Wishlist side pane -->
     <div class="side">
         <h2 class="columnTitle">Wishlist</h2>
-        <h2>Wishlist</h2>
-        <h5>Photo of me:</h5>
+
+        <div class="wish-list-item" *ngFor="let wish of wishListData">
+
+            <mat-card class="wish-list-card">
+
+                <br>
+                <mat-progress-bar mode="determinate" value="{{wish.progress}}">goal-bar</mat-progress-bar>
+
+                <img src="{{wish.goal_img}}">
+                <b> {{wish.title}}</b>
+                <br>
+                <br> price: {{wish.price | currency}}
+                <br>
+                <a *ngIf="wish.progress >=100" href="{{wish.link}}" target="_blank">
+                    <button mat-button class="go">
+                        <b> buy the product now!!</b>
+                    </button>
+                </a>
+                <a (click)="removeWish(wish)">
+                    <div class="remove-wish">
+
+                    </div>
+                </a>
+            </mat-card>
+        </div>
     </div>
 </div>
 
-<!-- Child view of his/her tasks -->
+<!-- Child tasks view ////////////////////////////////////////// -->
 <div class="myTasks" *ngIf="currentRoute == 'child-task'">
     <h2 class="columnTitle">My Tasks</h2>
 
@@ -54,40 +80,3 @@
         [task]=task [currentRoute]="currentRoute" (taskCompleteEmit)="taskComplete($event)"
         (taskIncompleteEmit)="taskIncomplete($event)"></app-task-card>
 </div>
-
-
-
-
-<!-- <div class="split left centered"> -->
-<!-- <div class="appTasks" *ngIf="currentRoute">
-
-    <h2 class="childTitle" *ngIf="currentRoute == 'child-task'">My Tasks</h2>
-
-
-    <app-add-task (addTaskEmit)="addTask($event)"></app-add-task>
-
-    <h2 class="childSubTitle" *ngIf="currentRoute == 'child-view'">Completed Tasks</h2>
-
-    <app-task-card class="col-3" *ngFor="let task of (tasks | completedTasks); let i = index;"
-        [task]=task (taskStatusCompletedEmit)="taskStatusCompleted($event)"></app-task-card>
-
-    <h2 class="childSubTitle" *ngIf="currentRoute == 'child-view'">Outstanding Tasks</h2>
-
-    <app-task-card class="col-3" *ngFor="let task of (tasks | outstandingTasks); let i = index;"
-        [task]=task (taskStatusCompletedEmit)="taskStatusCompleted($event)"></app-task-card>
-
-</div> -->
-
-
-
-
-
-
-
-<!-- </div> -->
-<!-- {{tasks[0].User.first_name}}'s -->
-
-<!-- <div class="split right centered">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4VtUsBNnK6cSYzAe7qQi1T9LMZBe34Pkl_uBCKa-J5oNVq8ab" alt="Ebay Wish List" class="ebayimg">
-        
-    </div> -->
