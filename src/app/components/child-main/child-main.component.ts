@@ -53,7 +53,7 @@ export class ChildMainComponent implements OnInit {
             this.wishListData = data;
             for (let i = 0; i < this.wishListData.length; i++) {
                 this.wishListData[i].progress = this.balance / this.wishListData[i].price * 100;
-                console.log(this.wishListData[1].progress);
+                console.log(this.wishListData[i].progress);
             }
 
             console.log(this.wishListData)

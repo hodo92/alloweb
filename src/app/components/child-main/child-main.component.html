@@ -36,8 +36,12 @@
     </div>
 
     <!-- Wishlist side pane -->
-    <div class="side">
-        <h2 class="columnTitle">Wishlist</h2>
+<div class="side">
+<h2 class="columnTitle">Wishlist</h2>
+    <app-wish-list></app-wish-list>
+</div>
+    <!-- <div class="side">
+        
 
         <div class="wish-list-item" *ngFor="let wish of wishListData">
 
@@ -64,7 +68,7 @@
             </mat-card>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Child tasks view ////////////////////////////////////////// -->
 <div class="myTasks" *ngIf="currentRoute == 'child-task'">
