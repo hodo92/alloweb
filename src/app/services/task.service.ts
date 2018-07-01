@@ -10,12 +10,13 @@ import { AllTasks } from '../models/alltasks';
 export class TaskService implements OnInit {
 
     tasksArr: AllTasks[] = new Array<AllTasks>();
-
-    public getAll: Task[];
     public tasksSubject: Subject<Task[]> = new Subject<Task[]>();
     public tasksUpdated: Observable<Task[]>;
+
+    // Parent view of all children tasks - not showing
     public allTasksSubject: Subject<AllTasks[]> = new Subject<AllTasks[]>();
     public allTasksUpdated: Observable<AllTasks[]>;
+    public getAll: Task[];
 
 
     constructor(private http: HttpClient) {
@@ -34,14 +35,6 @@ export class TaskService implements OnInit {
         })
     }
 
-    getAllTasks(parentId) {
-        let getTasksRoute = '/parent/getTasksbyParent/' + parentId;
-        return this.http.get<AllTasks[]>((getTasksRoute)).subscribe((data) => {
-            this.tasksArr = data;
-            this.allTasksSubject.next(this.tasksArr);
-        })
-    }
-
     addTask(task) {
         this.http.post<any[]>('/child', task).subscribe((data) => {
             this.tasksArr = data;
@@ -52,13 +45,14 @@ export class TaskService implements OnInit {
     taskComplete(task: Task) {
         this.http.put<any>('/child/taskComplete', task).subscribe((data) => {
             this.tasksArr = data;
-            console.log(this.tasksArr);
+            // console.log(this.tasksArr);
 
             this.tasksSubject.next(this.tasksArr);
         });
     }
 
     taskIncomplete(task: Task) {
+        console.log(task);
         this.http.put<any>('/child/taskIncomplete', task).subscribe((data) => {
             this.tasksArr = data;
             console.log(this.tasksArr);
@@ -69,10 +63,19 @@ export class TaskService implements OnInit {
     approveTask(task: Task) {
         this.http.put<any>('/child/approveTask', task).subscribe((data) => {
             this.tasksArr = data;
-            console.log(this.tasksArr);
+            // console.log(this.tasksArr);
             this.tasksSubject.next(this.tasksArr);
         });
+    }
 
-        // Add payment (put request) to child balance
+
+    //////////////////////////////////////////////////////////////////////////////
+    // Parent view of all children tasks - not showing
+    getAllTasks(parentId) {
+        let getTasksRoute = '/parent/getTasksbyParent/' + parentId;
+        return this.http.get<AllTasks[]>((getTasksRoute)).subscribe((data) => {
+            this.tasksArr = data;
+            this.allTasksSubject.next(this.tasksArr);
+        })
     }
 }

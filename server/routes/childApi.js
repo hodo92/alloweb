@@ -37,14 +37,7 @@ router.put('/taskComplete', async (req, res) => {
     let userId = req.body.user_id;
     try {
         await task.taskComplete(taskId);
-        res.send(JSON.stringify(await task.getAllRows(newTask.user_id)));
-        // .then((data) => {
-        //     console.log(data); // rows affected
-        // }, (err) => {
-        //     console.error(err)
-        // });
-        // // res.send(data);
-        // // res.send(JSON.stringify(await task.getAllRows(userId)));
+        res.send(JSON.stringify(await task.getAllRows(userId)));
     }
     catch (err) {
         console.log(err);
@@ -57,22 +50,10 @@ router.put('/taskIncomplete', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
     let payment = req.body.payment;
-    console.log("++++++++++++++++++++++++++");
-    console.log("childApi - taskIncomplete - taskId");
-    console.log(req.body);
-
     try {
-        await task.taskIncomplete(taskId).then((data) => {
-            console.log(data);
-        }, (err) => {
-            console.error(err)
-        });
-
-        await user.taskUnPay(userId, payment).then((data) => {
-            console.log(data);
-        }, (err) => {
-            console.error(err)
-        });
+        await task.taskIncomplete(taskId);
+        await user.taskUnPay(userId, payment);
+        res.send(JSON.stringify(await task.getAllRows(userId)));
     }
     catch (err) {
         console.log(err);
@@ -85,25 +66,10 @@ router.put('/approveTask', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
     let payment = req.body.payment;
-    console.log("++++++++++++++++++++++++++");
-    console.log("router.put approveTask - userId");
-    console.log(payment);
-
     try {
-        await task.approveTask(taskId).then((data) => {
-            console.log(data);
-        }, (err) => {
-            console.error(err)
-        });
-
-        await user.taskPay(userId, payment).then((data) => {
-            // console.log("++++++++++++++++++++++++++");
-            // console.log("router.put user.taskPay - data");
-            // console.log(data);
-            console.log(data);
-        }, (err) => {
-            console.error(err)
-        });        
+        await task.approveTask(taskId);
+        await user.taskPay(userId, payment);
+        res.send(JSON.stringify(await task.getAllRows(userId)));     
     }
     catch (err) {
         console.log(err);
@@ -115,8 +81,7 @@ router.put('/approveTask', async (req, res) => {
 //add a new child
 router.post('/addChild/', async (req, res) => {
     let newChild = req.body.newChild
-    console.log('++++++++++++' + newChild)
-
+    // console.log('++++++++++++' + newChild);
     res.send(JSON.stringify(await user.addChild(newChild)));
 })
 
@@ -129,7 +94,22 @@ router.get('/getChildById/:childId', async (req, res) =>{
          res.send(JSON.stringify(await user.getChildById(childId)));
     } 
     catch (err){
-        alert(err);
+        console.log(err);
     }
 })
 module.exports = router;
+
+
+
+
+        // .then((data) => {
+        //     console.log(data); // rows affected
+        // }, (err) => {
+        //     console.error(err)
+        // });
+        // // res.send(data);
+        // // res.send(JSON.stringify(await task.getAllRows(userId)));
+
+            // console.log("++++++++++++++++++++++++++");
+    // console.log("childApi - taskIncomplete - taskId");
+    // console.log(req.body);
