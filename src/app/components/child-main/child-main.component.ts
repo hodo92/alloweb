@@ -46,18 +46,16 @@ export class ChildMainComponent implements OnInit {
         // Current route finding - for display correct info to parent or child user
         // /child-task for child & /child-view for parent
         this.currentRoute = this.router.url.slice(1, 11);
-        console.log(this.currentRoute);
+        // console.log(this.currentRoute);
 
         this.wishListService.getWishList(this.childId)
         this.wishListService.WishListUpdated.subscribe((data) => {
             this.wishListData = data;
             for (let i = 0; i < this.wishListData.length; i++) {
                 this.wishListData[i].progress = this.balance / this.wishListData[i].price * 100;
-                console.log(this.wishListData[i].progress);
+                // console.log(this.wishListData[i].progress);
             }
-
-            console.log(this.wishListData)
-
+            // console.log(this.wishListData)
         })
     }
 
@@ -74,6 +72,8 @@ export class ChildMainComponent implements OnInit {
 
     // Change back the task status_id to 1 outstanding / incomplete with a put request
     taskIncomplete(task) {
+        console.log(task);
+        
         this.taskService.taskIncomplete(task);
     }
 

@@ -36,15 +36,21 @@
     </div>
 
     <!-- Wishlist side pane -->
-<div class="side">
-<h2 class="columnTitle">Wishlist</h2>
-    <app-wish-list></app-wish-list>
+    <div class="side">
+        <h2 class="columnTitle">Wishlist</h2>
+        <app-wish-list></app-wish-list>
+    </div>
 </div>
-   
+
 
 <!-- Child tasks view ////////////////////////////////////////// -->
 <div class="myTasks" *ngIf="currentRoute == 'child-task'">
     <h2 class="columnTitle">My Tasks</h2>
+
+    <h3 class="filterTitle">Approved</h3>
+    <app-task-card class="col-3" *ngFor="let task of (tasks | approvedTasks); let i = index;"
+        [task]=task [currentRoute]="currentRoute" (taskCompleteEmit)="taskComplete($event)"
+        (taskIncompleteEmit)="taskIncomplete($event)"></app-task-card>
 
     <h3 class="filterTitle">Completed</h3>
     <app-task-card class="col-3" *ngFor="let task of (tasks | completedTasks); let i = index;"

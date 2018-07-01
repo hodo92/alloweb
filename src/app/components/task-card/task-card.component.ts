@@ -58,7 +58,7 @@ export class TaskCardComponent implements OnInit {
         if (task.status_id == 1) {
             this.taskCompleteEmit.emit(task);
             // this.taskCompletionCheck = true;
-        } else if (task.status_id > 2) {
+        } else if (task.status_id >= 2) {
             this.taskIncompleteEmit.emit(task);
             // this.taskCompletionCheck = false;
         }
