@@ -40,35 +40,7 @@
 <h2 class="columnTitle">Wishlist</h2>
     <app-wish-list></app-wish-list>
 </div>
-    <!-- <div class="side">
-        
-
-        <div class="wish-list-item" *ngFor="let wish of wishListData">
-
-            <mat-card class="wish-list-card">
-
-                <br>
-                <mat-progress-bar mode="determinate" value="{{wish.progress}}">goal-bar</mat-progress-bar>
-
-                <img src="{{wish.goal_img}}">
-                <b> {{wish.title}}</b>
-                <br>
-                <br> price: {{wish.price | currency}}
-                <br>
-                <a *ngIf="wish.progress >=100" href="{{wish.link}}" target="_blank">
-                    <button mat-button class="go">
-                        <b> buy the product now!!</b>
-                    </button>
-                </a>
-                <a (click)="removeWish(wish)">
-                    <div class="remove-wish">
-
-                    </div>
-                </a>
-            </mat-card>
-        </div>
-    </div>
-</div> -->
+   
 
 <!-- Child tasks view ////////////////////////////////////////// -->
 <div class="myTasks" *ngIf="currentRoute == 'child-task'">

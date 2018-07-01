@@ -1,14 +1,15 @@
 <div class="container">
 
-<div class="tasks">
-<!-- work with data-base only  -->
+    <div class="tasks">
+        <!-- work with data-base only  -->
 
-<div class="wish-list-item" *ngFor="let wish of wishListData">
+        <div class="wish-list-item" *ngFor="let wish of wishListData">
 
-    <mat-card class="wish-list-card">
+            <mat-card class="wish-list-card">
 
-        <br>
-        <mat-progress-bar mode="determinate" value="{{wish.progress}}">goal-bar</mat-progress-bar><p class="percent">{{wish.progress}}%</p>
+                <br>
+                <mat-progress-bar mode="determinate" value="{{wish.progress}}">goal-bar</mat-progress-bar>
+                <p class="percent">{{wish.progress}}%</p>
 
         <img src="{{wish.goal_img}}">
         <b> {{wish.title}}</b>

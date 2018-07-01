@@ -50,8 +50,6 @@ export class TaskService implements OnInit {
     }
 
     taskComplete(task: Task) {
-        // console.log("task");
-        // console.log(task);
         this.http.put<any>('/child/taskComplete', task).subscribe((data) => {
             this.tasksArr = data;
             console.log(this.tasksArr);
