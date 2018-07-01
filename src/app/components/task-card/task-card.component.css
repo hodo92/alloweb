@@ -1,6 +1,54 @@
+mat-card {
+    border-radius: 8px;
+    padding: 0px;
+}
+
+mat-card.task-card {
+    padding: 16px 30px 30px 30px;
+    background-color: #eafb9e;
+    max-width: 220px;
+    margin: 0px 15px 15px 0px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
 .task-card {
-    max-width: 400px;
+    /* max-width: 400px; */
     margin-bottom: 15px;
+}
+
+.taskTitle {
+    font-size: 30px;
+    font-weight: 500;
+    padding: 0px 0px 8px 0px;
+    margin: 0px;
+}
+
+.taskDescription {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px 0px 8px 0px;
+}
+
+.taskParagraph {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.616);
+    padding: 0px;
+    padding-right: 15px;
+    margin: 0px;
+}
+
+.taskContent {
+    /* border-bottom: 1px solid rgb(68, 68, 68); */
+    margin: -30px -12px 0px -12px;
+    padding-bottom: 10px;
+}
+
+.taskActions {
+    border-top: 1px solid rgb(90, 90, 90);
 }
 
 .task-header-image {
@@ -25,8 +73,25 @@ mat-card-content {
     /*-16px*/
 }
 
-.example-margin {
+/* .example-margin {
     margin: 10px;
+} */
+
+.completeCheck {
+    padding-right: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.616);
+}
+
+.approveCheck {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.616);
+}
+
+.approveIcon {
+    color: black;
 }
 
 .example-h2 {
