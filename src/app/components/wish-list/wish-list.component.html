@@ -26,6 +26,6 @@
 </div>
 <div class="expander-container">
 <!-- <app-wish-list-search></app-wish-list-search> -->
-<button mat-raised-button class="search-popup" (click)="openDialog()">Add a new Wish!</button>
+<button mat-raised-button *ngIf= "currentRoute =='wish-list/'"class="search-popup" (click)="openDialog()">Add a new Wish!</button>
 </div>
 </div>
