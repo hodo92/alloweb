@@ -88,17 +88,12 @@ class User {
     }
 
     taskUnPay(userId, payment) {
-        // console.log("++++++++++++++++++++++++++");
-        // console.log("user-model taskPay userId");
-        // console.log(payment);
         this.model.findById(userId).then(user => {
             return user.decrement('balance', { by: payment });
         }).then(user => {
             
         })
     }
-
-    // decrement
 }
 
 const user = new User();

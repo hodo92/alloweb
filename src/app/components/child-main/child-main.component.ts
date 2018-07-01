@@ -3,6 +3,8 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Task } from '../../models/task';
 import { TaskService } from '../../services/task.service';
 import { Subscriber } from 'rxjs';
+import { WishList } from '../../models/wishList';
+import { WishListService } from '../../services/wish-list.service';
 
 
 @Component({
@@ -16,11 +18,17 @@ export class ChildMainComponent implements OnInit {
     tasks: Task[] = new Array<Task>();
     public user: String;
     public img = String;
-    public balance = Number;
+    public balance;
     public currentRoute: String;
-    
+    public wishListData: WishList[];
+    public progress;
 
-    constructor(private route: ActivatedRoute, private router: Router, private taskService: TaskService) {
+
+    constructor(private route: ActivatedRoute,
+        private router: Router,
+        private taskService: TaskService,
+        private wishListService: WishListService) {
+
         this.taskService.tasksUpdated.subscribe((data) => {
             this.tasks = data;
             this.user = this.tasks[0].User.first_name;
@@ -39,6 +47,18 @@ export class ChildMainComponent implements OnInit {
         // /child-task for child & /child-view for parent
         this.currentRoute = this.router.url.slice(1, 11);
         console.log(this.currentRoute);
+
+        this.wishListService.getWishList(this.childId)
+        this.wishListService.WishListUpdated.subscribe((data) => {
+            this.wishListData = data;
+            for (let i = 0; i < this.wishListData.length; i++) {
+                this.wishListData[i].progress = this.balance / this.wishListData[i].price * 100;
+                console.log(this.wishListData[1].progress);
+            }
+
+            console.log(this.wishListData)
+
+        })
     }
 
     addTask(newTask) {
@@ -60,7 +80,7 @@ export class ChildMainComponent implements OnInit {
     approveTask(task) {
         console.log("child-main approveTask");
         console.log(task);
-        
+
         this.taskService.approveTask(task);
     }
 }
