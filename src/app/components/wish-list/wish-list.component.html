@@ -32,7 +32,7 @@
                         <b> buy the product now!!</b>
                     </button>
                 </a>
-                <a (click)="removeWish(wish)">
+                <a *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
                     <mat-icon class="remove-wish">delete</mat-icon>
                 </a>
             </mat-card>
