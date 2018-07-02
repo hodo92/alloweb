@@ -22,18 +22,24 @@
                         <span style="width: 80%">80%</span>
                     </div>
                 </progress>
+                <mat-card-actions>
+                    <!-- <div> -->
+                    <a mat-raised-button routerLink="{{wish.link}}" class="buyWish" color="primary" style="padding-right: 25px;"
+                        target="_blank" [disabled]="wish.progress < 100 ">Buy</a>
 
-                <a mat-raised-button routerLink="{{wish.link}}" class="go" color="primary"
-                    target="_blank" [disabled]="wish.progress < 100 ">Buy</a>
-
-                <!-- <button mat-icon-button *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
+                        <a *ngIf="wish.progress >=100" href="{{wish.link}}" target="_blank">
+                            
+                        </a>
+                    <!-- <button mat-icon-button *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
                     <mat-icon class="deleteWwish" aria-label="Delete wish">delete</mat-icon>
                 </button> -->
 
-                <button mat-button *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
-                    Cancel
-                </button>
-                
+                    <button mat-button *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
+                        Cancel
+                    </button>
+                    <!-- </div> -->
+                </mat-card-actions>
+
                 <!-- <button mat-raised-button *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
                     <mat-icon class="remove-wish" aria-label="Delete wish">delete</mat-icon>
                 </button> -->
