@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable, Subject} from 'rxjs';
 import { Child } from '../models/child';
+import { WishList } from '../models/wishList';
 
 
 
@@ -47,6 +48,14 @@ export class ChildService {
             this.childData = resp
             this.childSubject.next(this.childData);
             
+        })
+    }
+
+    deductFromBalance(wish: WishList) {
+        console.log(wish.user_id)
+        this.http.put<Child>('/wishList/deductFromBalance/', { wish: wish }).subscribe((resp) => {
+            this.childData = resp
+            this.childSubject.next(this.childData);
         })
     }
 }

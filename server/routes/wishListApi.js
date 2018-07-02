@@ -43,4 +43,18 @@ router.delete('/removeFromWishList/:wishId/user/:userId', async (req, res) => {
     }
 })
 
+//deduct from balance on item purchase
+
+router.put('/deductFromBalance', async (req, res) =>{
+    let wish = req.body.wish;
+    let userId = req.body.wish.user_id;
+    console.log(wish)
+    try{
+        await user.buyNow(wish);
+        res.send(JSON.stringify(await user.getChildById(userId)));
+    } catch (err){
+        alert(err);
+    }
+})
+
 module.exports = router;
