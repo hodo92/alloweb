@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ParentService } from '../../services/parent.service';
-
+import { MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Parent } from '../../models/parent';
 import { LoginService } from '../../services/login.service';
+import { AddUserComponent } from '../add-user/add-user.component';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   private error: String = '';
   parent: Parent = new Parent();
 
-  constructor(private parentService: ParentService, private loginService: LoginService,  private route: ActivatedRoute, private router: Router) {}
+  constructor(private parentService: ParentService, public dialog: MatDialog, private loginService: LoginService,  private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {}
 
@@ -59,7 +59,12 @@ export class LoginComponent implements OnInit {
     }
   }
 
- addUser(){
-    this.loginService.addNewUser();
-}
+  openDialog(parent: Parent): void {
+    let dialogRef = this.dialog.open(AddUserComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }

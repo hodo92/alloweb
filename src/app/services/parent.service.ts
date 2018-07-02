@@ -24,6 +24,11 @@ export class ParentService {
             this.dataSubject.next(this.checkEmail)
         })
     }
+    addNewParent(parent: Parent) {
+
+        return this.http.post<Parent>('/parent/addUser', { newParent: parent }).subscribe((resp) => {
+        })
+    } 
 
     ValidateEmail(mail) {
         var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

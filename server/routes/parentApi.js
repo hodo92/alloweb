@@ -52,10 +52,14 @@ router.get('/getKidsbyParent/:parentId', async (req, res) => {
 router.post('/addChild/', async (req, res) => {
   let newChild = req.body.newChild;
   let parentId = newChild.parent_id;
-  console.log( newChild );
     await user.addChild(newChild);
    res.send(JSON.stringify(await user.getKids(parentId)));
 })
 
+router.post('/addUser/', async (req, res) => {
+  let newParent = req.body.newParent;
+    await user.addParent(newParent);
+   res.send("User added!");
+})
 
 module.exports = router;

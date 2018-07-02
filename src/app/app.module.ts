@@ -52,6 +52,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { UserService } from './services/user.service';
 import { FileUploadModule } from 'ng2-file-upload';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { FileUploadModule } from 'ng2-file-upload';
         WishListComponent,
         CompletedTasksPipe,
         OutstandingTasksPipe,
-        ApprovedTasksPipe
+        ApprovedTasksPipe,
+        AddUserComponent
     ],
     imports: [
         BrowserModule,
@@ -104,6 +106,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     ],
     entryComponents: [
             AddChildComponent,
+            AddUserComponent,
             WishListSearchComponent
             ],
     providers: [

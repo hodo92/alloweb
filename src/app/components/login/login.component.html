@@ -21,7 +21,10 @@
             <button mat-raised-button class="login" color="primary" (click)="parentLogin()">
                 <mat-icon style="padding-right: 10px;">input</mat-icon> Login
             </button>
-            <p class="newUser" (click)="addUser">Not Registered? Click here:</p>
+            <div>
+                <p class="newUser" (click)="openDialog()">Register</p>
+            </div>
+         
         </div>
     </mat-card-actions>
 </mat-card>

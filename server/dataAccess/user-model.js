@@ -44,6 +44,10 @@ class User {
         return this.model.create(newChild)
     }
 
+    addParent(newParent) {
+        return this.model.create(newParent)
+    }
+
     getParent(pemail) {
         return user.model.findAll({
             where: {

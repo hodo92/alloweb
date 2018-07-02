@@ -1,29 +1,29 @@
-<h2>Add a child</h2>
-<form class="child-form">
+<h2>Add a parent</h2>
+<form class="parent-form">
 <div>
   <mat-form-field class="example-full-width">
-    <input matInput [(ngModel)]="newChild.last_name"
+    <input matInput [(ngModel)]="newparent.last_name"
       name="last_name" placeholder="Enter Last Name"
       value="">
   </mat-form-field>
 </div>
 <div>
   <mat-form-field class="example-full-width">
-    <input matInput [(ngModel)]="newChild.first_name"
+    <input matInput [(ngModel)]="newparent.first_name"
       name="first_name" placeholder="Enter First Name"
       value="">
   </mat-form-field>
 </div>
 <div>
   <mat-form-field class="example-full-width">
-    <input matInput [(ngModel)]="newChild.email"
+    <input matInput [(ngModel)]="newparent.email"
       name="email" type="email" placeholder="Enter Email"
       value="">
   </mat-form-field>
 </div>
 <div>
   <mat-form-field class="example-full-width">
-    <input matInput [(ngModel)]="newChild.pw"
+    <input matInput [(ngModel)]="newparent.pw"
       name="password" type="password" placeholder="Enter password"
       value="">
   </mat-form-field>
@@ -55,6 +55,6 @@
 
 
   <button mat-raised-button type="button"
-    color="primary" (click)="addChild(newChild)"  
-    class="add-child">Add</button>
+    color="primary" (click)="addParent(newparent)"  
+    class="add-parent">Add</button>
 </form>
