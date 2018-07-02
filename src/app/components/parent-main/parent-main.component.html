@@ -1,4 +1,23 @@
-<button mat-raised-button class="add-kid" color="primary" (click)="openDialog(_currentParent)">Add a child</button>
+<mat-toolbar class="sidePadding" color="primary">
+    <span class="logo" >Alloweb</span>
+    <div class="button-row">
+        <button mat-button  (click)="openDialog(_currentParent)" >Add Child</button>
+    </div>
+
+<div class="userImage" >
+    <img src="{{_currentParent.user_img}}" alt="User Image">
+</div>
+
+<button mat-button [matMenuTriggerFor]="menu" style="padding: 0px 5px;">
+    {{_currentParent.first_name}} {{_currentParent.last_name}}
+    <mat-icon>keyboard_arrow_down</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logOut()">Log Out</button>
+</mat-menu>
+</mat-toolbar>
+
+<!--button mat-raised-button class="add-kid" color="primary" (click)="openDialog(_currentParent)">Add a child</button-->
 
 <div class="parent-landing">
 

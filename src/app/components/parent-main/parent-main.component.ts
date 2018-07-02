@@ -22,14 +22,9 @@ export class ParentMainComponent implements OnInit {
   private _currentParentId = sessionStorage.getItem("currentUser");
   public _currentParent: Parent = new Parent();
 
-  // public get currentParent() {
-  //   return this._currentParent;
-  // }
-  // public set currentParent(value) {
-  //   this._currentParent = value;
-  // }
 
   constructor(private parentService: ParentService, private userService: UserService, private childService: ChildService, public dialog: MatDialog, private route: ActivatedRoute, private router: Router) { 
+
   }
 
   ngOnInit() {
@@ -50,6 +45,13 @@ export class ParentMainComponent implements OnInit {
     this.router.navigate(['']);
   }
     }
+
+    logOut() {
+      sessionStorage.clear();
+       this._currentParent = undefined;
+       this.router.navigate(['']);
+   }
+
 
   openDialog(parent: Parent): void {
     let dialogRef = this.dialog.open(AddChildComponent, {

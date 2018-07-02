@@ -17,6 +17,8 @@ export class WishListComponent implements OnInit {
   public progress;
   public currentRoute: String;
   public balance;
+  public isParent: Boolean = false;
+  public childIdNumber;
 
     constructor(private wishListService: WishListService,
         private childService: ChildService,
@@ -24,8 +26,13 @@ export class WishListComponent implements OnInit {
         private router: Router,
         private route: ActivatedRoute) {
 
+            if(sessionStorage.getItem("isParent") == "parent"){
+                this.isParent = true;
+                 }    
+
         this.route.params.subscribe((params) => {
             this.childId = params.id;
+            this.childIdNumber = params.id;
             //   console.log(this.childId);
             this.childService.getChildById(this.childId)
             this.childService.childUpdated.subscribe((resp) => {

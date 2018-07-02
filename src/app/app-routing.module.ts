@@ -9,7 +9,9 @@ import { AddChildComponent } from './components/add-child/add-child.component';
 import { ChildMainComponent } from './components/child-main/child-main.component';
 import { WishListSearchComponent } from './components/wish-list-search/wish-list-search.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
-
+import { HeaderComponent } from './components/header/header.component';
+import { UserService } from './services/user.service';
+ 
 
 const routes: Routes = [
     { path: '', component: LoginComponent },

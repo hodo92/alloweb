@@ -13,11 +13,15 @@ import { AddUserComponent } from '../add-user/add-user.component';
 })
 
 export class LoginComponent implements OnInit {
-  public isParent: Boolean
+  public isParent: Boolean = false;
   private error: String = '';
   parent: Parent = new Parent();
 
-  constructor(private parentService: ParentService, public dialog: MatDialog, private loginService: LoginService,  private route: ActivatedRoute, private router: Router) {}
+  constructor(private parentService: ParentService, public dialog: MatDialog, private loginService: LoginService,  private route: ActivatedRoute, private router: Router) {
+    if(sessionStorage.getItem("isParent") == "parent"){
+      this.isParent = true;
+       }
+  }
 
   ngOnInit() {}
 

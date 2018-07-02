@@ -1,3 +1,17 @@
+<mat-toolbar class="sidePadding" color="primary">
+    <span class="logo" >Alloweb</span>
+    <div class="button-row">
+        <button mat-button  [routerLink]="['/child-view', childIdNumber]" >My Home</button>
+        <button mat-button  [routerLink]="['/child-tasks', childIdNumber]">My Tasks</button>
+        <button mat-button  [routerLink]="['/wish-list', childIdNumber]">My Wishlist</button>
+    </div>
+    <div>
+        <span class="childBalance" >${{parent.balance}}</span>
+    </div>
+</mat-toolbar>
+
+
+
 <!-- Parent view of child - info ////////////////////////////////////////// -->
 <!-- Child toolbar -->
 <mat-toolbar class="sidePadding" *ngIf="currentRoute == 'child-view'">

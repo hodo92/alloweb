@@ -26,3 +26,43 @@ h1 {
 .appChildCard {
     margin: 15px;
 }
+
+.sidePadding {
+    padding: 0px 30px;
+}
+
+.logo {
+    /* margin: 0px 25px 0px 0px; */
+    cursor: pointer;
+    padding-right: 25px;
+    font-weight: 700;
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+
+.userImage img {
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 15px;
+    /* padding: 0px 0px 0px 15px; */
+}
+
+.childBalance {
+    font-size: 14px;
+    padding: 0px 0px 0px 15px;
+}

@@ -7,6 +7,8 @@ import { WishList } from '../../models/wishList';
 import { WishListService } from '../../services/wish-list.service';
 import { ChildService } from '../../services/child.service';
 import { Child } from '../../models/child';
+import { ParentService } from '../../services/parent.service';
+import { Parent } from '../../models/parent';
 
 
 @Component({
@@ -25,13 +27,18 @@ export class ChildMainComponent implements OnInit {
     public wishListData: WishList[];
     public first_name;
     public noTasks: Boolean;
+    public childIdNumber;
+    public parent: Parent;
 
 
-    constructor(private route: ActivatedRoute,
+
+    constructor(
+        private route: ActivatedRoute,
         private router: Router,
         private taskService: TaskService,
         private wishListService: WishListService,
-        private childService: ChildService) {
+        private childService: ChildService,
+    private parentService: ParentService) {
 
         this.taskService.tasksUpdated.subscribe((data) => {
             this.tasks = data;
@@ -45,6 +52,13 @@ export class ChildMainComponent implements OnInit {
                 this.tasks = data;
             }
         });
+
+        if (sessionStorage.getItem("loggedIn") == "true") {
+            this.parentService.dataUpdated.subscribe((data) => {
+                console.log(data)
+                this.parent = data[0];
+            });
+        }
     }
 
     ngOnInit() {
@@ -57,6 +71,7 @@ export class ChildMainComponent implements OnInit {
                this.balance = this.user.balance;
                this.first_name = this.user.first_name
                console.log(this.user);
+               this.childIdNumber = this.childId;
             })
             this.taskService.getTasks(this.childId);
         });
@@ -70,7 +85,6 @@ export class ChildMainComponent implements OnInit {
             this.wishListData = data;
             for (let i = 0; i < this.wishListData.length; i++) {
                 this.wishListData[i].progress = this.balance / this.wishListData[i].price * 100;
-
             }
 
         })

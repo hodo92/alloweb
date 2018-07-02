@@ -12,8 +12,6 @@ import { Subscriber } from 'rxjs';
     styleUrls: ['./child-tasks.component.css']
 })
 export class ChildTasksComponent implements OnInit {
-    // inputFocus: boolean = false;
-    // childId: number;
     public childId: number;
     public _isParent: boolean = true;
     tasks: Task[] = new Array<Task>();
