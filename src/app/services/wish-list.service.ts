@@ -37,7 +37,7 @@ export class WishListService {
     }
 
     findItemsByKeywords(keyword: string) {
-        return this.jsonp.request('http://svcs.ebay.com/services/search/FindingService/'+
+        return this.jsonp.request('https://svcs.ebay.com/services/search/FindingService/'+
                 'v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=hodo'+
                 '-alloweb-PRD-d7141958a-c562edf1&GLOBAL-ID=EBAY-US&RESPONSE-DATA-FORMAT=JSON&REST-PAYL'+
             'OAD&keywords=' + keyword + '&paginationInput.entriesPerPage=5&callback=JSONP_CALLBACK')
