@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  parentLogin() {
+  parentLogin() {  
     if (!this.parentService.ValidateEmail(this.parent.email)) {
       this.error = '*Email format not valid';
       setTimeout(() => {
@@ -33,12 +33,13 @@ export class LoginComponent implements OnInit {
       }, 3000);
     } else {
       this.parentService.checkParent(this.parent.email);
-      this.parentService.dataUpdated.subscribe((resp) => {          
-         if(resp.length == 0){
+      this.parentService.dataUpdated.subscribe((resp) => {     
+            if(!resp[0]){
             this.error = '*Email not found';
             setTimeout(() => {
               this.error = '';
             }, 3000);
+            return;
          } else if (resp[0].email == this.parent.email && resp[0].pw != this.parent.pw || resp[0].email != this.parent.email && resp[0].pw == this.parent.pw) {
           this.error = '*Email address and password do not match';
           setTimeout(() => {
