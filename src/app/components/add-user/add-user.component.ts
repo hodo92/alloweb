@@ -19,7 +19,7 @@ export class AddUserComponent implements OnInit {
     newparent = new Parent;
     uploader: FileUploader = new FileUploader({ url: uri });
     attachmentList: any = [];
-
+    private isButtonVisible = true;
 
   constructor(private parentService: ParentService, 
     private route: ActivatedRoute, 
@@ -31,13 +31,16 @@ export class AddUserComponent implements OnInit {
       this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
           this.newparent.user_img = JSON.parse(response).uploadname;
           this.attachmentList.push(JSON.parse(response));
+          console.log(this.isButtonVisible)
+          this.isButtonVisible = false;
+          console.log(this.isButtonVisible)
       };
     }
 
   ngOnInit() {
-    this.route.params.subscribe((params) =>{
-     this.newparent.parent_id = this.data.user_id
-    })
+    // this.route.params.subscribe((params) =>{
+    //  this.newparent.parent_id = this.data.user_id
+    // })
   }
 
   addParent(parent: Parent){

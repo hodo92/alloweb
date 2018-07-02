@@ -17,6 +17,8 @@ export class WishListComponent implements OnInit {
   public progress;
   public currentRoute: String;
   public balance;
+  public canDelete: boolean = false;
+  public noWish: Boolean;
 
     constructor(private wishListService: WishListService,
         private childService: ChildService,
@@ -42,6 +44,13 @@ export class WishListComponent implements OnInit {
         this.wishListService.getWishList(this.childId)
         this.wishListService.WishListUpdated.subscribe((data) => {
             this.wishListData = data;
+            if (typeof this.wishListData[0] == 'undefined') {
+                this.noWish = true;
+                console.log(this.noWish);
+                // return
+            } else {
+                this.noWish = false
+                console.log(this.noWish);
             for (let i = 0; i < this.wishListData.length; i++) {
                 if (Math.floor(this.balance / this.wishListData[i].price * 100) >= 100) {
                     this.wishListData[i].progress = 100
@@ -50,6 +59,7 @@ export class WishListComponent implements OnInit {
                     // console.log(this.wishListData[i].progress)
                 }
             }
+        }
 
             //   console.log(this.wishListData);
 
@@ -87,5 +97,13 @@ export class WishListComponent implements OnInit {
             });
        // })
        
+    }
+
+    toggleDelete(){
+        if(this.canDelete === false){
+            this.canDelete = true;
+        } else if (this.canDelete === true){
+            this.canDelete = false;
+        }
     }
 }

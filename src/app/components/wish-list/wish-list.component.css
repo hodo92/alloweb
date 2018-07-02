@@ -58,7 +58,15 @@ img.wishImage {
     margin-bottom: 10px;
     float: none;
 }
-
+.noWishes {
+     padding: 30px 30px 30px 30px;
+      max-width: 260px;
+     min-width: 220px;
+     margin: 0px 15px 15px 0px;
+     -moz-border-radius: 5px;
+     -webkit-border-radius: 5px;
+     border-radius: 5px;
+}
 .wishTexts {
     /* border-bottom: 1px solid rgb(68, 68, 68); */
     /* margin: -30px -12px 0px -12px; */

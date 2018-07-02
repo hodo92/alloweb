@@ -46,8 +46,8 @@
             </div>
             <div>
                 
-                <button type="button" class="btn btn-dark" (click)="item.upload()">Upload Image</button>
-                <button type="button" class="btn btn-danger" (click)="item.remove()">Cancel Image</button>
+                <button *ngIf="this.isButtonVisible" type="button" class="btn btn-dark" (click)="item.upload()">Upload Image</button>
+                <button *ngIf="this.isButtonVisible" type="button" class="btn btn-danger" (click)="item.remove()">Cancel Image</button>
             </div>
             
             </div>

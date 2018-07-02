@@ -1,8 +1,15 @@
 <div class="container">
     <div class="tasks">
+         <mat-checkbox *ngIf="!noWish" class="deleteCheck" (click)="toggleDelete()">
+                Delete
+            </mat-checkbox>
+            <div class="noWishes">
+            <mat-card  *ngIf="noWish">
+                <h2>No Wishes :(</h2>
+            </mat-card>
+            </div>
         <!-- work with data-base only  -->
         <div class="wish-list-item" *ngFor="let wish of wishListData">
-
             <mat-card class="wish-card">
                 <img class="wishImage" src="{{wish.goal_img}}">
                 <div class="wishTexts">
@@ -21,15 +28,17 @@
                     </div>
                 </progress>
 
-                <mat-card-actions>
+                <mat-card-actions *ngIf="currentRoute =='wish-list/'">
                     <!-- <div> -->
-                    <a *ngIf="currentRoute =='wish-list/'" mat-raised-button href="{{wish.link}}" class="buyWish" color="primary" style="padding-right: 25px;"
+                    <a  mat-raised-button href="{{wish.link}}" class="buyWish" color="primary" style="padding-right: 25px;"
                         target="_blank" [disabled]="wish.progress < 100 " (click)="buyItNow(wish)">Buy</a>
-
-                    <button mat-button *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
+                        
+                    <button mat-button *ngIf="canDelete" (click)="removeWish(wish)">
+                        
                         Cancel
+                       
                       </button>
-                    
+                        
                 </mat-card-actions>
             </mat-card>
 
