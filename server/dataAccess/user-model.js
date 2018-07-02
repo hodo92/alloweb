@@ -81,12 +81,19 @@ class User {
         });
     }
 
+    buyNow(wish){
+         this.model.findById(wish.user_id).then(data =>{
+            return data.decrement('balance', { by: wish.price }).then(data =>{
+                
+            })
+        });
+    }
+
     taskPay(userId, payment) {
         this.model.findById(userId).then(user => {
             return user.increment('balance', { by: payment });
         }).then(user => {
-            // Postgres will return the updated user by default (unless disabled by setting { returning: false })
-            // In other dialects, you'll want to call user.reload() to get the updated instance...
+        
         })
     }
 

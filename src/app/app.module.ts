@@ -51,6 +51,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { UserService } from './services/user.service';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -95,10 +96,11 @@ import { UserService } from './services/user.service';
         MatDatepickerModule,
         MatSelectModule,
         MatNativeDateModule,
+        JsonpModule,
+        FileUploadModule, 
         MatMenuModule,
         MatBadgeModule,
-        MatTooltipModule,
-        JsonpModule
+        MatTooltipModule
     ],
     entryComponents: [
             AddChildComponent,

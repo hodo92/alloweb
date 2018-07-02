@@ -4,6 +4,59 @@ const router = express.Router();
 // const Op = Sequelize.Op;
 const user = require('../dataAccess/user-model');
 const task = require('../dataAccess/task-model')
+const multer = require('multer'); 
+
+
+// upload a photo for the child 
+
+var path = require('path');
+
+var store = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '.' + file.originalname);
+    }
+});
+
+var upload = multer({ storage: store }).single('file');
+
+router.post('/upload', function (req, res, next) {
+    console.log(req.path);
+    upload(req, res, function (err) {
+        if (err) {
+            return res, status(501).json({ error: err });
+        }
+        //do all database record saving activity
+        return res.json({ originalname: req.file.originalname, uploadname: req.file.filename });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //get tasks by childuserID -- this will go in Child API
 router.get('/:userId', async (req, res) => {
@@ -45,14 +98,12 @@ router.put('/taskComplete', async (req, res) => {
 })
 
 
-// Task incomplete - status & unpay update
+// Task incomplete - status update
 router.put('/taskIncomplete', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
-    let payment = req.body.payment;
     try {
         await task.taskIncomplete(taskId);
-        await user.taskUnPay(userId, payment);
         res.send(JSON.stringify(await task.getAllRows(userId)));
     }
     catch (err) {
@@ -61,7 +112,8 @@ router.put('/taskIncomplete', async (req, res) => {
 })
 
 
-// Task approve & pay - status update
+
+// Task approve & pay - update
 router.put('/approveTask', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
@@ -70,6 +122,22 @@ router.put('/approveTask', async (req, res) => {
         await task.approveTask(taskId);
         await user.taskPay(userId, payment);
         res.send(JSON.stringify(await task.getAllRows(userId)));     
+    }
+    catch (err) {
+        console.log(err);
+    }
+})
+
+
+// Task incomplete & unpay - update
+router.put('/taskIncompleteUnpay', async (req, res) => {
+    let taskId = req.body.task_id;
+    let userId = req.body.user_id;
+    let payment = req.body.payment;
+    try {
+        await task.taskIncomplete(taskId);
+        await user.taskUnPay(userId, payment);
+        res.send(JSON.stringify(await task.getAllRows(userId)));
     }
     catch (err) {
         console.log(err);

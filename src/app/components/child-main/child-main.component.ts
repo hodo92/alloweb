@@ -5,6 +5,8 @@ import { TaskService } from '../../services/task.service';
 import { Subscriber } from 'rxjs';
 import { WishList } from '../../models/wishList';
 import { WishListService } from '../../services/wish-list.service';
+import { ChildService } from '../../services/child.service';
+import { Child } from '../../models/child';
 
 
 @Component({
@@ -16,30 +18,46 @@ export class ChildMainComponent implements OnInit {
 
     public childId: number;
     tasks: Task[] = new Array<Task>();
-    public user: String;
-    public img = String;
+    public user: Child;
+    public img;
     public balance;
     public currentRoute: String;
     public wishListData: WishList[];
-    public progress;
+    public first_name;
+    public noTasks: Boolean;
 
 
     constructor(private route: ActivatedRoute,
         private router: Router,
         private taskService: TaskService,
-        private wishListService: WishListService) {
+        private wishListService: WishListService,
+        private childService: ChildService) {
 
         this.taskService.tasksUpdated.subscribe((data) => {
             this.tasks = data;
-            this.user = this.tasks[0].User.first_name;
-            this.img = this.tasks[0].User.user_img;
-            this.balance = this.tasks[0].User.balance;
+            if(typeof this.tasks[0]=='undefined'){
+                this.noTasks = true;
+                console.log(this.noTasks)
+                return
+            } else {
+                console.log(this.noTasks)
+            this.noTasks = false
+                this.tasks = data;
+            }
         });
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.childId = params.id;
+            this.childService.getChildById(this.childId)
+            this.childService.childUpdated.subscribe((resp)=>{
+               this.user = resp;
+               this.img = this.user.user_img;
+               this.balance = this.user.balance;
+               this.first_name = this.user.first_name
+               console.log(this.user);
+            })
             this.taskService.getTasks(this.childId);
         });
 

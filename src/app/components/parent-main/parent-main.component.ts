@@ -53,11 +53,10 @@ export class ParentMainComponent implements OnInit {
 
   openDialog(parent: Parent): void {
     let dialogRef = this.dialog.open(AddChildComponent, {
-      data: parent
+      data: this._currentParent
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      window.location.reload();
       console.log('The dialog was closed');
     });
   }

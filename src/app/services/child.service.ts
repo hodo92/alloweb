@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable, Subject} from 'rxjs';
 import { Child } from '../models/child';
+import { WishList } from '../models/wishList';
 
 
 
@@ -30,8 +31,8 @@ export class ChildService {
     getAllChildren(parentId) {
         let getKidsRoute = '/parent/getKidsbyParent/' + parentId;
         return this.http.get<Child[]>(getKidsRoute).subscribe((data) => {
-            this.getKids = data;
-            this.dataSubject.next(this.getKids);
+            this.Children = data;
+            this.dataSubject.next(this.Children);
         });
     }
     
@@ -47,6 +48,14 @@ export class ChildService {
             this.childData = resp
             this.childSubject.next(this.childData);
             
+        })
+    }
+
+    deductFromBalance(wish: WishList) {
+        console.log(wish.user_id)
+        this.http.put<Child>('/wishList/deductFromBalance/', { wish: wish }).subscribe((resp) => {
+            this.childData = resp
+            this.childSubject.next(this.childData);
         })
     }
 }

@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         if (sessionStorage.getItem("loggedIn") == "true") {
-        this.userService.dataUpdated.subscribe((data) => {
+        this.parentService.dataUpdated.subscribe((data) => {
             console.log(data)
             this.parent = data[0];
         });

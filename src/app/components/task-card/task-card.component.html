@@ -1,4 +1,60 @@
 <mat-card class="task-card">
+
+    <div class="taskTexts">
+        <h1 class="taskTitle">{{ task.title }}</h1>
+        <h2 class="taskDescription" *ngIf="task.description">{{ task.description }}</h2>
+        <div>
+            <span class="taskParagraph">${{ task.payment }}</span>
+            <span class="taskParagraph">{{ task.deadline }}</span>
+        </div>
+    </div>
+
+    <mat-card-actions class="taskActions">
+        <!-- Incomplete task state - complete click -->
+
+        <mat-checkbox class="completeCheck" color="primary" [(indeterminate)]="indeterminate"
+            [labelPosition]="labelPosition" [checked]="task.status_id == 2 || task.status_id == 3"
+            matTooltip="Task completion" matTooltipClass="toolTip_" (click)="taskStatusChange(task)">Completed
+        </mat-checkbox>
+
+        <!-- <span *ngIf="task.status_id == 3">and approved</span> -->
+
+        <!--  *ngIf="task.status_id < 3 " -->
+
+        <mat-checkbox class="approveCheck" color="primary" [(indeterminate)]="indeterminate"
+            [labelPosition]="labelPosition" [checked]="task.status_id == 3" [disabled]="currentRoute == 'child-task'"
+            matTooltip="Task approval" matTooltipClass="toolTip_" 
+            (click)="approveTask(task)">Approved
+        </mat-checkbox>
+        <!-- *ngIf="currentRoute == 'child-view'" -->
+        
+        <!-- <button mat-icon-button color="primary" *ngIf="currentRoute == 'child-view'"
+            matTooltip="Task approval" matTooltipClass="toolTip_" (click)="approveTask(task)">
+
+            <mat-icon class="approveIcon" aria-label="Approve task">credit_card</mat-icon>
+        </button> -->
+    </mat-card-actions>
+</mat-card>
+
+
+
+
+
+<!--
+        <mat-card-header></mat-card-header>
+        <mat-card-content class="taskContent"></mat-card-content>
+    <div class="row" *ngIf="currentRoute == 'child-view'">
+    <div class="main">
+        </div>
+
+        <div class="side">
+            <h2 class="columnTitle">Wishlist</h2>
+            <app-wish-list></app-wish-list>
+        </div>
+</div> -->
+
+
+<!-- <mat-card class="task-card">
     <mat-card-header>
         <div mat-card-avatar class="task-header-image">
             <mat-icon class="example-icon" color="primary">local_dining</mat-icon>
@@ -14,103 +70,14 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <!-- Incomplete task state - complete click -->
         <mat-checkbox class="example-margin" color="primary" [(indeterminate)]="indeterminate"
             [labelPosition]="labelPosition" [checked]="task.status_id >= 2"
-            matTooltip="Task completion" matTooltipClass="toolTip_"
-            (click)="taskStatusChange(task)">
+            matTooltip="Task completion" matTooltipClass="toolTip_" (click)="taskStatusChange(task)">
         </mat-checkbox>
-        <!--  *ngIf="task.status_id < 3 " -->
 
         <button mat-icon-button color="primary" *ngIf="currentRoute == 'child-view'"
             matTooltip="Task approval" matTooltipClass="toolTip_" (click)="approveTask(task)">
-            <mat-icon aria-label="Approve task">thumb_up</mat-icon>
+            <mat-icon aria-label="Approve task">credit_card</mat-icon>
         </button>
     </mat-card-actions>
-</mat-card>
-
-
-
-
-<!-- Complete task state - incomplete click -->
-<!-- <mat-checkbox class="example-margin" *ngIf="taskCompletionCheck" [(indeterminate)]="indeterminate"
-                    [labelPosition]="labelPosition" [checked]="task.status_id == 2"
-                    (click)="taskStatusCompleted(task)">
-                </mat-checkbox> -->
-
-<!-- <button mat-icon-button color="primary" matTooltip="Task completed">
-            <mat-icon aria-label="Task completed">check_box_outline_blank</mat-icon>
-        </button>
-
-        <button mat-icon-button color="primary" matTooltip="Redo task">
-            <mat-icon aria-label="Redo task">check_box</mat-icon>
-        </button> -->
-
-
-
-<!-- <button mat-mini-fab>
-                <mat-icon aria-label="Example icon-button with a heart icon">cancel</mat-icon>
-            </button> -->
-
-
-<!-- Approve button -->
-<!-- <span *ngIf="taskCompletionCheck">
-            <mat-checkbox class="example-margin" *ngIf="taskCompletionCheck" [(indeterminate)]="indeterminate"
-                [labelPosition]="labelPosition" [checked]="task.status_id == 2"
-                (click)="taskStatusCompleted(task)">
-                Approve
-            </mat-checkbox>
-        </span> -->
-
-<!-- <mat-slide-toggle class="example-margin" [color]="color" [(ngModel)]="taskApprovedCheck"
-            [disabled]="!taskCompletionCheck">
-            Approve
-        </mat-slide-toggle>
-
-        <mat-checkbox class="example-margin" [(indeterminate)]="indeterminate"
-            [labelPosition]="labelPosition" [disabled]="paidDisabled" [checked]="task.status_id == 2">
-            Paid
-        </mat-checkbox> -->
-
-
-<!-- [(ngModel)]="taskCompletedCheck" -->
-<!-- [(ngModel)]="paidChecked" -->
-
-<!-- <p *ngIf="(task.status_id == 1)">Not completed</p>
-        <p *ngIf="(task.status_id == 2)">Completed</p> -->
-<!--[checked]="checked" *ngIf="!taskCompletedCheck"  *ngIf="taskCompletedCheck"-->
-
-<!-- <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button> -->
-<!-- <mat-slide-toggle class="example-margin" [color]="color" [(ngModel)]="taskCompletedCheck" 
-                [disabled]="taskCompletedDisabled" (click)="taskStatusCompleted(task)" attr.checked="{{task.status_id}} == 2">
-                   
-                    Completed
-                </mat-slide-toggle> -->
-<!-- <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox>
-<mat-slide-toggle class="example-margin" [color]="color" [checked]="checked"
-    [disabled]="disabled">
-    Slide me!
-</mat-slide-toggle> -->
-
-
-
-<!-- <li data-id="{{movie._id}}" (click)="movieWasClicked(movie)">
-    <div class="movie-data">
-        <div class="img">
-            <img src="{{movie.imgUrl}}">
-        </div>
-        <div class="movie-title">
-            <h4>{{movie.title}}</h4>
-            <p>{{movie.year}}</p>
-            <p>${{movie.price}}</p>
-        </div>
-        <div class="desc">
-            {{movie.shortDescription}}
-        </div>
-        <i class="fa fa-trash" *ngIf="deleteMoviesFromPrivate == true" (click)="removePrivateMovie(movie)"></i>
-    </div>
-</li> -->
-
-
-<!-- {{ taskCompleted }} [checked]="task.status_id == 2"-->
+</mat-card> -->
