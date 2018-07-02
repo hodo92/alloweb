@@ -59,18 +59,17 @@ class User {
     getParentById(parentId) {
         return user.model.findAll({
             where: {
-             user_id: parentId
+                user_id: parentId
             }
         });
     }
 
 
     getChildById(childId) {
-        return user.model.find({
-            where: {
-                user_id: childId
-            }
-        })
+        console.log(childId);
+        
+        return this.model.findById(childId);
+        // return this.model.find({ where: { user_id: childId } });
     }
 
     getAllTasks(parentId) {
@@ -78,16 +77,12 @@ class User {
     }
 
     getKids(parentId) {
-        return user.model.findAll({
-            where: {
-                parent_id: parentId
-            }
-        });
+        return user.model.findAll({ where: { parent_id: parentId } });
     }
-    
+
     // Daniel - buy wish - header change
-    buyNow(wish){
-         return this.model.findById(wish.user_id).then(data =>{
+    buyNow(wish) {
+        return this.model.findById(wish.user_id).then(data => {
             return data.decrement('balance', { by: wish.price });
         });
     }

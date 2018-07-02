@@ -31,9 +31,6 @@ export class HeaderComponent implements OnInit {
     // Daniel - buy wish - header change
     ngOnInit() {
         this.childService.childUpdated.subscribe((data) => {
-            console.log("header data from childService childUpdated");
-            console.log(data);
-
             this.childBalance = data.balance;
         });
         

@@ -14,8 +14,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 25px;
+    /* margin-top: 15px; */
 }
 
 .mat-progress-bar {
@@ -34,7 +34,6 @@ img {
     margin-top: 15px;
     width: 400px;
     background-color: #FFFFFF;
-    font-family: 'Indie Flower', cursive;
 } */
 
 mat-card.wish-card {
@@ -119,7 +118,6 @@ img.wishImage {
 
 /* .go {
     top: 25px;
-    font-family: 'Indie Flower', cursive;
     color: green;
 } */
 
