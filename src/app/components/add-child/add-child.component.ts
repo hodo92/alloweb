@@ -19,7 +19,7 @@ export class AddChildComponent implements OnInit {
     newChild = new Child;
     uploader: FileUploader = new FileUploader({ url: uri });
     attachmentList: any = [];
-
+    private isButtonVisible = true;
 
   constructor(private childService: ChildService, 
     private route: ActivatedRoute, 
@@ -31,6 +31,9 @@ export class AddChildComponent implements OnInit {
       this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
           this.newChild.user_img = JSON.parse(response).uploadname;
           this.attachmentList.push(JSON.parse(response));
+          console.log(this.isButtonVisible)
+          this.isButtonVisible = false;
+          console.log(this.isButtonVisible)
       };
     }
 
@@ -53,4 +56,5 @@ export class AddChildComponent implements OnInit {
     this.childService.addNewChild(child);
     this.dialogRef.close();
   }
+  
 }

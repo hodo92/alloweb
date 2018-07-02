@@ -38,7 +38,9 @@ export class ChildService {
     
     addNewChild(child: Child) {
         console.log(child);
-        return this.http.post<Child>('/parent/addChild', { newChild: child }).subscribe((resp) => {
+        return this.http.post<Child[]>('/parent/addChild', { newChild: child }).subscribe((resp) => {
+            this.Children = resp;
+            this.dataSubject.next(this.Children);
         })
     }
 
