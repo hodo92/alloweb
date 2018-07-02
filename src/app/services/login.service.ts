@@ -1,36 +1,37 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
+import { User } from '../models/user';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class LoginService {
-public key: String = "FGADpEJfqKBxIuiLUvVwHaRbzScPMhXOCrmYdQWZosTnkytejlgN";
+    public User: User;
+    public checkEmail: User;
+    public dataUpdated: Observable<User>;
+    private dataSubject: Subject<User>;
 
-  constructor() { }
-
-  encodePw(uncoded) {
-    uncoded = uncoded.toUpperCase().replace(/^\s+|\s+$/g,"");
-    var coded = "";
-    var chr;
-    for (var i = uncoded.length - 1; i >= 0; i--) {
-      chr = uncoded.charCodeAt(i);
-      coded += (chr >= 65 && chr <= 90) ? 
-        this.key.charAt(chr - 65 + 26*Math.floor(Math.random()*2)) :
-        String.fromCharCode(chr); 
-      }
-    return coded;  
+    constructor(private http: HttpClient) {
+        this.dataSubject = new Subject<User>();
+        this.dataUpdated = this.dataSubject.asObservable();
     }
-  
-  decodePw(coded) {
-    var uncoded = "";
-    var chr;
-    for (var i = coded.length - 1; i >= 0; i--) {
-      chr = coded.charAt(i);
-      uncoded += (chr >= "a" && chr <= "z" || chr >= "A" && chr <= "Z") ?
-        String.fromCharCode(65 + this.key.indexOf(chr) % 26) :
-        chr; 
-      }
-    return uncoded;   
-    } 
+
+    checkUser(email) {
+        let userEmail = '/parent/' + email;
+        return this.http.get<User>(userEmail).subscribe((data) => {
+            this.checkEmail = data;
+            this.dataSubject.next(this.checkEmail)
+        })
+    }
+
+    ValidateEmail(mail) {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (mail.match(mailformat)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

@@ -1,7 +1,8 @@
 <mat-toolbar class="sidePadding" color="primary">
     <span class="logo" routerLink="/parent-main">Alloweb</span>
     <div class="button-row" *ngIf="parent">
-        <button mat-button routerLink="/parent-main" *ngIf="parent.is_parent">{{parent.last_name}} Kids</button>
+        <button mat-button routerLink="/parent-main" *ngIf="router.url == !'parent-main'">Home</button>
+        <button mat-button routerLink="/child-main" *ngIf="!parent.is_parent">Home</button>
         <button mat-button (click)="navigateToChildTasks(parent.user_id)"  *ngIf="!parent.is_parent">My Tasks</button>
          <!-- routerLink="/child-view/' + parent.user_id"  routerLink="/wish-list"-->
         <!-- <a mat-button routerLink=".">Link</a> -->

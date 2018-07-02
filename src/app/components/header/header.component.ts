@@ -12,19 +12,19 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
     public parent: Parent;
-    constructor(private parentService: ParentService, private router: Router) {
-        
-    }
 
-    ngOnInit() {
-        this.parentService.dataUpdated.subscribe((data) => {
-            this.parent = data[0];
-            console.log(this.parent);
-        });
-    }
+    constructor(private parentService: ParentService, private router: Router) {  }
+
+    ngOnInit() { 
+        if (sessionStorage.getItem("loggedIn") == "true") {
+            this.parentService.dataUpdated.subscribe((data) => {
+                this.parent = data[0];
+            });
+         }
+   }
 
     logOut() {
-        localStorage.removeItem("currentParent");
+        sessionStorage.clear());
         this.parent = undefined;
         this.router.navigate(['']);
     }
@@ -36,6 +36,5 @@ export class HeaderComponent implements OnInit {
     navigateToChildWishList(userId) {
         console.log(userId);
         this.router.navigate(['/wish-list/' + userId]);
-        
     }
 }

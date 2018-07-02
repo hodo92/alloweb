@@ -1,6 +1,12 @@
 <p>
     add-child works!
 </p>
+<!-- choose parent/-->
+
+
+
+
+<!--Add user section -->
 <form class="child-form">
     <mat-form-field class="example-full-width">
         <input matInput [(ngModel)]="newChild.last_name" name="last_name" placeholder="Enter Last Name"
@@ -13,6 +19,14 @@
     <mat-form-field class="example-full-width">
         <input matInput [(ngModel)]="newChild.email" name="email" type="email"
             placeholder="Enter Email" value="">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="newChild.password" name="password" type="password"
+            placeholder="Enter Password" value="">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="newChild.email" name="email" type="email"
+            placeholder="Re-enter Password" value="">
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <input matInput [(ngModel)]="newChild.user_img" name="image" placeholder="Paste Img url"
