@@ -2,7 +2,7 @@
     <span class="logo" routerLink="/parent-main">Alloweb</span>
     <div class="button-row" *ngIf="parent">
         <button mat-button routerLink="/parent-main" *ngIf="parent.is_parent">{{parent.last_name}} Kids</button>
-        <button mat-button routerLink="/child-main" *ngIf="!parent.is_parent">Home</button>
+        <!-- <button mat-button routerLink="/child-main" *ngIf="!parent.is_parent">Home</button> -->
         <button mat-button (click)="navigateToChildTasks(parent.user_id)"  *ngIf="!parent.is_parent">My Tasks</button>
         <button mat-button (click)="navigateToChildWishList(parent.user_id)" *ngIf="!parent.is_parent">WishList</button>
     </div>
@@ -20,7 +20,7 @@
         <button mat-menu-item (click)="logOut()">Log Out</button>
     </mat-menu>
     <div *ngIf="parent">
-        <span class="childBalance" *ngIf="!parent.is_parent">${{parent.balance}}</span>
+        <span class="childBalance" *ngIf="!parent.is_parent">${{childBalance}}</span>
     </div>
 
 </mat-toolbar>

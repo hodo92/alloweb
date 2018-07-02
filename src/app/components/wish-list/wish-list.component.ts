@@ -60,8 +60,8 @@ export class WishListComponent implements OnInit {
 
         let dialogRef = this.dialog.open(WishListSearchComponent, {
             data: this.childId,
-            height: '300px',
-            width: '500px'
+            height: '600px',
+            width: '800px'
         });
 
         dialogRef.afterClosed().subscribe(result => {

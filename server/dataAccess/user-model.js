@@ -84,29 +84,24 @@ class User {
             }
         });
     }
-
+    
+    // Daniel - buy wish - header change
     buyNow(wish){
-         this.model.findById(wish.user_id).then(data =>{
-            return data.decrement('balance', { by: wish.price }).then(data =>{
-                
-            })
+         return this.model.findById(wish.user_id).then(data =>{
+            return data.decrement('balance', { by: wish.price });
         });
     }
 
     taskPay(userId, payment) {
-        this.model.findById(userId).then(user => {
+        return this.model.findById(userId).then(user => {
             return user.increment('balance', { by: payment });
-        }).then(user => {
-        
-        })
+        });
     }
 
     taskUnPay(userId, payment) {
-        this.model.findById(userId).then(user => {
+        return this.model.findById(userId).then(user => {
             return user.decrement('balance', { by: payment });
-        }).then(user => {
-            
-        })
+        });
     }
 }
 

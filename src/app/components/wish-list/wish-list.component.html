@@ -23,11 +23,11 @@
 
                 <mat-card-actions>
                     <!-- <div> -->
-                    <a *ngIf="currentRoute =='wish-list/'" mat-raised-button href="{{wish.link}}" class="buyWish" color="primary" style="padding-right: 25px;"
-                        target="_blank" [disabled]="wish.progress < 100 " (click)="buyItNow(wish)">Buy</a>
+                    <a *ngIf="currentRoute =='wish-list/'" mat-raised-button href="{{wish.link}}" class="buyWish" color="primary"
+                        target="framename" [disabled]="wish.progress < 100 " (click)="buyItNow(wish)">Buy</a>
 
                     <button mat-button *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
-                        Cancel
+                        Remove
                       </button>
                     
                 </mat-card-actions>
