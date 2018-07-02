@@ -50,8 +50,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
-
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -112,7 +111,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         WishListService,
         CompletedTasksPipe,
         OutstandingTasksPipe,
-        ApprovedTasksPipe
+        ApprovedTasksPipe,
+        UserService,
+        LoginService
     ],
     bootstrap: [AppComponent]
 })

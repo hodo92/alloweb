@@ -44,6 +44,14 @@ class User {
         return this.model.create(newChild)
     }
 
+    getParent(pemail) {
+        return user.model.findAll({
+            where: {
+                email: pemail
+            }
+        });
+    }
+
     getParentById(parentId) {
         return user.model.findAll({
             where: {
@@ -51,6 +59,7 @@ class User {
             }
         });
     }
+
 
     getChildById(childId) {
         return user.model.find({

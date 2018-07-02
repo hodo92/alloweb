@@ -7,8 +7,19 @@ const task = require('../dataAccess/task-model')
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-// get parent by Id when login
-router.get('/:id', async (req, res) =>{
+
+// get parent by Email when login
+router.get('/getByEmail/:email', async (req, res) =>{
+  let pemail = req.params.email
+  try{
+      res.send(JSON.stringify(await user.getParent(pemail)));
+  } catch (err) {
+    alert(err);
+  }
+  })
+
+// get parent by Id 
+router.get('/getById/:id', async (req, res) =>{
    let parentId = req.params.id
    try{
        res.send(JSON.stringify(await user.getParentById(parentId)));

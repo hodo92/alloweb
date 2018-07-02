@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
   providedIn: 'root'
 })
 
-export class LoginService {
+export class UserService  {
   public Parent: Parent;
   public checkId: Parent;
 
@@ -25,16 +25,11 @@ export class LoginService {
 }
 
   getParentById(id) {
-    let parentId = '/parent/' + id;
+    let parentId = '/parent/getById/' + id;
     return this.http.get<Parent>(parentId).subscribe((data) => {
         this.checkId = data;
-        this.dataSubject.next(this.checkId)
+        this.dataSubject.next(this.checkId);
     })
 }
-
-
-  addNewUser(){
-    console.log('login service works!')
-  }
 
 }

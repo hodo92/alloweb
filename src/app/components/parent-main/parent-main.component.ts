@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ParentService } from '../../services/parent.service';
 import { ChildService } from '../../services/child.service';
+import { UserService } from '../../services/user.service';
 import { Parent } from  '../../models/parent';
 import { Child } from '../../models/child';
 import { MatDialog } from '@angular/material';
@@ -18,29 +19,29 @@ export class ParentMainComponent implements OnInit {
 
   public children: Child[];
 
-  private _currentParentEmail = sessionStorage.getItem("currentUser");
+  private _currentParentId = sessionStorage.getItem("currentUser");
   public _currentParent: Parent = new Parent();
 
-  public get currentParent() {
-    return this._currentParent;
-  }
-  public set currentParent(value) {
-    this._currentParent = value;
-  }
+  // public get currentParent() {
+  //   return this._currentParent;
+  // }
+  // public set currentParent(value) {
+  //   this._currentParent = value;
+  // }
 
-  constructor(private parentService: ParentService, private childService: ChildService, public dialog: MatDialog, private route: ActivatedRoute, private router: Router) { 
-  
+  constructor(private parentService: ParentService, private userService: UserService, private childService: ChildService, public dialog: MatDialog, private route: ActivatedRoute, private router: Router) { 
   }
 
   ngOnInit() {
     if (sessionStorage.getItem("loggedIn") == "true" && sessionStorage.getItem("isParent") == "parent") {
-    this.parentService.checkParent(this._currentParentEmail);
-    this.parentService.dataUpdated.subscribe((resp) => {
+    this.userService.getParentById(this._currentParentId);
+    
+    this.userService.dataUpdated.subscribe((resp) => {
       this._currentParent = resp[0];
-      this.childService.getAllChildren(this._currentParent.user_id);
+      
+      this.childService.getAllChildren(this._currentParentId);
 
       this.childService.dataUpdated.subscribe((res) => {
-          console.log(res);
           
         this.children = res;
       });
