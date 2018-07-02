@@ -31,8 +31,8 @@ export class ChildService {
     getAllChildren(parentId) {
         let getKidsRoute = '/parent/getKidsbyParent/' + parentId;
         return this.http.get<Child[]>(getKidsRoute).subscribe((data) => {
-            this.getKids = data;
-            this.dataSubject.next(this.getKids);
+            this.Children = data;
+            this.dataSubject.next(this.Children);
         });
     }
     
