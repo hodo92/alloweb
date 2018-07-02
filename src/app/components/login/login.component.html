@@ -2,8 +2,6 @@
     <div class="login-box-header" color="primary">
         <h1>Welcome to Alloweb!</h1>
     </div>
-    <!-- <form class="addTaskForm"> -->
-
 
     <mat-form-field class="example-full-width">
 
@@ -23,58 +21,8 @@
             <button mat-raised-button class="login" color="primary" (click)="parentLogin()">
                 <mat-icon style="padding-right: 10px;">input</mat-icon> Login
             </button>
+            <p class="newUser" (click)="addUser">Not Registered? Click here:</p>
         </div>
     </mat-card-actions>
 </mat-card>
 
-
-
-
-<!-- 
-<mat-grid-list cols="3">
-    <mat-grid-tile></mat-grid-tile>
-
-    <mat-grid-tile class='login-element'>
-        <div class="login-container">
-
-            <div class="login-box-header">
-                <h1>Welcome to Alloweb!</h1>
-            </div>
-
-
-            <div class="login-box-body">
-                <mat-grid-list cols="9" rowHeight="75px">
-                    <mat-grid-tile [rowspan]="1" class="login-icon">
-                        <mat-icon>lock</mat-icon>
-                    </mat-grid-tile>
-                    <mat-grid-tile [colspan]="7">
-                        <mat-form-field class="justifier">
-                            <input matInput placeholder="Email" [(ngModel)]="userEmail" text="text">
-                        </mat-form-field>
-                    </mat-grid-tile>
-                </mat-grid-list>
-                <p class="err">{{error}}</p>
-
-                <mat-grid-list cols="9" rowHeight="100px">
-                    <mat-grid-tile [rowspan]="1" class="login-icon">
-                        <mat-icon>remove_red_eye</mat-icon>
-                    </mat-grid-tile>
-
-                    <mat-grid-tile [colspan]="7">
-                        <mat-form-field class="justifier">
-                            <input matInput placeholder="Password" text="password">
-                        </mat-form-field>
-                    </mat-grid-tile>
-                </mat-grid-list>
-
-                <button mat-raised-button color="primary" class="login-button" (click)="parentLogin(userEmail)">
-                    <mat-icon>input</mat-icon> Login
-                </button>
-
-            </div>
-
-        </div>
-    </mat-grid-tile>
-    <mat-grid-tile></mat-grid-tile>
-
-</mat-grid-list> -->

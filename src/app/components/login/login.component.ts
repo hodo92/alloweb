@@ -1,7 +1,10 @@
+import { Injectable } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ParentService } from '../../services/parent.service';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { Parent } from '../../models/parent';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,18 +17,12 @@ export class LoginComponent implements OnInit {
   private error: String = '';
   parent: Parent = new Parent();
 
-  // public get currentParent() {
-  //   return this._currentParent;
-  // }
-  // public set currentParent(value) {
-  //   this._currentParent = value;
-  // }
-
-  constructor(private parentService: ParentService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private parentService: ParentService, private loginService: LoginService,  private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {}
 
   parentLogin() {  
+    sessionStorage.clear();
     if (!this.parentService.ValidateEmail(this.parent.email)) {
       this.error = '*Email format not valid';
       setTimeout(() => {
@@ -33,29 +30,34 @@ export class LoginComponent implements OnInit {
       }, 3000);
     } else {
       this.parentService.checkParent(this.parent.email);
-      this.parentService.dataUpdated.subscribe((resp) => {     
+      this.parentService.dataUpdated.subscribe((resp) => {  
+        console.log(resp)   
             if(!resp[0]){
             this.error = '*Email not found';
             setTimeout(() => {
               this.error = '';
             }, 3000);
-            return;
          } else if (resp[0].email == this.parent.email && resp[0].pw != this.parent.pw || resp[0].email != this.parent.email && resp[0].pw == this.parent.pw) {
           this.error = '*Email address and password do not match';
           setTimeout(() => {
             this.error = '';
           }, 4000);
         } else if (resp[0].email == this.parent.email && resp[0].pw == this.parent.pw && resp[0].is_parent == true) {
-          localStorage.setItem("currentUser", resp[0].email);
-          localStorage.setItem("isParent", "parent");
+          sessionStorage.setItem("loggedIn", "true");
+          sessionStorage.setItem("isParent", "user");
+          sessionStorage.setItem("currentUser", resp[0].email);
           this.router.navigate(['parent-main']);
         } else if (resp[0].email == this.parent.email && resp[0].pw == this.parent.pw && resp[0].is_parent == false) {
-                localStorage.setItem("currentUser", resp[0].email);
-                localStorage.setItem("isParent", "child");
+               sessionStorage.setItem("currentUser", resp[0].email);
+               sessionStorage.setItem("isParent", "child");
                 this.error = '';
                 this.router.navigate(['child-tasks/' + resp[0].user_id]);
         }
       });
     }
   }
+
+ addUser(){
+    this.loginService.addNewUser();
+}
 }
