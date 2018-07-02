@@ -10,14 +10,10 @@ mat-card.task-card {
     /* max-width: 220px; */
     max-width: 100%;
     min-width: 180px;
-    margin: 0px 15px 15px 0px;
+    margin: 0px 0px 15px 0px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-}
-
-.task-card {
-    /* max-width: 400px; */
     margin-bottom: 15px;
 }
 
@@ -53,7 +49,7 @@ mat-card.task-card {
 }
 
 .taskActions {
-    border-top: 1px solid rgb(124, 124, 124);
+    border-top: 1px solid rgb(192, 192, 192);
 }
 
 .task-header-image {
