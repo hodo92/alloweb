@@ -28,7 +28,7 @@
                 <br> price: {{wish.price | currency}}
                 <br>
                 <a *ngIf="wish.progress >=100" href="{{wish.link}}" target="_blank">
-                    <button mat-button class="go">
+                    <button mat-button class="go" (click)="buyItNow(wish)">
                         <b> buy the product now!!</b>
                     </button>
                 </a>

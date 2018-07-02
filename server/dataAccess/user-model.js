@@ -74,7 +74,13 @@ class User {
 
 
 
-
+    buyNow(wish){
+         this.model.findById(wish.user_id).then(data =>{
+            return data.decrement('balance', { by: wish.price }).then(data =>{
+                
+            })
+        });
+    }
 
 
 
