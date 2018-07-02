@@ -61,21 +61,21 @@ export class ChildMainComponent implements OnInit {
             this.taskService.getTasks(this.childId);
         });
 
-        // Current route finding - for display correct info to parent or child user
-        // /child-task for child & /child-view for parent
-        this.currentRoute = this.router.url.slice(1, 11);
-        // console.log(this.currentRoute);
+         // Current route finding - for display correct info to parent or child user
+         // /child-task for child & /child-view for parent
+         this.currentRoute = this.router.url.slice(1, 11);
+       console.log(this.currentRoute);
 
-        this.wishListService.getWishList(this.childId)
-        this.wishListService.WishListUpdated.subscribe((data) => {
-            this.wishListData = data;
-            for (let i = 0; i < this.wishListData.length; i++) {
-                this.wishListData[i].progress = this.balance / this.wishListData[i].price * 100;
-                // console.log(this.wishListData[i].progress);
-            }
-            // console.log(this.wishListData)
-        })
-    }
+    //     this.wishListService.getWishList(this.childId)
+    //     this.wishListService.WishListUpdated.subscribe((data) => {
+    //         this.wishListData = data;
+    //         for (let i = 0; i < this.wishListData.length; i++) {
+    //             this.wishListData[i].progress = this.balance / this.wishListData[i].price * 100;
+    //             // console.log(this.wishListData[i].progress);
+    //         }
+    //         // console.log(this.wishListData)
+    //     })
+     }
 
     addTask(newTask) {
         newTask.user_id = this.childId;

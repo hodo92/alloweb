@@ -15,7 +15,10 @@
         <div class="appTasks">
 
             <h2 class="columnTitle">Tasks</h2>
-            <h1 *ngIf="noTasks">YOU HAVE NO TASKS, IDIOT!</h1>
+            <div *ngIf="noTasks">
+                <h1 *ngIf="currentRoute == 'child-view'">Your Child Has No Tasks - Add some!</h1>
+              
+            </div>
             <app-add-task (addTaskEmit)="addTask($event)"></app-add-task>
 
             <h3 class="filterTitle">Approved</h3>
@@ -50,7 +53,10 @@
 <!-- Child tasks view ////////////////////////////////////////// -->
 <div class="myTasks" *ngIf="currentRoute == 'child-task'">
     <h2 class="columnTitle">My Tasks</h2>
-
+ <div *ngIf="noTasks">
+            
+                <h1 *ngIf="currentRoute == 'child-task'">Ask your parents to give you a task!</h1>
+            </div>
     <h3 class="filterTitle">Approved</h3>
     <app-task-card class="col-3" *ngFor="let task of (tasks | approvedTasks); let i = index;"
         [task]=task [currentRoute]="currentRoute" (taskCompleteEmit)="taskComplete($event)"
