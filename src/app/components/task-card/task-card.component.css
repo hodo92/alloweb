@@ -7,7 +7,8 @@ mat-card.task-card {
     padding: 16px 30px 30px 30px;
     background-color: white;
     /* background-color: rgb(130, 201, 133); */
-    max-width: 220px;
+    /* max-width: 220px; */
+    max-width: 100%;
     min-width: 180px;
     margin: 0px 15px 15px 0px;
     -moz-border-radius: 5px;
@@ -52,7 +53,7 @@ mat-card.task-card {
 }
 
 .taskActions {
-    border-top: 1px solid rgb(90, 90, 90);
+    border-top: 1px solid rgb(124, 124, 124);
 }
 
 .task-header-image {
