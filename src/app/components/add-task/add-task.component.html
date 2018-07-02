@@ -1,6 +1,5 @@
 <mat-card class="addTask">
     <form class="addTaskForm">
-
             <mat-form-field class="example-full-width">
                 <input matInput required placeholder="Add Task" (click)="showAllAddTask()" [(ngModel)]="newTask.title" name="title">
             </mat-form-field>
@@ -14,7 +13,6 @@
             <mat-form-field>
                 <mat-label>Pay</mat-label>
                 <mat-select #newTask.payment required [(ngModel)]="newTask.payment" name="payment">
-                    <!--  #fontSize value="16px" (selectionChange)="triggerResize()" -->
                     <mat-option value="10">$10</mat-option>
                     <mat-option value="12">$12</mat-option>
                     <mat-option value="14">$14</mat-option>
@@ -27,8 +25,6 @@
                 <input matInput required [matDatepicker]="picker" placeholder="Deadline" [(ngModel)]="newTask.deadline" name="deadline">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-                <!-- <mat-datepicker #newTask.deadline></mat-datepicker> 
-                    <mat-select #newTask.payment value="10"> -->
             </mat-form-field>
         </div>
     </form>

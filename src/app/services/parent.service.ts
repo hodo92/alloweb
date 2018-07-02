@@ -18,12 +18,25 @@ export class ParentService {
     }
 
     checkParent(email) {
-        let parentEmail = '/parent/' + email;
+        let parentEmail = '/parent/getByEmail/' + email;
         return this.http.get<Parent>(parentEmail).subscribe((data) => {
-            console.log(data);
-
             this.checkEmail = data;
             this.dataSubject.next(this.checkEmail)
         })
     }
+    addNewParent(parent: Parent) {
+
+        return this.http.post<Parent>('/parent/addUser', { newParent: parent }).subscribe((resp) => {
+        })
+    } 
+
+    ValidateEmail(mail) {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (mail.match(mailformat)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

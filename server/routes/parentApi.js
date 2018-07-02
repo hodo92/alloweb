@@ -7,11 +7,22 @@ const task = require('../dataAccess/task-model')
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
+
 // get parent by Email when login
-router.get('/:email', async (req, res) =>{
-   let pemail = req.params.email
+router.get('/getByEmail/:email', async (req, res) =>{
+  let pemail = req.params.email
+  try{
+      res.send(JSON.stringify(await user.getParent(pemail)));
+  } catch (err) {
+    alert(err);
+  }
+  })
+
+// get parent by Id 
+router.get('/getById/:id', async (req, res) =>{
+   let parentId = req.params.id
    try{
-       res.send(JSON.stringify(await user.getParent(pemail)));
+       res.send(JSON.stringify(await user.getParentById(parentId)));
    } catch (err) {
      alert(err);
    }
@@ -40,11 +51,15 @@ router.get('/getKidsbyParent/:parentId', async (req, res) => {
 //add a new child
 router.post('/addChild/', async (req, res) => {
   let newChild = req.body.newChild;
-  let parentID = newChild.parent_id;
-  console.log( newChild );
+  let parentId = newChild.parent_id;
     await user.addChild(newChild);
-   res.send(JSON.stringify(await user.getKids(parentID)));
+   res.send(JSON.stringify(await user.getKids(parentId)));
 })
 
+router.post('/addUser/', async (req, res) => {
+  let newParent = req.body.newParent;
+    await user.addParent(newParent);
+   res.send("User added!");
+})
 
 module.exports = router;

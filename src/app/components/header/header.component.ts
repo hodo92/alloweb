@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ParentService } from '../../services/parent.service';
 import { Parent } from '../../models/parent';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -12,19 +13,20 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
     public parent: Parent;
-    constructor(private parentService: ParentService, private router: Router) {
-        
+    constructor(private parentService: ParentService, private userService: UserService, private router: Router) {   
     }
 
     ngOnInit() {
+        if (sessionStorage.getItem("loggedIn") == "true") {
         this.parentService.dataUpdated.subscribe((data) => {
+            console.log(data)
             this.parent = data[0];
-            console.log(this.parent);
         });
     }
+}
 
     logOut() {
-        localStorage.removeItem("currentParent");
+       sessionStorage.clear();
         this.parent = undefined;
         this.router.navigate(['']);
     }

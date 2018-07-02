@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/task';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-add-task',
@@ -10,9 +11,8 @@ export class AddTaskComponent implements OnInit {
     inputFocus: boolean = false;
     newTask: Task = new Task();
     @Output() addTaskEmit: EventEmitter<Task> = new EventEmitter();
-    // @Output() addTaskEmit: EventEmitter<Task> = new EventEmitter();
 
-    constructor() { }
+    constructor(private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
     }
@@ -23,6 +23,7 @@ export class AddTaskComponent implements OnInit {
     }
 
     addTask() {
+        if (sessionStorage.getItem("loggedIn") == "true" && sessionStorage.getItem("isParent") == "parent") {
         this.newTask.status_id = 1;
         // Default deadline - tommorow
         if (!this.newTask.deadline) { 
@@ -39,10 +40,14 @@ export class AddTaskComponent implements OnInit {
         this.addTaskEmit.emit(this.newTask);
         this.newTask = new Task();
         this.inputFocus = false;
-    }
+    } else {
+        this.router.navigate(['']);
+      }
+      }
 
     cancel() {
         this.newTask = new Task();
         this.inputFocus = false;
+
     }
 }

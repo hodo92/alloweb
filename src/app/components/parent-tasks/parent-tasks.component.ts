@@ -5,6 +5,7 @@ import { Parent } from '../../models/parent';
 import { Task } from '../../models/task';
 import { MatDialog } from '@angular/material';
 import { TaskService } from '../../services/task.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class ParentTasksComponent implements OnInit {
 
     public tasks = [];
 
-    private _currentParentEmail = localStorage.getItem("currentParent");
+    private _currentParentEmail =sessionStorage.getItem("currentParent");
     public _currentParent: Parent = new Parent();
 
     public get currentParent() {
@@ -27,9 +28,10 @@ export class ParentTasksComponent implements OnInit {
         this._currentParent = value;
     }
 
-    constructor(private parentService: ParentService, public dialog: MatDialog, private taskService: TaskService) { }
+    constructor(private parentService: ParentService, public dialog: MatDialog, private taskService: TaskService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
+        if (sessionStorage.getItem("loggedIn") == "true" && sessionStorage.getItem("isParent") == "parent") {
         this.parentService.checkParent(this._currentParentEmail);
         this.parentService.dataUpdated.subscribe((resp) => {
             this._currentParent = resp[0];
@@ -43,6 +45,9 @@ export class ParentTasksComponent implements OnInit {
                 }
             });
         });
+    } else{
+        this.router.navigate(['']);
+        }
     }
 
 }

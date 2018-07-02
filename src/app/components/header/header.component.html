@@ -2,16 +2,11 @@
     <span class="logo" routerLink="/parent-main">Alloweb</span>
     <div class="button-row" *ngIf="parent">
         <button mat-button routerLink="/parent-main" *ngIf="parent.is_parent">{{parent.last_name}} Kids</button>
+        <button mat-button routerLink="/child-main" *ngIf="!parent.is_parent">Home</button>
         <button mat-button (click)="navigateToChildTasks(parent.user_id)"  *ngIf="!parent.is_parent">My Tasks</button>
-         <!-- routerLink="/child-view/' + parent.user_id"  routerLink="/wish-list"-->
-        <!-- <a mat-button routerLink=".">Link</a> -->
         <button mat-button (click)="navigateToChildWishList(parent.user_id)" *ngIf="!parent.is_parent">WishList</button>
-        <!--  *ngIf="!parent.is_parent" -->
     </div>
     <span class="example-spacer"></span>
-    <!-- <mat-icon class="example-icon">favorite</mat-icon> -->
-    <!-- <mat-icon class="example-icon">attach_money</mat-icon> -->
-    <!-- <span *ngIf="parentObj" style="font-size: 14px;">{{parentObj.first_name}} {{parentObj.last_name}}<mat-icon>keyboard_arrow_down</mat-icon></span> -->
 
     <div class="userImage" *ngIf="parent">
         <img src="{{parent.user_img}}" alt="User Image">
@@ -23,12 +18,9 @@
     </button>
     <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="logOut()">Log Out</button>
-        <!-- <button mat-menu-item>Item 1</button> -->
     </mat-menu>
     <div *ngIf="parent">
         <span class="childBalance" *ngIf="!parent.is_parent">${{parent.balance}}</span>
     </div>
 
-
-    <!-- <span>$5</span> -->
 </mat-toolbar>
