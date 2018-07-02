@@ -18,6 +18,8 @@ export class ParentMainComponent implements OnInit {
 
   public children: Child[];
 
+  public tasksPending: number;
+
   private _currentParentEmail = localStorage.getItem("currentParent");
   public _currentParent: Parent = new Parent();
 
@@ -60,13 +62,14 @@ export class ParentMainComponent implements OnInit {
 }
 
   openDialog(parent: Parent): void {
+    this._currentParent = parent;
+    console.log(this._currentParent)
 
     let dialogRef = this.dialog.open(AddChildComponent, {
-      data: parent
+      data: this._currentParent
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      window.location.reload();
       console.log('The dialog was closed');
     });
   }
