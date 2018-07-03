@@ -47,7 +47,7 @@ export class AddChildComponent implements OnInit {
         }
         this.newChild.parent_id = this.data.user_id
         this.newChild.is_parent = false;
-        this.newChild.balance = 0;
+        this.newChild.balance = 5;
         this.childService.addNewChild(child);
         this.dialogRef.close();
     }

@@ -50,11 +50,17 @@
     </button>
 </mat-toolbar>
 
+<div class="noWishes">
+    <mat-card *ngIf="noWish">
+        <h2>No Wishes :(</h2>
+    </mat-card>
+</div>
+
 <div class="myTasks" *ngIf="currentRoute == 'wish-list/'">
     <div class="row">
         <div class="childTaskContainer">
             <div class="wish-list-item" *ngFor="let wish of wishListData">
-            
+
                 <mat-card class="wish-card">
                     <img class="wishImage" src="{{wish.goal_img}}">
                     <div class="wishTexts">
@@ -69,19 +75,19 @@
                             <span style="width: 80%">80%</span>
                         </div>
                     </progress>
-            
+
                     <mat-card-actions>
                         <a *ngIf="currentRoute =='wish-list/'" mat-raised-button href="{{wish.link}}"
-                            class="buyWish" color="primary" target="framename" [disabled]="wish.progress < 100 "
-                            (click)="buyItNow(wish)">Buy</a>
-            
+                            class="buyWish" color="primary" target="framename"
+                            [disabled]="wish.progress < 100 " (click)="buyItNow(wish)">Buy</a>
+
                         <button mat-button *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
                             Remove
                         </button>
-            
+
                     </mat-card-actions>
                 </mat-card>
-            
+
             </div>
         </div>
     </div>

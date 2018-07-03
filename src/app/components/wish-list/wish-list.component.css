@@ -32,6 +32,16 @@
     flex: 1;
 }
 
+.noWishes {
+    padding: 30px 30px 30px 30px;
+    max-width: 260px;
+    min-width: 220px;
+    margin: 0px 15px 15px 0px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
 .myTasks {
     padding: 15px;
     margin: 0 auto;
