@@ -9,12 +9,6 @@ var upload = multer({ storage: store }).single('file');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-
-
-
-
-
-
 var store = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './uploads');
@@ -87,8 +81,8 @@ router.post('/addChild/', async (req, res) => {
 
 router.post('/addUser/', async (req, res) => {
   let newParent = req.body.newParent;
-    await user.addParent(newParent);
-   res.send("User added!");
+   res.send(JSON.stringify( await user.addParent(newParent)));
+   
 })
 
 module.exports = router;

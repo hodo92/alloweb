@@ -25,7 +25,7 @@ export class ParentService {
         })
     }
     addNewParent(parent: Parent) {
-
+    console.log(parent)
         return this.http.post<Parent>('/parent/addUser', { newParent: parent }).subscribe((resp) => {
         })
     }
