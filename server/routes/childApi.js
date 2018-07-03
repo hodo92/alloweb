@@ -5,11 +5,12 @@ const router = express.Router();
 const user = require('../dataAccess/user-model');
 const task = require('../dataAccess/task-model')
 const multer = require('multer'); 
-
+var path = require('path');
+var upload = multer({ storage: store }).single('file');
 
 // upload a photo for the child 
 
-var path = require('path');
+
 
 var store = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -20,7 +21,7 @@ var store = multer.diskStorage({
     }
 });
 
-var upload = multer({ storage: store }).single('file');
+
 
 router.post('/upload', function (req, res, next) {
     console.log(req.path);
@@ -32,29 +33,6 @@ router.post('/upload', function (req, res, next) {
         return res.json({ originalname: req.file.originalname, uploadname: req.file.filename });
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -143,23 +121,6 @@ router.put('/unApproveTask', async (req, res) => {
 })
 
 
-
-// Task incomplete & unpay - update
-// router.put('/taskIncompleteUnpay', async (req, res) => {
-//     let taskId = req.body.task_id;
-//     let userId = req.body.user_id;
-//     let payment = req.body.payment;
-//     try {
-//         await task.taskIncomplete(taskId);
-//         await user.taskUnPay(userId, payment);
-//         res.send(JSON.stringify(await task.getAllRows(userId)));
-//     }
-//     catch (err) {
-//         console.log(err);
-//     }
-// })
-
-
 /////////////////////////////////////////////////////////////////////////////////////
 //add a new child
 router.post('/addChild/', async (req, res) => {
@@ -182,17 +143,3 @@ router.get('/getChildById/:childId', async (req, res) =>{
 })
 module.exports = router;
 
-
-
-
-        // .then((data) => {
-        //     console.log(data); // rows affected
-        // }, (err) => {
-        //     console.error(err)
-        // });
-        // // res.send(data);
-        // // res.send(JSON.stringify(await task.getAllRows(userId)));
-
-            // console.log("++++++++++++++++++++++++++");
-    // console.log("childApi - taskIncomplete - taskId");
-    // console.log(req.body);
