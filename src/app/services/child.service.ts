@@ -53,7 +53,7 @@ export class ChildService implements OnInit  {
 
     getChildById(childId) {
         console.log(childId)
-        return this.http.get<Child>('/child/getChildById/' + childId).subscribe((resp) => {
+        this.http.get<any>('/child/getChildById/' + childId).subscribe((resp) => {
             console.log(resp);
             
             this.childData = resp;

@@ -97,6 +97,9 @@ router.put('/approveTask', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
     let payment = req.body.payment;
+    console.log("childApi - approveTask");
+    console.log(payment);
+    
     try {
         await task.approveTask(taskId);
         await user.taskPay(userId, payment);
@@ -111,6 +114,8 @@ router.put('/unApproveTask', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
     let payment = req.body.payment;
+    console.log("childApi - unapproveTask");
+    console.log(payment);
     try {
         await task.unApproveTask(taskId);
         await user.taskUnPay(userId, payment);
