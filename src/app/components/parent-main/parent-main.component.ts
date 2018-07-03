@@ -18,6 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ParentMainComponent implements OnInit {
 
     public children: Child[];
+    public parent: Parent;
 
     private _currentParentId = sessionStorage.getItem("currentUser");
     public _currentParent: Parent = new Parent();

@@ -1,4 +1,5 @@
 <mat-toolbar class="sidePadding" color="primary">
+    <!--  *ngIf="!currentRoute == 'login-page'" -->
     <span class="logo" routerLink="/parent-main">Alloweb</span>
     <div class="button-row" *ngIf="parent">
         <button mat-button routerLink="/parent-main" *ngIf="parent.is_parent">{{parent.last_name}} Kids</button>
