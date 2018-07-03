@@ -6,7 +6,6 @@ const user = require('../dataAccess/user-model');
 const task = require('../dataAccess/task-model')
 const multer = require('multer'); 
 var path = require('path');
-var upload = multer({ storage: store }).single('file');
 
 // upload a photo for the child 
 
@@ -20,6 +19,8 @@ var store = multer.diskStorage({
         cb(null, Date.now() + '.' + file.originalname);
     }
 });
+
+var upload = multer({ storage: store }).single('file');
 
 
 

@@ -38,9 +38,6 @@ export class AddChildComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe((params) => {
             this.newChild.parent_id = this.data.user_id
-            // this.newChild.is_parent = false;
-            // this.newChild.balance = 0
-            //   console.log(this.newChild)
         })
     }
 

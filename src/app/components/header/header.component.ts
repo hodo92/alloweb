@@ -19,13 +19,8 @@ export class HeaderComponent implements OnInit {
     
     constructor(private parentService: ParentService,
         private userService: UserService,
-        private router: Router, private childService: ChildService) {
+        private router: Router, private childService: ChildService) {}
 
-
-        
-    }
-
-    // Daniel - buy wish - header change
     ngOnInit() {
         this.currentRoute = this.router.url.slice(1, 11);
 
@@ -44,7 +39,6 @@ export class HeaderComponent implements OnInit {
                 this.parent = data[0];
             });
         }
-        // sessionStorage.getItem("loggedIn") == "true"
     }
 
     logOut() {
