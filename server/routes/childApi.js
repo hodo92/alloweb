@@ -128,14 +128,12 @@ router.put('/approveTask', async (req, res) => {
     }
 })
 
-
-// Task incomplete & unpay - update
-router.put('/taskIncompleteUnpay', async (req, res) => {
+router.put('/unApproveTask', async (req, res) => {
     let taskId = req.body.task_id;
     let userId = req.body.user_id;
     let payment = req.body.payment;
     try {
-        await task.taskIncomplete(taskId);
+        await task.unApproveTask(taskId);
         await user.taskUnPay(userId, payment);
         res.send(JSON.stringify(await task.getAllRows(userId)));
     }
@@ -143,6 +141,23 @@ router.put('/taskIncompleteUnpay', async (req, res) => {
         console.log(err);
     }
 })
+
+
+
+// Task incomplete & unpay - update
+// router.put('/taskIncompleteUnpay', async (req, res) => {
+//     let taskId = req.body.task_id;
+//     let userId = req.body.user_id;
+//     let payment = req.body.payment;
+//     try {
+//         await task.taskIncomplete(taskId);
+//         await user.taskUnPay(userId, payment);
+//         res.send(JSON.stringify(await task.getAllRows(userId)));
+//     }
+//     catch (err) {
+//         console.log(err);
+//     }
+// })
 
 
 /////////////////////////////////////////////////////////////////////////////////////
