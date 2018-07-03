@@ -19,6 +19,7 @@ export class AddUserComponent implements OnInit {
     newparent = new Parent;
     uploader: FileUploader = new FileUploader({ url: uri });
     attachmentList: any = [];
+    private isButtonVisible: Boolean = true;
 
 
   constructor(private parentService: ParentService, 
@@ -31,6 +32,7 @@ export class AddUserComponent implements OnInit {
       this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
           this.newparent.user_img = JSON.parse(response).uploadname;
           this.attachmentList.push(JSON.parse(response));
+          this.isButtonVisible = false;
       };
     }
 

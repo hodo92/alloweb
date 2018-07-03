@@ -55,12 +55,14 @@ export class LoginComponent implements OnInit {
                     sessionStorage.setItem("loggedIn", "true");
                     sessionStorage.setItem("isParent", "parent");
                     sessionStorage.setItem("currentUser", resp[0].user_id);
+                    sessionStorage.setItem("email", resp[0].email);
                     this.router.navigate(['parent-main']);
                 } else if (resp[0].email == this.parent.email && resp[0].pw == this.parent.pw && resp[0].is_parent == false) {
                     sessionStorage.setItem("loggedIn", "true");
                     sessionStorage.setItem("isParent", "child");
                     sessionStorage.setItem("currentUser", resp[0].user_id);
                     sessionStorage.setItem("currentUser", resp[0].parent_id);
+                    sessionStorage.setItem("email", resp[0].email);
                     this.error = '';
                     this.router.navigate(['child-tasks/' + resp[0].user_id]);
                 }
