@@ -7,6 +7,8 @@
     /* cursor: pointer; */
     padding-right: 25px;
     font-weight: 700;
+    font-family: 'Mogra', cursive;
+    font-size: 25px;
 }
 
 .button-row {
@@ -54,13 +56,13 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-.responUserName {
+/* .responUserName {
     display: none;
-}
+} */
 
-.responImage {
+/* .responImage {
     display: none;
-}
+} */
 
 /* Responsive - media query **************************/
 
@@ -79,24 +81,28 @@
     .userImageNoRespon img, .userNameNoRespon {
         display: none;
     }
-    .responUserImage img {
-        visibility: visible;
+    .responUser {
+        display: block;
+        padding: 0px 15px 8px 15px;
+    }
+    .responUser img {
         border-radius: 50%;
         vertical-align: middle;
         width: 40px;
         height: 40px;
         object-fit: cover;
-        /* margin-right: 15px; */
-    }
-    .responUserName {
-        visibility: visible;
-        font-weight: 400;
     }
     .hamburger {
         padding: 0px;
         min-width: 60px;
     }
-    matMenu_ {
-        padding: 0px 15px;
+    /* .matMenu_ {
+        padding: 15px;
+    } */
+    .logo {
+        padding-right: 25px;
+        font-weight: 700;
+        font-family: 'Mogra', cursive;
+        font-size: 20px;
     }
 }

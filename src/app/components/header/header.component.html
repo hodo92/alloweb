@@ -39,10 +39,12 @@
     </button>
 
     <mat-menu #menu="matMenu" class="matMenu_">
-        <div class="responUserImage" *ngIf="parent">
-            <img src="{{parent.user_img}}" class="responImage" alt="User Image">
+        <div class="responUser" *ngIf="parent">
+            <img src="{{parent.user_img}}" alt="User Image">
+            <!--  class="responImage" -->
             <span class="responUserName">{{parent.first_name}} {{parent.last_name}}</span>
         </div>
+        
         
         <button class="logOut" mat-menu-item (click)="logOut()">Log Out</button>
     </mat-menu>
