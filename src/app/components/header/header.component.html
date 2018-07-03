@@ -25,25 +25,28 @@
     </div>
     <span class="example-spacer"></span>
 
+    <div *ngIf="parent">
+        <span class="childBalance" *ngIf="!parent.is_parent">${{childBalance}}</span>
+    </div>
+
     <div class="userImageNoRespon" *ngIf="parent">
         <img src="{{parent.user_img}}" alt="User Image">
     </div>
 
-    <div *ngIf="parent">
-        <span class="childBalance" *ngIf="!parent.is_parent">${{childBalance}}</span>
-    </div>
-    
     <button mat-button class="hamburger" [matMenuTriggerFor]="menu" *ngIf="parent">
         <span class="userNameNoRespon">{{parent.first_name}} {{parent.last_name}}</span>
         <mat-icon>menu</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
-        <div class="responUserImage" *ngIf="parent">
+
+    <mat-menu #menu="matMenu" class="matMenu_">
+        <div class="responUser" *ngIf="parent">
             <img src="{{parent.user_img}}" alt="User Image">
+            <!--  class="responImage" -->
             <span class="responUserName">{{parent.first_name}} {{parent.last_name}}</span>
         </div>
         
-        <button mat-menu-item (click)="logOut()">Log Out</button>
+        
+        <button class="logOut" mat-menu-item (click)="logOut()">Log Out</button>
     </mat-menu>
     
 
