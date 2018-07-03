@@ -24,7 +24,7 @@ var store = multer.diskStorage({
 
 
 router.post('/upload', function (req, res, next) {
-    console.log(req.path);
+    // console.log(req.path);
     upload(req, res, function (err) {
         if (err) {
             return res, status(501).json({ error: err });
