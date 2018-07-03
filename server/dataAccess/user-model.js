@@ -67,7 +67,6 @@ class User {
 
     getChildById(childId) {
         console.log(childId);
-        
         return this.model.findById(childId);
         // return this.model.find({ where: { user_id: childId } });
     }

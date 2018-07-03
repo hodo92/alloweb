@@ -50,7 +50,7 @@ export class ChildMainComponent implements OnInit {
     ngOnInit() {
         this.childService.childUpdated.subscribe((data) => {
             console.log(data);
-            
+            debugger;
             this.childBalance = data.balance;
         });
 
@@ -72,7 +72,7 @@ export class ChildMainComponent implements OnInit {
         // /child-task for child & /child-view for parent
         this.currentRoute = this.router.url.slice(1, 11);
 
-        this.wishListService.getWishList(this.childId)
+        this.wishListService.getWishList(this.childId);
         this.wishListService.WishListUpdated.subscribe((data) => {
             this.wishListData = data;
             for (let i = 0; i < this.wishListData.length; i++) {
