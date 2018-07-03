@@ -5,12 +5,12 @@ const router = express.Router();
 const user = require('../dataAccess/user-model');
 const task = require('../dataAccess/task-model')
 const multer = require('multer'); 
-var path = require('path');
-var upload = multer({ storage: store }).single('file');
+
+
 
 // upload a photo for the child 
 
-
+var path = require('path');
 
 var store = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -21,7 +21,7 @@ var store = multer.diskStorage({
     }
 });
 
-
+var upload = multer({ storage: store }).single('file');
 
 router.post('/upload', function (req, res, next) {
     console.log(req.path);
