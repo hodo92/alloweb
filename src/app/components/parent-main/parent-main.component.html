@@ -1,40 +1,13 @@
-<!-- <mat-toolbar class="sidePadding" color="primary">
-    <span class="logo" routerLink="/parent-main">Alloweb</span>
-    <div class="button-row" *ngIf="parent">
-        <button mat-button routerLink="/parent-main" *ngIf="parent.is_parent">{{parent.last_name}} Kids</button>
-        <button mat-button (click)="navigateToChildTasks(parent.user_id)" *ngIf="!parent.is_parent">My Tasks</button>
-        <button mat-button (click)="navigateToChildWishList(parent.user_id)" *ngIf="!parent.is_parent">WishList</button>
-    </div>
+<mat-toolbar class="pageToolbar">
+    <h2 class="tasksPageTitle">{{_currentParent.last_name}} Kids</h2>
     <span class="example-spacer"></span>
-
-    <div class="userImage" *ngIf="parent">
-        <img src="{{parent.user_img}}" alt="User Image">
-    </div>
-
-    <button mat-button [matMenuTriggerFor]="menu" *ngIf="parent" style="padding: 0px 5px;">
-        {{parent.first_name}} {{parent.last_name}}
-        <mat-icon>keyboard_arrow_down</mat-icon>
+    <button mat-raised-button color="primary" (click)="openDialog(_currentParent)">
+        <mat-icon aria-label="Add icon">add</mat-icon>
+        Add a child
     </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="logOut()">Log Out</button>
-    </mat-menu>
-    <div *ngIf="parent">
-        <span class="childBalance" *ngIf="!parent.is_parent">${{parent.balance}}</span>
-    </div>
-
-</mat-toolbar> -->
-
-
-
-
-
-
-<button mat-raised-button class="add-kid" color="primary" (click)="openDialog(_currentParent)">Add a child</button>
-
+</mat-toolbar>
 <div class="parent-landing">
-
-    <h1>{{_currentParent.last_name}} Kids</h1>
-
+    
     <div class="flex-container">
         <app-child-card class="appChildCard" *ngFor="let child of children" [child]="child"></app-child-card>
     </div>

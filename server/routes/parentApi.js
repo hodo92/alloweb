@@ -4,7 +4,6 @@ const router  = express.Router();
 const user= require('../dataAccess/user-model');
 const multer = require('multer'); 
 const task = require('../dataAccess/task-model');
-var upload = multer({ storage: store }).single('file');
 
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
@@ -24,9 +23,12 @@ var store = multer.diskStorage({
     }
 });
 
+var upload = multer({ storage: store }).single('file');
+
+
 
 router.post('/upload', function (req, res, next) {
-    console.log(req.path);
+    // console.log(req.path);
     upload(req, res, function (err) {
         if (err) {
             return res, status(501).json({ error: err });
@@ -87,8 +89,8 @@ router.post('/addChild/', async (req, res) => {
 
 router.post('/addUser/', async (req, res) => {
   let newParent = req.body.newParent;
-    await user.addParent(newParent);
-   res.send("User added!");
+    // await user.addParent(newParent);
+    res.send(JSON.stringify(await user.addParent(newParent)));
 })
 
 module.exports = router;

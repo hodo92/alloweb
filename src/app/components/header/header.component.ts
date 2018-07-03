@@ -19,33 +19,26 @@ export class HeaderComponent implements OnInit {
     
     constructor(private parentService: ParentService,
         private userService: UserService,
-        private router: Router, private childService: ChildService) {
+        private router: Router, private childService: ChildService) {}
 
-        if (sessionStorage.email){
+    ngOnInit() {
+        this.currentRoute = this.router.url.slice(1, 11);
+
+        if (sessionStorage.email) {
             this.parentService.checkParent(sessionStorage.email);
-            
+
         }
+
         this.childService.childUpdated.subscribe((data) => {
             this.childBalance = data.balance;
         });
+
         if (sessionStorage.loggedIn == "true") {
             this.parentService.dataUpdated.subscribe((data) => {
                 console.log(data)
                 this.parent = data[0];
             });
         }
-        
-
-        // this.parentService.dataUpdated.subscribe((data) => {
-        //     console.log(data)
-        //     this.parent = data[0];
-        // });
-    }
-
-    // Daniel - buy wish - header change
-    ngOnInit() {
-        this.currentRoute = this.router.url.slice(1, 11);
-        // sessionStorage.getItem("loggedIn") == "true"
     }
 
     logOut() {
