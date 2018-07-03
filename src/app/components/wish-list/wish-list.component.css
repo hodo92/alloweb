@@ -1,9 +1,44 @@
-.container {
+.pageToolbar {
+    padding: 0px 50px;
+    /* background-color: #E9EAED; */
+}
+
+.tasksPageTitle {
+    text-align: left;
+    color: #4CAF50;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px 0px;
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.row {
     display: flex;
+    flex-wrap: wrap;
+}
+
+.main {
+    flex: 60%;
+    background-color: #E9EAED;
+    padding: 20px 50px 20px 50px;
 }
 
 .tasks {
     flex: 1;
+}
+
+.myTasks {
+    padding: 15px;
+    margin: 0 auto;
+    max-width: 600px;
+    min-width: 200px;
+    /* width: 400px; */
+    /* max-width: */
 }
 
 .expander-container {
@@ -108,12 +143,6 @@ img.wishImage {
 
 .mat-card {
     padding: 0.5%;
-}
-
-.search-popup {
-    margin-top: 30px;
-    margin-left: 15px;
-    padding: 5px;
 }
 
 /* .go {
