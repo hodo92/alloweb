@@ -33,11 +33,6 @@ export class ChildMainComponent implements OnInit {
         private wishListService: WishListService,
         private childService: ChildService) {
 
-        // this.childService.childUpdated.subscribe((data) => {
-        //     this.childBalance = data.balance;
-        //     console.log(this.childBalance);
-        // });
-
         this.taskService.tasksUpdated.subscribe((data) => {
             this.tasks = data;
             if (typeof this.tasks[0] == 'undefined') {
@@ -54,6 +49,10 @@ export class ChildMainComponent implements OnInit {
 
     ngOnInit() {
 
+        this.childService.childUpdated.subscribe((data) => {
+            this.childBalance = data.balance;
+            console.log(this.childBalance);
+        });
 
         this.route.params.subscribe((params: Params) => {
             this.childId = params.id;
@@ -62,16 +61,13 @@ export class ChildMainComponent implements OnInit {
             this.childService.childUpdated.subscribe((resp) => {
                 this.user = resp;
                 this.img = this.user.user_img;
-                this.childBalance = resp.balance;
+                // this.childBalance = resp.balance;
                 console.log(this.childBalance);
                 this.first_name = this.user.first_name;
-                   
             })
             this.taskService.getTasks(this.childId);
         });
 
-        // Current route finding - for display correct info to parent or child user
-        // /child-task for child & /child-view for parent
         this.currentRoute = this.router.url.slice(1, 11);
 
         this.wishListService.getWishList(this.childId);
@@ -79,10 +75,8 @@ export class ChildMainComponent implements OnInit {
             this.wishListData = data;
             for (let i = 0; i < this.wishListData.length; i++) {
                 this.wishListData[i].progress = this.childBalance / this.wishListData[i].price * 100;
-
             }
-
-        })
+        })       
     }
 
     addTask(newTask) {
@@ -103,17 +97,15 @@ export class ChildMainComponent implements OnInit {
     }
 
     taskApprove(task) {
-        // console.log("child-main approveTask");
-        // console.log(task);
-        debugger;
+        console.log("child-main approveTask");
+        console.log(task);
+        // debugger;
         this.taskService.approveTask(task);
-        this.childService.getChildById(task.user_id);
     }
     taskUnApprove(task) {
-        // console.log("child-main approveTask");
-        // console.log(task);
+        console.log("child-main unApproveTask");
+        console.log(task);
 
         this.taskService.unApproveTask(task);
-        this.childService.getChildById(task.user_id);
     }
 }

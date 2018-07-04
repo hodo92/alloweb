@@ -101,8 +101,8 @@ router.put('/approveTask', async (req, res) => {
     console.log(payment);
     
     try {
-        await task.approveTask(taskId);
         await user.taskPay(userId, payment);
+        await task.approveTask(taskId);
         res.send(JSON.stringify(await task.getAllRows(userId)));     
     }
     catch (err) {

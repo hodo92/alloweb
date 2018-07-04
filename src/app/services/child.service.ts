@@ -51,7 +51,7 @@ export class ChildService implements OnInit  {
         })
     }
 
-    getChildById(childId) {
+    getChildById(childId): void {
         // console.log(childId)
         this.http.get<any>('/child/getChildById/' + childId).subscribe((resp) => {
             console.log("child-service get child obj by id:");

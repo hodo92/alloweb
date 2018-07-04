@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Task } from '../models/task';
 import { Observable, Subject } from 'rxjs';
 import { AllTasks } from '../models/alltasks';
+import { ChildService } from './child.service';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +20,7 @@ export class TaskService implements OnInit {
     public getAll: Task[];
 
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private childService: ChildService) {
         this.tasksUpdated = this.tasksSubject.asObservable();
         this.allTasksUpdated = this.allTasksSubject.asObservable();
     }
@@ -73,6 +74,7 @@ export class TaskService implements OnInit {
         this.http.put<any>('/child/approveTask', task).subscribe((data) => {
             this.tasksArr = data;
             this.tasksSubject.next(this.tasksArr);
+            this.childService.getChildById(task.user_id);
         });
     }
 
@@ -80,6 +82,7 @@ export class TaskService implements OnInit {
         this.http.put<any>('/child/unApproveTask', task).subscribe((data) => {
             this.tasksArr = data;
             this.tasksSubject.next(this.tasksArr);
+            this.childService.getChildById(task.user_id);
         });
     }
 
