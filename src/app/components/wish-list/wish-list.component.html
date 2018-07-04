@@ -50,13 +50,11 @@
     </button>
 </mat-toolbar>
 
-<div class="noWishes">
-    <mat-card *ngIf="noWish">
-        <h2>No Wishes :(</h2>
-    </mat-card>
+<div class="noWishes" *ngIf="currentRoute == 'wish-list/' && noWish">
+        <h3>*You have no wishes - add some!</h3>
 </div>
 
-<div class="myTasks" *ngIf="currentRoute == 'wish-list/'">
+<div class="myWishList" *ngIf="currentRoute == 'wish-list/'">
     <div class="row">
         <div class="childTaskContainer">
             <div class="wish-list-item" *ngFor="let wish of wishListData">

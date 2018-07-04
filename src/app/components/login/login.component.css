@@ -27,7 +27,8 @@ body {
 .login-box-header {
     width: auto;
     height: 20%;
-    background-color: #4153AF;
+    /* background-color: #4153AF; */
+    background-color: #42A5F5;
     text-align: center;
     vertical-align: middle;
     font-size: 12px;
@@ -39,7 +40,6 @@ body {
 .welcomeLogo {
     font-family: 'Mogra', cursive;
 }
-
 
 .login-box-body {
     width: auto;
