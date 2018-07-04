@@ -46,11 +46,11 @@ export class WishListComponent implements OnInit {
             this.wishListData = data;
             if (typeof this.wishListData[0] == 'undefined') {
                 this.noWish = true;
-                console.log(this.noWish);
+                // console.log(this.noWish);
                 // return
             } else {
                 this.noWish = false
-                console.log(this.noWish);
+                // console.log(this.noWish);
             }
             for (let i = 0; i < this.wishListData.length; i++) {
                 if (Math.floor(this.balance / this.wishListData[i].price * 100) >= 100) {

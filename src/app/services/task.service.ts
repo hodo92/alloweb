@@ -29,7 +29,7 @@ export class TaskService implements OnInit {
     getTasks(childId): void {
         this.http.get<any[]>('/child/' + childId).subscribe((data) => {
             this.tasksArr = data;
-            console.log(data);
+            // console.log(data);
 
             this.tasksSubject.next(this.tasksArr);
         })

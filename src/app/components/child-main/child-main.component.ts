@@ -33,37 +33,39 @@ export class ChildMainComponent implements OnInit {
         private wishListService: WishListService,
         private childService: ChildService) {
 
+        // this.childService.childUpdated.subscribe((data) => {
+        //     this.childBalance = data.balance;
+        //     console.log(this.childBalance);
+        // });
+
         this.taskService.tasksUpdated.subscribe((data) => {
             this.tasks = data;
-            if(typeof this.tasks[0]=='undefined'){
+            if (typeof this.tasks[0] == 'undefined') {
                 this.noTasks = true;
-                console.log(this.noTasks)
+                // console.log(this.noTasks)
                 return
             } else {
-                console.log(this.noTasks)
-            this.noTasks = false
+                // console.log(this.noTasks)
+                this.noTasks = false
                 this.tasks = data;
             }
         });
     }
 
     ngOnInit() {
-        this.childService.childUpdated.subscribe((data) => {
-            console.log(data);
-            debugger;
-            this.childBalance = data.balance;
-        });
+
 
         this.route.params.subscribe((params: Params) => {
             this.childId = params.id;
             this.childService.getChildById(this.childId);
 
-            this.childService.childUpdated.subscribe((resp)=>{
-               this.user = resp;
-               this.img = this.user.user_img;
-            //    this.childBalance = this.user.balance;
-               this.first_name = this.user.first_name
-               console.log(this.user);
+            this.childService.childUpdated.subscribe((resp) => {
+                this.user = resp;
+                this.img = this.user.user_img;
+                this.childBalance = resp.balance;
+                console.log(this.childBalance);
+                this.first_name = this.user.first_name;
+                   
             })
             this.taskService.getTasks(this.childId);
         });
@@ -96,15 +98,14 @@ export class ChildMainComponent implements OnInit {
 
     // Change back the task status_id to 1 outstanding / incomplete with a put request
     taskIncomplete(task) {
-        console.log(task);
-        
+        // console.log(task);
         this.taskService.taskIncomplete(task);
     }
 
     taskApprove(task) {
         // console.log("child-main approveTask");
         // console.log(task);
-
+        debugger;
         this.taskService.approveTask(task);
         this.childService.getChildById(task.user_id);
     }
@@ -115,5 +116,4 @@ export class ChildMainComponent implements OnInit {
         this.taskService.unApproveTask(task);
         this.childService.getChildById(task.user_id);
     }
-    
 }
