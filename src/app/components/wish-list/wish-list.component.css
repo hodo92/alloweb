@@ -206,12 +206,18 @@ mat-icon {
 
 .buyWish
 {
+ background-color: #42A5F5;
  color: white
 }
 
 .add-child-text{
      color: white
 }
+
+.md-button.md-raised.md-primary.buyWish:not([disabled]){
+    color:grey
+}
+
 /* #mySearch, .mySearchbtn {
     display: flex;
     flex-wrap: wrap;
