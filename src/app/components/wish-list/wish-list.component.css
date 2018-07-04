@@ -200,6 +200,18 @@ img.wishImage {
     transform: scale(1.1)
 }
 
+mat-icon {
+    color: white
+}
+
+.buyWish
+{
+ color: white
+}
+
+.add-child-text{
+     color: white
+}
 /* #mySearch, .mySearchbtn {
     display: flex;
     flex-wrap: wrap;

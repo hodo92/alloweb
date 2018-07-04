@@ -44,9 +44,9 @@
 <mat-toolbar class="pageToolbar" *ngIf="currentRoute == 'wish-list/'">
     <h2 class="tasksPageTitle">My Wish-list</h2>
     <span class="example-spacer"></span>
-    <button mat-raised-button color="primary" (click)="openDialog()">
+    <button mat-raised-button style="background-color: #42A5F5" (click)="openDialog()">
         <mat-icon aria-label="Add icon">add</mat-icon>
-        Add a wish
+    <span class="add-child-text"> Add a wish</span>
     </button>
 </mat-toolbar>
 
@@ -79,7 +79,7 @@
                             class="buyWish" color="primary" target="framename"
                             [disabled]="wish.progress < 100 " (click)="buyItNow(wish)">Buy</a> -->
                             <button mat-raised-button *ngIf="currentRoute =='wish-list/'"
-                                class="buyWish" color="primary" [disabled]="wish.progress < 100 "
+                                class="buyWish" style="background-color: #42A5F5" [disabled]="wish.progress < 100 "
                                 (click)="buyItNow(wish)">Buy</button>
 
                         <button mat-button *ngIf="currentRoute =='wish-list/'" (click)="removeWish(wish)">
