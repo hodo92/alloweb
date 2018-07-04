@@ -210,13 +210,15 @@ mat-icon {
  color: white
 }
 
+.buyWish:disabled  { 
+    background-color: rgba(189, 187, 187, 0.822) !important
+}
+
 .add-child-text{
      color: white
 }
 
-.md-button.md-raised.md-primary.buyWish:not([disabled]){
-    color:grey
-}
+
 
 /* #mySearch, .mySearchbtn {
     display: flex;
