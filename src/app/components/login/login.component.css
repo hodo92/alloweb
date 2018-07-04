@@ -36,6 +36,11 @@ body {
     margin-bottom: 10px;
 }
 
+.welcomeLogo {
+    font-family: 'Mogra', cursive;
+}
+
+
 .login-box-body {
     width: auto;
     height: 100%;
@@ -88,9 +93,10 @@ login {
     color: red;
 }
 
-p{
+p {
     text-align: center;
 }
+
 
 p:hover{
 text-decoration: underline;
@@ -105,16 +111,16 @@ cursor: pointer;
     }
     body {
     margin: 20px ;
-}
-.login-container{
-      width: 50%;
-    height: 20%;
-    background-color: #4153AF;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 12px;
-    padding: 2%;
-    color: #fff;
-    margin-bottom: 10px;
-}
+    }
+  .login-container{
+        width: 50%;
+      height: 20%;
+      background-color: #4153AF;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 12px;
+      padding: 2%;
+      color: #fff;
+      margin-bottom: 10px;
+  }
 }
