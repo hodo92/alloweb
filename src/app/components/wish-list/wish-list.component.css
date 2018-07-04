@@ -200,6 +200,26 @@ img.wishImage {
     transform: scale(1.1)
 }
 
+mat-icon {
+    color: white
+}
+
+.buyWish
+{
+ background-color: #42A5F5;
+ color: white
+}
+
+.buyWish:disabled  { 
+    background-color: rgba(189, 187, 187, 0.822) !important
+}
+
+.add-child-text{
+     color: white
+}
+
+
+
 /* #mySearch, .mySearchbtn {
     display: flex;
     flex-wrap: wrap;

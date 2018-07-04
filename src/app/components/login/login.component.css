@@ -50,6 +50,7 @@ body {
 
 .login-icon {
     margin-top: -2px;
+    color: white ; 
 }
 
 .justifier {
@@ -86,9 +87,13 @@ loginActions {
 login {
     margin: 0 auto;
     width: 400px;
+    color: white ; 
     /* width: 400px; */
 }
 
+.login{
+    color: white ;
+}
 .err {
     color: red;
 }
