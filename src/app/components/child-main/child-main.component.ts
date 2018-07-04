@@ -50,7 +50,6 @@ export class ChildMainComponent implements OnInit {
     ngOnInit() {
         this.childService.childUpdated.subscribe((data) => {
             console.log(data);
-            debugger;
             this.childBalance = data.balance;
         });
 
