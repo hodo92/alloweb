@@ -2,26 +2,41 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Development server
+#### _An Angular application that connects children and parents for the purpose of managing tasks, chores, and allowance.  The parent can assign tasks with conditions to their child, who can then complete them.  Once completed, the parent can approve the completed task and pay the predetermined payment to the child.  The child can then use the money towards items in his wishlist, which he can customize using Ebay's item lookup API._
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### By _Hod, Daniel ,Chaim and Amos_
 
-## Code scaffolding
+## User Stories
+* _As a user, I want to..._
+* _Upload a task to my children._
+* Mange all the tasks (parent) and give money to my children._
+* _child - Search for a keyword on eBay and see a list of products with that keyword._
+* _View list of saved products wish-List._
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Future Features
+* _As a user, I want to..._
+* _Add a photo that show the child finish his task._
+* _Add a real-economic service_
+* _Sort items by price/age/location inside the wish-list._
+* _Build a screen that only show the tasks for all of my kids._
 
-## Build
+## Technologies Used
+* _JavaScript_
+* _TypeScript_
+* _Angular6_
+* _Node_
+* _Bootstrap_
+* _MySQL_
+* _Material Design_
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Support and contact details
 
-## Running unit tests
+_If you have any updates, questions, or suggestions please contact [Margaret], [Sarah], [David], or [Qudsia] or make a contribution._
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[Margaret]: mailto:margaretshelaghmcgovern@gmail.com
+[Sarah]: mailto:srhcrete@gmail.com
+[David]: mailto:david.hale7@gmail.com
+[Qudsia]: q4hmad@gmail.com
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Copyright (c) 2018 Hod, Daniel ,Chaim and Amos
