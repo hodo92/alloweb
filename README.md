@@ -29,14 +29,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * _MySQL_
 * _Material Design_
 
-## Support and contact details
-
-_If you have any updates, questions, or suggestions please contact [Margaret], [Sarah], [David], or [Qudsia] or make a contribution._
-
-[Margaret]: mailto:margaretshelaghmcgovern@gmail.com
-[Sarah]: mailto:srhcrete@gmail.com
-[David]: mailto:david.hale7@gmail.com
-[Qudsia]: q4hmad@gmail.com
-
-
 Copyright (c) 2018 Hod, Daniel ,Chaim and Amos
