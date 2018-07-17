@@ -1,8 +1,9 @@
 # Alloweb
+---
 
-https://alloweb.herokuapp.com/
+> https://alloweb.herokuapp.com/
 
-Kids allowance app - complete family tasks, get allowance money and purchase items from your wishlist.
+**Kids allowance app** - complete family tasks, get allowance money and purchase items from your wishlist.
 
 ## Built With
 
@@ -22,3 +23,5 @@ https://github.com/asidelnik
 - Chaim Ochs, Daniel Salvatori, Hod Yehezkel
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Coding Bootcamp
