@@ -1,5 +1,4 @@
 # Alloweb
----
 
 > https://alloweb.herokuapp.com/
 
@@ -7,11 +6,9 @@
 
 ## Built With
 
-- Angular
-- MySQL
-- Sequelize
-- Cloud Database
-- Material Design
+- Angular 6 & Material Design
+- MySQL Cloud Database & Sequelize
+- Nodejs & Expressjs
 - Ebay API
 - Multer
 
@@ -24,4 +21,5 @@ https://github.com/asidelnik
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Coding Bootcamp
+## Final Project
+Elevation Academy - Full-Stack Web Developement [Coding Bootcamp](https://en.elevation.academy/course/coding-bootcamp/)
