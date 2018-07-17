@@ -15,7 +15,6 @@
 ## Authors
 - Amos Sidelnik
 https://github.com/asidelnik
-
 - Chaim Ochs, Daniel Salvatori, Hod Yehezkel
 
 ## Final Project
