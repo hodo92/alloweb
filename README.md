@@ -1,7 +1,5 @@
 # Alloweb
 
-> https://alloweb.herokuapp.com/
-
 **Kids allowance app** - complete family tasks, get allowance money and purchase items from your wishlist.
 
 ## Built With
