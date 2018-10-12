@@ -32,3 +32,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Copyright (c) 2018 Hod, Daniel ,Chaim and Amos
 
 Link https://allowebnew.herokuapp.com/
+
+# If you want to use the site quickly insert the following:
+Email: d@d.com 
+Password:d
