@@ -9,6 +9,10 @@ const parentApi = require('./server/routes/parentApi');
 const childApi = require('./server/routes/childApi');
 const wishListApi = require('./server/routes/wishListApi');
 
+app.all('*', (req, res) => {
+    res.sendFile(path.join(__dirname,'dist/alloweb/index.html' ));
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -23,9 +27,7 @@ app.use('/add-task', parentApi);
 app.use('/wishList', wishListApi);
 
 
-app.all('*', (req, res) => {
-    res.sendFile(path.join(__dirname,'dist/alloweb/index.html' ));
-});
+
 
 /**
  * Get port from environment and store in Express.
