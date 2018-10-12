@@ -25,7 +25,7 @@ app.use('/wishList', wishListApi);
 
 
 app.all('*', (req, res) => {
-    res.sendFile(path.join(process.env.PWD,'dist/alloweb/index.html' ));
+    res.sendFile(path.join(__dirname,'dist/alloweb/index.html' ));
 });
 
 /**
