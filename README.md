@@ -34,5 +34,5 @@ Copyright (c) 2018 Hod, Daniel ,Chaim and Amos
 Link https://allowebnew.herokuapp.com/
 
 #### If you want to use the app quickly insert the following:
-*Email: d@d.com 
-*Password:d
+*_Email: d@d.com_ 
+*_Password:d_
